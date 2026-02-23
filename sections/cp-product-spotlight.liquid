@@ -44,29 +44,33 @@
   }
 
   .cp-spotlight__eyebrow {
-    font-size: 0.8125rem;
+    font-size: 17px;
     font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 2.04px;
+    text-transform: capitalize;
+    color: #BCBCBC;
     margin: 0;
   }
 
   .cp-spotlight__heading {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(27px, 4vw, 38px);
     font-family: var(--font-heading-family);
     font-style: var(--font-heading-style);
-    font-weight: var(--font-heading-weight);
-    line-height: 1.0;
-    letter-spacing: -0.03em;
+    font-weight: 600;
+    line-height: 125.182%;
+    letter-spacing: -0.76px;
+    text-transform: capitalize;
     color: #ffffff;
     margin: 0;
     max-width: 640px;
   }
 
   .cp-spotlight__subheading {
-    font-size: clamp(0.9rem, 1.5vw, 1.125rem);
-    line-height: 1.6;
+    font-family: var(--font-body-family);
+    font-size: clamp(16px, 1.5vw, 20px);
+    font-weight: 400;
+    line-height: 37px;
+    letter-spacing: -0.54px;
     color: rgba(255, 255, 255, 0.85);
     margin: 0;
     max-width: 520px;
@@ -77,13 +81,17 @@
     align-items: center;
     justify-content: center;
     background: #ffffff;
-    color: #0a0a0a;
+    color: #000000;
     text-decoration: none;
-    padding: 0.875rem 2.25rem;
+    padding: 0 2.25rem;
     border-radius: 8px;
-    font-size: 0.9375rem;
+    font-family: var(--font-heading-family);
+    font-size: 18px;
     font-weight: 600;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.36px;
+    text-transform: capitalize;
+    line-height: 17px;
+    height: 46px;
     margin-top: 0.5rem;
     border: 1px solid #ffffff;
     transition: background 0.2s ease, color 0.2s ease;
@@ -106,7 +114,16 @@
     }
 
     .cp-spotlight__heading {
-      font-size: clamp(2rem, 10vw, 2.75rem);
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -0.54px;
+      line-height: 123.5%;
+    }
+
+    .cp-spotlight__subheading {
+      font-size: 16px;
+      line-height: 22px;
+      letter-spacing: -0.28px;
     }
 
     .cp-spotlight__bg--desktop { display: none; }
