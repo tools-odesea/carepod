@@ -356,6 +356,7 @@
     "product_spotlight": {
       "type": "cp-product-spotlight",
       "settings": {
+        "image_desktop": "shopify://shop_images/New.svg_fill_d33dd0c9-bdc8-4885-bfe7-6693e3e65506.jpg",
         "eyebrow": "New",
         "heading": "Cube Plus",
         "subheading": "The world's cleanest cool-and-warm-mist humidifier, with our patented air hydration technology.",
@@ -369,6 +370,7 @@
         "step_1": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_1136__2_-min-removebg-preview_bb183839-2096-4cfd-b279-a4c564fed474.png",
             "title": "Disassemble",
             "text": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean."
           }
@@ -468,6 +470,7 @@
     "founder_story": {
       "type": "cp-founder-story",
       "settings": {
+        "image": "shopify://shop_images/CPEdit2.png",
         "heading": "Engineered by a doctor with the heart of a father.",
         "body": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.",
         "button_label": "Shop Bestsellers",
