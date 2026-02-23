@@ -357,7 +357,7 @@
       "type": "cp-product-spotlight",
       "settings": {
         "image_desktop": "shopify://shop_images/New.svg_fill_d33dd0c9-bdc8-4885-bfe7-6693e3e65506.jpg",
-        "eyebrow": "New",
+        "eyebrow": "",
         "heading": "Cube Plus",
         "subheading": "The world's cleanest cool-and-warm-mist humidifier, with our patented air hydration technology.",
         "button_label": "Shop Cube Plus",
