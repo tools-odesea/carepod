@@ -1,3 +1,5 @@
+{%- assign feature_blocks = section.blocks | where: 'type', 'feature_row' -%}
+
 <style>
   .cp-comparative {
     background: {{ section.settings.bg_color }};
@@ -45,7 +47,7 @@
 
   .cp-comparative__grid {
     display: grid;
-    grid-template-columns: minmax(190px, 1.6fr) repeat(var(--feature-count), 1fr);
+    grid-template-columns: minmax(190px, 1.6fr) repeat({{ feature_blocks.size }}, 1fr);
     width: 100%;
     min-width: 700px;
   }
@@ -209,10 +211,8 @@
       <p class="cp-comparative__subtext">{{ section.settings.subtext | escape }}</p>
     {%- endif -%}
 
-    {%- assign feature_blocks = section.blocks | where: 'type', 'feature_row' -%}
-
     <div class="cp-comparative__table">
-      <div class="cp-comparative__grid" style="--feature-count: {{ feature_blocks.size }};">
+      <div class="cp-comparative__grid">
 
         <!-- Header row: spacer + feature names -->
         <div class="cp-comparative__header-spacer"></div>
