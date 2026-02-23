@@ -1,0 +1,291 @@
+<style>
+  .cp-press {
+    background: {{ section.settings.bg_color }};
+    padding: 3.5rem 2rem;
+    overflow: hidden;
+  }
+
+  .cp-press__track-wrapper {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Desktop: uniform grid row */
+  .cp-press__track {
+    display: grid;
+    grid-template-columns: repeat({{ section.blocks.size }}, 1fr);
+    gap: 1.25rem;
+  }
+
+  .cp-press__card {
+    background: {{ section.settings.card_bg }};
+    border-radius: 12px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 160px;
+  }
+
+  .cp-press__quote {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: {{ section.settings.text_color }};
+    font-style: italic;
+    margin: 0;
+  }
+
+  .cp-press__publication {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: {{ section.settings.text_color }};
+    margin: 0;
+    line-height: 1;
+  }
+
+  .cp-press__pub-logo {
+    display: block;
+    max-height: 28px;
+    width: auto;
+  }
+
+  /* Mobile: scrollable carousel */
+  @media screen and (max-width: 749px) {
+    .cp-press {
+      padding: 2.5rem 0;
+    }
+
+    .cp-press__track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 1rem;
+      padding: 0 1.5rem 1rem;
+      scrollbar-width: none;
+      grid-template-columns: unset;
+    }
+
+    .cp-press__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cp-press__card {
+      flex: 0 0 82vw;
+      scroll-snap-align: center;
+      min-height: 180px;
+    }
+
+    /* Dot indicators */
+    .cp-press__dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 1.25rem;
+      padding: 0 1.5rem;
+    }
+
+    .cp-press__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d0d0d0;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .cp-press__dot.is-active {
+      background: #1a1a1a;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .cp-press__dots { display: none; }
+  }
+</style>
+
+<div class="cp-press" id="cp-press-{{ section.id }}">
+  <div class="cp-press__track-wrapper">
+
+    <div class="cp-press__track" id="cp-press-track-{{ section.id }}">
+      {%- for block in section.blocks -%}
+        <div class="cp-press__card" {{ block.shopify_attributes }}>
+          <p class="cp-press__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
+          <div>
+            {%- if block.settings.logo != blank -%}
+              {{
+                block.settings.logo
+                | image_url: width: 300
+                | image_tag:
+                  class: 'cp-press__pub-logo',
+                  widths: '120, 200, 300',
+                  sizes: '120px',
+                  alt: block.settings.publication | escape,
+                  loading: 'lazy'
+              }}
+            {%- elsif block.settings.publication != blank -%}
+              <p class="cp-press__publication">{{ block.settings.publication | escape }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="cp-press__dots" id="cp-press-dots-{{ section.id }}" aria-hidden="true">
+      {%- for block in section.blocks -%}
+        <button
+          class="cp-press__dot{% if forloop.first %} is-active{% endif %}"
+          data-index="{{ forloop.index0 }}"
+          aria-label="Go to slide {{ forloop.index }}"
+        ></button>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var track = document.getElementById('cp-press-track-{{ section.id }}');
+    var dots  = document.querySelectorAll('#cp-press-dots-{{ section.id }} .cp-press__dot');
+    if (!track || !dots.length) return;
+
+    function getActiveIndex() {
+      var cards = track.children;
+      var center = track.scrollLeft + track.offsetWidth / 2;
+      var closest = 0;
+      var minDist = Infinity;
+      for (var i = 0; i < cards.length; i++) {
+        var cardCenter = cards[i].offsetLeft + cards[i].offsetWidth / 2;
+        var dist = Math.abs(center - cardCenter);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      }
+      return closest;
+    }
+
+    function updateDots() {
+      var active = getActiveIndex();
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i === active);
+      });
+    }
+
+    track.addEventListener('scroll', updateDots, { passive: true });
+
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var index = parseInt(this.dataset.index, 10);
+        var card = track.children[index];
+        if (card) {
+          track.scrollTo({ left: card.offsetLeft - (track.offsetWidth - card.offsetWidth) / 2, behavior: 'smooth' });
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Press Quotes",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1a1a1a"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Press quote",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Your quote here."
+        },
+        {
+          "type": "text",
+          "id": "publication",
+          "label": "Publication name",
+          "info": "Shown as styled text if no logo image is uploaded.",
+          "default": "Publication"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Publication logo",
+          "info": "Upload a logo to replace the text name."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press Quotes",
+      "blocks": [
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "A safe choice for homes with kids and pets. Oh, and it's invented by a doctor",
+            "publication": "Forbes"
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "Your face and lungs will thank you.",
+            "publication": "Well + Good"
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "It has a very simple, intuitive design that puts it above other humidifiers we tested.",
+            "publication": "Better Homes and Gardens"
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "Carepod's award-earning humidifier is a winning self-care gift.",
+            "publication": "Bazaar"
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "Its stainless-steel interior can be 99.9% sterilized with boiling water.",
+            "publication": "Entrepreneur"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

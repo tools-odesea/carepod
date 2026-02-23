@@ -1,0 +1,352 @@
+<style>
+  .cp-shop {
+    background: {{ section.settings.bg_color }};
+    padding: 4rem 2rem;
+  }
+
+  .cp-shop__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  /* Heading */
+  .cp-shop__heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    color: #1a1a1a;
+    text-align: center;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .cp-shop__heading-accent {
+    color: {{ section.settings.accent_color }};
+  }
+
+  /* Grid */
+  .cp-shop__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+  }
+
+  /* Product card */
+  .cp-shop__card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: #e8e8e8;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .cp-shop__card:hover .cp-shop__card-img {
+    transform: scale(1.04);
+  }
+
+  .cp-shop__card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+  }
+
+  .cp-shop__card-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.875rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .cp-shop__card-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .cp-shop__card-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    flex-shrink: 0;
+  }
+
+  .cp-shop__card-arrow svg {
+    display: block;
+  }
+
+  /* Award logos */
+  .cp-shop__awards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .cp-shop__award-img {
+    height: 44px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Mobile: 2x2 grid */
+  @media screen and (max-width: 749px) {
+    .cp-shop {
+      padding: 3rem 1.25rem;
+    }
+
+    .cp-shop__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .cp-shop__card {
+      aspect-ratio: 4 / 5;
+    }
+
+    .cp-shop__card-name {
+      font-size: 0.8125rem;
+    }
+  }
+</style>
+
+<div class="cp-shop">
+  <div class="cp-shop__inner">
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cp-shop__heading">
+        {%- if section.settings.heading_prefix != blank -%}
+          {{- section.settings.heading_prefix | escape -}}&#32;
+        {%- endif -%}
+        {%- if section.settings.heading_accent != blank -%}
+          <span class="cp-shop__heading-accent">{{- section.settings.heading_accent | escape -}}</span>&#32;
+        {%- endif -%}
+        {%- if section.settings.heading_suffix != blank -%}
+          {{- section.settings.heading_suffix | escape -}}
+        {%- endif -%}
+      </h2>
+    {%- endif -%}
+
+    <div class="cp-shop__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'product_card' -%}
+          <a
+            class="cp-shop__card"
+            href="{{ block.settings.url | default: '#' }}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 800
+                | image_tag:
+                  class: 'cp-shop__card-img',
+                  sizes: '(min-width: 750px) 25vw, 50vw',
+                  widths: '300, 400, 600, 800',
+                  loading: 'lazy',
+                  alt: block.settings.name | escape
+              }}
+            {%- endif -%}
+            <div class="cp-shop__card-label">
+              <p class="cp-shop__card-name">{{ block.settings.name | escape }}</p>
+              <span class="cp-shop__card-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- assign award_blocks = section.blocks | where: 'type', 'award_logo' -%}
+    {%- if award_blocks.size > 0 -%}
+      <div class="cp-shop__awards">
+        {%- for block in award_blocks -%}
+          {%- if block.settings.logo != blank -%}
+            {{
+              block.settings.logo
+              | image_url: width: 200
+              | image_tag:
+                class: 'cp-shop__award-img',
+                widths: '80, 120, 200',
+                sizes: '80px',
+                loading: 'lazy',
+                alt: block.settings.alt_text | default: 'Award' | escape
+            }}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop Collection",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "Heading — before accent",
+      "default": "Shop Our"
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Heading — accent word(s)",
+      "default": "Award Winning",
+      "info": "Displayed in the accent color."
+    },
+    {
+      "type": "text",
+      "id": "heading_suffix",
+      "label": "Heading — after accent",
+      "default": "Humidifiers"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#1a6cde"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Product name",
+          "default": "Carepod One"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product image"
+        }
+      ]
+    },
+    {
+      "type": "award_logo",
+      "name": "Award logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Award logo image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text",
+          "default": "Award"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop Collection",
+      "blocks": [
+        {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod Cube Plus"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod One Plus"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod One"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod Mini"
+          }
+        },
+        {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "iF Design Award"
+          }
+        },
+        {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "Red Dot Design Award"
+          }
+        },
+        {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "Forbes Best 2021"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
