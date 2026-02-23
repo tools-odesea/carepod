@@ -1,75 +1,393 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "cp_hero_banner_PipTx4": {
+      "type": "cp-hero-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "badge_text": "Over 130,220+ Humidifiers Sold",
+        "heading": "The ultimate upgrade for your home.",
+        "button_label": "Shop Carepod",
+        "button_link": ""
+      }
+    },
+    "cp_press_quotes_dadzU6": {
+      "type": "cp-press-quotes",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "quote_DiFKzd": {
+          "type": "quote",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "quote": "A safe choice for homes with kids and pets. Oh, and it's invented by a doctor",
+            "publication": "Forbes"
           }
         },
-        "button": {
-          "type": "buttons",
+        "quote_EPLMM7": {
+          "type": "quote",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "quote": "Your face and lungs will thank you.",
+            "publication": "Well + Good"
+          }
+        },
+        "quote_m73ezr": {
+          "type": "quote",
+          "settings": {
+            "quote": "It has a very simple, intuitive design that puts it above other humidifiers we tested.",
+            "publication": "Better Homes and Gardens"
+          }
+        },
+        "quote_89Qg8m": {
+          "type": "quote",
+          "settings": {
+            "quote": "Carepod's award-earning humidifier is a winning self-care gift.",
+            "publication": "Bazaar"
+          }
+        },
+        "quote_xiGXMF": {
+          "type": "quote",
+          "settings": {
+            "quote": "Its stainless-steel interior can be 99.9% sterilized with boiling water.",
+            "publication": "Entrepreneur"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "quote_DiFKzd",
+        "quote_EPLMM7",
+        "quote_m73ezr",
+        "quote_89Qg8m",
+        "quote_xiGXMF"
       ],
+      "name": "Press Quotes",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "bg_color": "#ffffff",
+        "card_bg": "#f5f5f5",
+        "text_color": "#1a1a1a"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "cp_shop_collection_Xc9zym": {
+      "type": "cp-shop-collection",
+      "blocks": {
+        "product_card_XJB7AH": {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod Cube Plus",
+            "url": ""
+          }
+        },
+        "product_card_VnG6zT": {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod One Plus",
+            "url": ""
+          }
+        },
+        "product_card_wUDMf8": {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod One",
+            "url": ""
+          }
+        },
+        "product_card_YRh6G6": {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod Mini",
+            "url": ""
+          }
+        },
+        "award_logo_CCQj6A": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "iF Design Award"
+          }
+        },
+        "award_logo_xmgb4f": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "Red Dot Design Award"
+          }
+        },
+        "award_logo_hXNaxd": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "Forbes Best 2021"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_XJB7AH",
+        "product_card_VnG6zT",
+        "product_card_wUDMf8",
+        "product_card_YRh6G6",
+        "award_logo_CCQj6A",
+        "award_logo_xmgb4f",
+        "award_logo_hXNaxd"
+      ],
+      "name": "Shop Collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "heading_prefix": "Shop Our",
+        "heading_accent": "Award Winning",
+        "heading_suffix": "Humidifiers",
+        "accent_color": "#1a6cde",
+        "bg_color": "#ffffff"
+      }
+    },
+    "cp_product_spotlight_Jhmgdp": {
+      "type": "cp-product-spotlight",
+      "name": "Product Spotlight",
+      "settings": {
+        "eyebrow": "New",
+        "heading": "Cube Plus",
+        "subheading": "The world's cleanest cool-and-warm-mist humidifier, with our patented air hydration technology.",
+        "button_label": "Shop Cube Plus",
+        "button_link": ""
+      }
+    },
+    "cp_comparative_8XXMGg": {
+      "type": "cp-comparative",
+      "blocks": {
+        "feature_row_yp9wy7": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "No Monthly Subscriptions",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feature_row_DNjKAe": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Doctor Designed",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feature_row_AGdRcR": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Easy To Clean",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feature_row_Uhi4K8": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Premium Stainless Steel*",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feature_row_ppRDGP": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "No Filters Required",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feature_row_48nGM6": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Mold-Resistant",
+            "carepod_has": true,
+            "other_has": false
+          }
+        }
+      },
+      "block_order": [
+        "feature_row_yp9wy7",
+        "feature_row_DNjKAe",
+        "feature_row_AGdRcR",
+        "feature_row_Uhi4K8",
+        "feature_row_ppRDGP",
+        "feature_row_48nGM6"
+      ],
+      "name": "Comparative Section",
+      "settings": {
+        "heading": "What sets Carepod apart?",
+        "subtext": "Loved by doctors, made for families. Carepod blends premium grade clean with sleek design, perfect for healthy breathing every day.",
+        "other_label": "Other Humidifiers",
+        "footnote": "*Available for select models only",
+        "button_label": "Choose Your Carepod Bundle",
+        "button_link": "",
+        "bg_color": "#ffffff"
+      }
+    },
+    "cp_product_compare_M66enF": {
+      "type": "cp-product-compare",
+      "blocks": {
+        "product_iqCkYQ": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod Cube Plus",
+            "description": "Ultimate coverage and upgraded features for pure, fresh air.",
+            "url": ""
+          }
+        },
+        "product_fUYYqJ": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod One Plus",
+            "description": "Ideal for living spaces, bedrooms, or studio apartments.",
+            "url": ""
+          }
+        },
+        "product_Hefb9P": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod One",
+            "description": "Ideal for the bedroom, home office, or studio apartment.",
+            "url": ""
+          }
+        },
+        "product_QhE3Jy": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod Mini",
+            "description": "Perfect for nurseries and smaller spaces. A favorite for parents.",
+            "url": ""
+          }
+        },
+        "spec_row_raLRL8": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Coverage",
+            "val_0": "700 ft²",
+            "val_1": "500 ft²",
+            "val_2": "500 ft²",
+            "val_3": "350 ft²"
+          }
+        },
+        "spec_row_YmBe6E": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Running time (Low)",
+            "val_0": "32 hrs",
+            "val_1": "30 hrs",
+            "val_2": "30 hrs",
+            "val_3": "20 hrs"
+          }
+        },
+        "spec_row_dd96LY": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Running time (High)",
+            "val_0": "12 hrs",
+            "val_1": "10 hrs",
+            "val_2": "10 hrs",
+            "val_3": "10 hrs"
+          }
+        },
+        "spec_row_RXwWVz": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Mist output",
+            "val_0": "Cool 350cc + Warm 440cc/hr",
+            "val_1": "330cc/hr",
+            "val_2": "330cc/hr",
+            "val_3": "250cc/hr"
+          }
+        },
+        "spec_row_hGPAtF": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Mist type",
+            "val_0": "Cool + Warm mist",
+            "val_1": "Cool mist",
+            "val_2": "Cool mist",
+            "val_3": "Cool mist"
+          }
+        },
+        "spec_row_74D7Ak": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Tank capacity",
+            "val_0": "4.2 L",
+            "val_1": "4.0 L",
+            "val_2": "4.0 L",
+            "val_3": "2.8 L"
+          }
+        },
+        "spec_row_c8jQkX": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Dimensions (in)",
+            "val_0": "9.9 × 9.8 × 11.8",
+            "val_1": "10.8 × 10.2 × 9.3",
+            "val_2": "10.8 × 10.2 × 9.3",
+            "val_3": "4.5 × 11.4 × 9.3"
+          }
+        },
+        "spec_row_4HFx6G": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Night mode",
+            "val_0": "yes",
+            "val_1": "yes",
+            "val_2": "no",
+            "val_3": "no"
+          }
+        },
+        "spec_row_gzpCiQ": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Mood light",
+            "val_0": "yes",
+            "val_1": "yes",
+            "val_2": "no",
+            "val_3": "no"
+          }
+        },
+        "spec_row_yL4BP6": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Warm mist sanitization",
+            "val_0": "yes",
+            "val_1": "no",
+            "val_2": "no",
+            "val_3": "no"
+          }
+        }
+      },
+      "block_order": [
+        "product_iqCkYQ",
+        "product_fUYYqJ",
+        "product_Hefb9P",
+        "product_QhE3Jy",
+        "spec_row_raLRL8",
+        "spec_row_YmBe6E",
+        "spec_row_dd96LY",
+        "spec_row_RXwWVz",
+        "spec_row_hGPAtF",
+        "spec_row_74D7Ak",
+        "spec_row_c8jQkX",
+        "spec_row_4HFx6G",
+        "spec_row_gzpCiQ",
+        "spec_row_yL4BP6"
+      ],
+      "name": "Product Comparison",
+      "settings": {
+        "heading": "A Carepod for every room",
+        "subheading": "The Carepod humidifier is versatile and user-friendly, making it ideal for any lifestyle, health need, or living space.",
+        "bg_color": "#ffffff"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "cp_hero_banner_PipTx4",
+    "cp_press_quotes_dadzU6",
+    "cp_shop_collection_Xc9zym",
+    "cp_product_spotlight_Jhmgdp",
+    "cp_comparative_8XXMGg",
+    "cp_product_compare_M66enF"
   ]
 }
