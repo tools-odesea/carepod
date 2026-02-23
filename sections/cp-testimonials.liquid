@@ -26,6 +26,8 @@
     position: relative;
     overflow: hidden;
     cursor: grab;
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   .cp-testimonials__viewport.is-dragging {
@@ -120,48 +122,6 @@
     margin: 0;
   }
 
-  /* Navigation arrows */
-  .cp-testimonials__nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: #111;
-    color: #fff;
-    cursor: pointer;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.15s ease, opacity 0.2s;
-    padding: 0;
-  }
-
-  .cp-testimonials__nav:hover {
-    transform: translateY(-50%) scale(1.12);
-  }
-
-  .cp-testimonials__nav:active {
-    transform: translateY(-50%) scale(1);
-  }
-
-  .cp-testimonials__nav--prev {
-    left: 10px;
-  }
-
-  .cp-testimonials__nav--next {
-    right: 10px;
-  }
-
-  .cp-testimonials__nav svg {
-    width: 12px;
-    height: 12px;
-    fill: currentColor;
-  }
-
   /* Dot navigation */
   .cp-testimonials__dots {
     display: flex;
@@ -245,15 +205,6 @@
       font-size: 15px;
     }
 
-    .cp-testimonials__nav {
-      width: 33px;
-      height: 33px;
-    }
-
-    .cp-testimonials__nav svg {
-      width: 10px;
-      height: 10px;
-    }
   }
 </style>
 
@@ -265,15 +216,6 @@
     {%- endif -%}
 
     <div class="cp-testimonials__viewport" id="cp-test-viewport-{{ section.id }}">
-
-      <!-- Prev / Next arrows -->
-      <button class="cp-testimonials__nav cp-testimonials__nav--prev" aria-label="Previous" data-dir="-1">
-        <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M8 1L3 6l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </button>
-      <button class="cp-testimonials__nav cp-testimonials__nav--next" aria-label="Next" data-dir="1">
-        <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M4 1l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </button>
-
       <div class="cp-testimonials__track" id="cp-test-track-{{ section.id }}">
         {%- for block in section.blocks -%}
           <div class="cp-testimonials__slide" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
@@ -328,12 +270,49 @@
     var dots = document.querySelectorAll('#cp-test-dots-' + sectionId + ' .cp-testimonials__dot');
     if (!viewport || !track) return;
 
-    var slides = track.querySelectorAll('.cp-testimonials__slide');
-    var total = slides.length;
-    var current = 1; /* start on 2nd slide so the 1st is visible to the left */
+    var originalSlides = Array.from(track.querySelectorAll('.cp-testimonials__slide'));
+    var total = originalSlides.length;
+    if (total === 0) return;
+
+    var current = 0;
     var isDragging = false;
     var startX = 0;
     var dragOffset = 0;
+    var isTransitioning = false;
+
+    /* --- Infinite loop: clone slides before and after --- */
+    var clonesBefore = [];
+    var clonesAfter = [];
+
+    function buildClones() {
+      /* Remove old clones */
+      clonesBefore.forEach(function (c) { c.remove(); });
+      clonesAfter.forEach(function (c) { c.remove(); });
+      clonesBefore = [];
+      clonesAfter = [];
+
+      var perView = getSlidesPerView();
+      /* Clone enough slides to fill the sides */
+      var cloneCount = perView;
+
+      for (var i = 0; i < cloneCount; i++) {
+        /* Clone last N slides → prepend */
+        var beforeIdx = (total - 1 - i + total) % total;
+        var cloneBefore = originalSlides[beforeIdx].cloneNode(true);
+        cloneBefore.classList.add('is-clone');
+        cloneBefore.removeAttribute('data-index');
+        track.insertBefore(cloneBefore, track.firstChild);
+        clonesBefore.unshift(cloneBefore);
+
+        /* Clone first N slides → append */
+        var afterIdx = i % total;
+        var cloneAfter = originalSlides[afterIdx].cloneNode(true);
+        cloneAfter.classList.add('is-clone');
+        cloneAfter.removeAttribute('data-index');
+        track.appendChild(cloneAfter);
+        clonesAfter.push(cloneAfter);
+      }
+    }
 
     function getSlidesPerView() {
       var w = window.innerWidth;
@@ -346,27 +325,48 @@
       return viewport.offsetWidth / getSlidesPerView();
     }
 
+    function getAllSlides() {
+      return Array.from(track.querySelectorAll('.cp-testimonials__slide'));
+    }
+
+    function getOffset(index) {
+      var perView = getSlidesPerView();
+      /* The real slides start after clonesBefore.length clones */
+      var realStart = clonesBefore.length;
+      /* Position: put the selected slide in the center of the viewport */
+      var slidePos = realStart + index;
+      var centerOffset = (perView - 1) / 2;
+      return (slidePos - centerOffset) * getSlideWidth();
+    }
+
     function goTo(index, animate) {
       if (animate === undefined) animate = true;
-      /* Wrap around */
-      if (index < 0) index = total - 1;
-      if (index >= total) index = 0;
-      current = index;
 
-      var perView = getSlidesPerView();
-      /* Center the selected slide: offset so it's in the middle */
-      var offset = index * getSlideWidth() - (perView - 1) / 2 * getSlideWidth();
-      /* Clamp so we don't scroll past edges */
-      var maxOffset = (total - perView) * getSlideWidth();
-      if (offset < 0) offset = 0;
-      if (offset > maxOffset) offset = maxOffset;
+      /* Normalize index to [0, total) */
+      current = ((index % total) + total) % total;
+
+      var offset = getOffset(current);
 
       track.style.transition = animate ? 'transform 0.5s ease' : 'none';
       track.style.transform = 'translateX(' + (-offset) + 'px)';
 
-      /* Update selected class */
-      slides.forEach(function (s, i) {
-        s.classList.toggle('is-selected', i === current);
+      /* Update selected class on ALL slides (originals + clones) */
+      getAllSlides().forEach(function (s) {
+        var idx = s.getAttribute('data-index');
+        s.classList.toggle('is-selected', idx !== null && parseInt(idx, 10) === current);
+      });
+      /* Also highlight clone that matches current */
+      clonesBefore.concat(clonesAfter).forEach(function (c) {
+        c.classList.remove('is-selected');
+      });
+      /* Find clones that represent the current real index and select neighbors */
+      var allSlides = getAllSlides();
+      var perView = getSlidesPerView();
+      var realStart = clonesBefore.length;
+      var centerPos = realStart + current;
+      /* Mark the center slide as selected */
+      allSlides.forEach(function (s, i) {
+        s.classList.toggle('is-selected', i === centerPos);
       });
 
       /* Update dots */
@@ -375,24 +375,64 @@
       });
     }
 
-    /* Arrow click */
-    viewport.querySelectorAll('.cp-testimonials__nav').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var dir = parseInt(this.dataset.dir, 10);
-        goTo(current + dir);
+    function slideToDirection(dir) {
+      isTransitioning = true;
+      var targetIndex = current + dir;
+      var normalizedTarget = ((targetIndex % total) + total) % total;
+
+      /* Calculate the offset using the unwrapped target position to animate smoothly */
+      var perView = getSlidesPerView();
+      var realStart = clonesBefore.length;
+      var slidePos = realStart + targetIndex; /* may be -1 or total, that's fine — clones are there */
+      var centerOffset = (perView - 1) / 2;
+      var offset = (slidePos - centerOffset) * getSlideWidth();
+
+      track.style.transition = 'transform 0.5s ease';
+      track.style.transform = 'translateX(' + (-offset) + 'px)';
+
+      /* Update selected visual on the fly */
+      var allSlides = getAllSlides();
+      allSlides.forEach(function (s, i) {
+        s.classList.toggle('is-selected', i === slidePos);
+      });
+
+      current = normalizedTarget;
+
+      /* Update dots */
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === current);
+      });
+    }
+
+    /* After transition ends, silently snap to the real position if we animated to a clone */
+    track.addEventListener('transitionend', function () {
+      isTransitioning = false;
+      /* Snap to correct position without animation */
+      var offset = getOffset(current);
+      track.style.transition = 'none';
+      track.style.transform = 'translateX(' + (-offset) + 'px)';
+
+      /* Fix selected class */
+      var allSlides = getAllSlides();
+      var realStart = clonesBefore.length;
+      var centerPos = realStart + current;
+      allSlides.forEach(function (s, i) {
+        s.classList.toggle('is-selected', i === centerPos);
       });
     });
 
     /* Dot click */
     dots.forEach(function (dot) {
       dot.addEventListener('click', function () {
-        goTo(parseInt(this.dataset.index, 10));
+        if (isTransitioning) return;
+        var target = parseInt(this.dataset.index, 10);
+        goTo(target);
       });
     });
 
     /* Drag / swipe support */
     viewport.addEventListener('pointerdown', function (e) {
-      if (e.target.closest('.cp-testimonials__nav')) return;
+      if (isTransitioning) return;
       isDragging = true;
       startX = e.clientX;
       dragOffset = 0;
@@ -404,12 +444,7 @@
       if (!isDragging) return;
       dragOffset = e.clientX - startX;
 
-      var perView = getSlidesPerView();
-      var baseOffset = current * getSlideWidth() - (perView - 1) / 2 * getSlideWidth();
-      var maxOffset = (total - perView) * getSlideWidth();
-      if (baseOffset < 0) baseOffset = 0;
-      if (baseOffset > maxOffset) baseOffset = maxOffset;
-
+      var baseOffset = getOffset(current);
       track.style.transition = 'none';
       track.style.transform = 'translateX(' + (-baseOffset + dragOffset) + 'px)';
     });
@@ -421,9 +456,9 @@
 
       var threshold = getSlideWidth() * 0.2;
       if (dragOffset < -threshold) {
-        goTo(current + 1);
+        slideToDirection(1);
       } else if (dragOffset > threshold) {
-        goTo(current - 1);
+        slideToDirection(-1);
       } else {
         goTo(current);
       }
@@ -439,11 +474,40 @@
     var resizeTimer;
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function () { goTo(current, false); }, 100);
+      resizeTimer = setTimeout(function () {
+        buildClones();
+        goTo(current, false);
+      }, 100);
     });
 
+    /* Auto-play timer */
+    var autoplayInterval = 4000;
+    var autoplayTimer = null;
+
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = setInterval(function () {
+        if (!isTransitioning && !isDragging) {
+          slideToDirection(1);
+        }
+      }, autoplayInterval);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+
+    /* Pause autoplay when user hovers over the carousel */
+    viewport.addEventListener('mouseenter', stopAutoplay);
+    viewport.addEventListener('mouseleave', startAutoplay);
+
     /* Initialize */
+    buildClones();
     goTo(current, false);
+    startAutoplay();
   })();
 </script>
 
