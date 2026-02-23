@@ -230,14 +230,19 @@
 
   .cp-compare__row--action .cp-compare__row-label {
     visibility: hidden;
+    min-width: 136px;
   }
 
   .cp-compare__row--action .cp-compare__row-value {
-    padding: 33px 16px 2px;
+    padding: 33px 8px 2px;
   }
 
   .cp-compare__row--action .cp-compare__value-item {
     width: 100%;
+  }
+
+  .cp-compare__row--action .cp-compare__buy-btn {
+    padding: 14px 16px;
   }
 
   /* Tablet */
@@ -508,7 +513,7 @@
 
         {%- comment -%} Action row: Buy Now buttons {%- endcomment -%}
         <div class="cp-compare__row cp-compare__row--action">
-          <div class="cp-compare__row-label"></div>
+          <div class="cp-compare__row-label">&nbsp;</div>
           <div class="cp-compare__row-values">
             {%- for block in product_blocks -%}
               <div

@@ -144,7 +144,7 @@
 <div class="cp-shop">
   <div class="cp-shop__inner">
 
-    {%- if section.settings.heading != blank -%}
+    {%- if section.settings.heading_prefix != blank or section.settings.heading_accent != blank or section.settings.heading_suffix != blank -%}
       <h2 class="cp-shop__heading">
         {%- if section.settings.heading_prefix != blank -%}
           {{- section.settings.heading_prefix | escape -}}&#32;
