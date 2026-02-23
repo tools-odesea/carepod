@@ -26,7 +26,8 @@
           "type": "quote",
           "settings": {
             "quote": "A safe choice for homes with kids and pets. Oh, and it's invented by a doctor",
-            "publication": "Forbes"
+            "publication": "Forbes",
+            "logo": "shopify://shop_images/Frame_25.png"
           }
         },
         "quote_wellgood": {
