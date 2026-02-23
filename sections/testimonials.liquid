@@ -1,0 +1,55 @@
+{% comment %}
+  Carepod Testimonials — Scrolling review cards
+{% endcomment %}
+
+<section class="carepod-testimonials" style="padding: 5rem 2rem; background: {{ section.settings.bg_color }}; overflow: hidden;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="display: flex; gap: 2rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 1rem;">
+      {% for block in section.blocks %}
+        <div style="flex: 0 0 320px; scroll-snap-align: start; background: {{ section.settings.card_bg }}; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+          <div style="color: #f5a623; font-size: 1rem; letter-spacing: 2px;">★★★★★</div>
+          <p style="font-size: 0.9rem; line-height: 1.7; color: {{ section.settings.text_color }}; flex: 1;">
+            "{{ block.settings.quote }}"
+          </p>
+          {% if block.settings.author != blank %}
+            <p style="font-size: 0.8rem; color: {{ section.settings.text_color }}; opacity: 0.6; font-style: italic;">
+              — {{ block.settings.author }}
+            </p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#f5f0eb" },
+    { "type": "color", "id": "card_bg", "label": "Card Background", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text Color", "default": "#333333" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "text", "id": "author", "label": "Author" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Testimonials",
+    "blocks": [
+      { "type": "review", "settings": { "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod. Given the health benefits associated with it, I love it so far!" } },
+      { "type": "review", "settings": { "quote": "I recently discovered Carepod and absolutely love it. As a pediatric naturopathic doctor, the cold and dry climate we're in makes it a valuable addition. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold." } },
+      { "type": "review", "settings": { "quote": "How often do we talk about sleep when it comes to kids? All the time. They need good sleep to function. Our old humidifier was hard to clean and always got moldy. When I saw that Carepod only had three pieces that needed cleaning (and was easy!), I immediately knew that this was the one." } },
+      { "type": "review", "settings": { "quote": "Carepod is hands down the best humidifier on the market. It's sleek, fun to use, soothing, and holds a good amount of water so you can benefit from it day or night. I highly recommend it to all my clients for their skin, and overall wellness!" } },
+      { "type": "review", "settings": { "quote": "Once one of my daughters starts coughing, it keeps on going, so we use humidifiers all the time. I love how easy it is to clean our Carepod, with three easy steps. It feels good knowing I'm giving my child the most hydrating air only!" } },
+      { "type": "review", "settings": { "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. As a bonus, I love its modern chic design that blends well into any environment." } }
+    ]
+  }]
+}
+{% endschema %}

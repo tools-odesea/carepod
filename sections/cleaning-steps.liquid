@@ -1,0 +1,70 @@
+{% comment %}
+  Carepod 3-Step Cleaning Section
+{% endcomment %}
+
+<section class="carepod-cleaning" style="padding: 5rem 2rem; background: {{ section.settings.bg_color }}; text-align: center;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: {{ section.settings.heading_color }}; margin-bottom: 0.5rem;">
+      {{ section.settings.heading }}
+    </h2>
+    {% if section.settings.subheading != blank %}
+      <p style="font-size: 1rem; color: {{ section.settings.text_color }}; opacity: 0.7; margin-bottom: 3rem;">
+        {{ section.settings.subheading }}
+      </p>
+    {% endif %}
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; text-align: center;">
+      {% for block in section.blocks %}
+        <div style="padding: 2rem;">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url: width: 100 }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" alt="{{ block.settings.title }}">
+          {% else %}
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: {{ section.settings.accent_color }}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; font-weight: 600; color: #fff;">
+              {{ forloop.index }}
+            </div>
+          {% endif %}
+
+          <h3 style="font-size: 1.1rem; font-weight: 600; color: {{ section.settings.heading_color }}; margin-bottom: 0.75rem;">
+            {{ block.settings.title }}
+          </h3>
+          <p style="font-size: 0.9rem; line-height: 1.6; color: {{ section.settings.text_color }}; opacity: 0.8;">
+            {{ block.settings.description }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cleaning Steps",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "See how Carepod makes cleaning easy." },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "3 simple steps" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#ffffff" },
+    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#1a1a1a" },
+    { "type": "color", "id": "text_color", "label": "Text Color", "default": "#333333" },
+    { "type": "color", "id": "accent_color", "label": "Step Number Color", "default": "#1a1a1a" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Step Image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Disassemble" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean." }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Cleaning Steps",
+    "blocks": [
+      { "type": "step", "settings": { "title": "Disassemble", "description": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean." } },
+      { "type": "step", "settings": { "title": "Scrub or boil to sterilize.", "description": "Wash the oscillator with soap and water. Fill the water tank with water & place the stainless steel lid cover inside. Boil 1-2 mins for 99.9% sterilization." } },
+      { "type": "step", "settings": { "title": "Refill & enjoy.", "description": "Snap the pieces back in place, fill with water, and you're ready to breathe fresh, clean air in your home once again." } }
+    ]
+  }]
+}
+{% endschema %}

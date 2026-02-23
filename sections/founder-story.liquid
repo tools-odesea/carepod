@@ -1,0 +1,34 @@
+{% comment %}
+  Carepod Founder Story — About section
+{% endcomment %}
+
+<section class="carepod-founder" style="padding: 5rem 2rem; background: {{ section.settings.bg_color }};">
+  <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+    {% if section.settings.image != blank %}
+      <img src="{{ section.settings.image | image_url: 'master' }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" alt="{{ section.settings.title }}">
+    {% endif %}
+
+    <div>
+      <p style="font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 300; line-height: 1.4; color: {{ section.settings.text_color }}; font-style: italic; margin-bottom: 1.5rem;">
+        {{ section.settings.heading }}
+      </p>
+      <p style="font-size: 0.95rem; line-height: 1.7; color: {{ section.settings.text_color }}; opacity: 0.8;">
+        {{ section.settings.description }}
+      </p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Founder Story",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Founder Image" },
+    { "type": "textarea", "id": "heading", "label": "Quote", "default": "Engineered by a doctor with the heart of a father." },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air." },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text Color", "default": "#1a1a1a" }
+  ],
+  "presets": [{ "name": "Founder Story" }]
+}
+{% endschema %}
