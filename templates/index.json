@@ -469,7 +469,8 @@
     "blog_posts": {
       "type": "cp-blog-posts",
       "settings": {
-        "heading": "What's New?"
+        "heading": "What's New?",
+        "blog": "news"
       }
     },
     "newsletter": {
