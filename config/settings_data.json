@@ -69,9 +69,9 @@
           }
         }
       },
-      "type_header_font": "muli_n7",
+      "type_header_font": "assistant_n4",
       "heading_scale": 100,
-      "type_body_font": "open_sans_n4",
+      "type_body_font": "assistant_n4",
       "body_scale": 100,
       "page_width": 1200,
       "spacing_sections": 0,
@@ -81,7 +81,7 @@
       "animations_hover_elements": "none",
       "buttons_border_thickness": 1,
       "buttons_border_opacity": 100,
-      "buttons_radius": 8,
+      "buttons_radius": 0,
       "buttons_shadow_opacity": 0,
       "buttons_shadow_horizontal_offset": 0,
       "buttons_shadow_vertical_offset": 4,
