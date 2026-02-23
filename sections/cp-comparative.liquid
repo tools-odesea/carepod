@@ -72,12 +72,16 @@
     min-width: 190px;
     flex-shrink: 0;
     padding: 1.25rem 1rem 1.25rem 0;
+    box-sizing: border-box;
   }
 
   .cp-comparative__header-spacer {
     width: 190px;
     min-width: 190px;
     flex-shrink: 0;
+    padding: 1.25rem 1rem 1.25rem 0;
+    box-sizing: border-box;
+    visibility: hidden;
   }
 
   .cp-comparative__brand-name {
@@ -242,7 +246,7 @@
 
         <!-- Header row: spacer + feature names -->
         <div class="cp-comparative__row cp-comparative__row--header">
-          <div class="cp-comparative__header-spacer"></div>
+          <div class="cp-comparative__header-spacer">&nbsp;</div>
           <div class="cp-comparative__cells">
             {%- for block in section.blocks -%}
               <div class="cp-comparative__feature-header" {{ block.shopify_attributes }}>
