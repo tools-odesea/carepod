@@ -444,6 +444,7 @@
             {{ block.shopify_attributes }}
           >
             {%- if block.settings.image != blank -%}
+              {%- assign product_alt = block.settings.name | escape -%}
               <div class="cp-compare__product-img-wrap">
                 {{
                   block.settings.image
@@ -453,7 +454,7 @@
                     widths: '140, 200, 300',
                     sizes: '140px',
                     loading: 'lazy',
-                    alt: block.settings.name | escape
+                    alt: product_alt
                 }}
               </div>
             {%- endif -%}

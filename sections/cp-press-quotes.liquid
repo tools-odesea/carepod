@@ -121,6 +121,7 @@
           <p class="cp-press__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
           <div>
             {%- if block.settings.logo != blank -%}
+              {%- assign pub_alt = block.settings.publication | escape -%}
               {{
                 block.settings.logo
                 | image_url: width: 300
@@ -129,7 +130,7 @@
                   widths: '120, 200, 300',
                   sizes: '120px',
                   loading: 'lazy',
-                  alt: block.settings.publication | escape
+                  alt: pub_alt
               }}
             {%- elsif block.settings.publication != blank -%}
               <p class="cp-press__publication">{{ block.settings.publication | escape }}</p>
