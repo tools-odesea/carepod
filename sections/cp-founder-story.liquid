@@ -1,0 +1,213 @@
+<style>
+  .cp-founder {
+    padding: 60px 0;
+  }
+
+  .cp-founder__inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 95%;
+    margin-left: auto;
+  }
+
+  .cp-founder__text {
+    flex-basis: 52%;
+    padding-left: 15px;
+  }
+
+  .cp-founder__heading {
+    color: #000;
+    font-family: var(--font-heading-family);
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 145.682%;
+    text-transform: capitalize;
+    margin: 0 0 16px;
+  }
+
+  .cp-founder__body {
+    color: #000;
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 209%;
+    letter-spacing: 0.08px;
+    max-width: 63%;
+    margin: 0 0 24px;
+  }
+
+  .cp-founder__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 11px 60px;
+    border: 1px solid #000;
+    font-family: var(--font-heading-family);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .cp-founder__cta:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  .cp-founder__cta:hover svg path {
+    fill: #000;
+    stroke: #000;
+  }
+
+  .cp-founder__image-wrap {
+    flex-basis: 55%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .cp-founder__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-founder {
+      padding: 50px 0;
+    }
+
+    .cp-founder__inner {
+      flex-direction: column-reverse;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    .cp-founder__text {
+      flex-basis: auto;
+      width: 100%;
+      border-bottom-left-radius: 13px;
+      border-bottom-right-radius: 13px;
+      background: #F0F0F0;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .cp-founder__heading {
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 138%;
+      letter-spacing: -0.42px;
+      text-align: center;
+      margin-bottom: 11px;
+    }
+
+    .cp-founder__body {
+      font-size: 14px;
+      line-height: 167%;
+      letter-spacing: -0.28px;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .cp-founder__cta {
+      margin: 0 auto;
+      padding: 11px 40px;
+    }
+
+    .cp-founder__image-wrap {
+      flex-basis: auto;
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="cp-founder">
+  <div class="cp-founder__inner">
+
+    <div class="cp-founder__text">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="cp-founder__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.body != blank -%}
+        <p class="cp-founder__body">{{ section.settings.body | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="cp-founder__cta">
+          {{- section.settings.button_label | escape -}}
+          <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M23.1694 8.80616L23.237 8.7365L23.1694 8.66684L15.9062 1.1862L15.8344 1.11231L15.7627 1.18619L14.5813 2.40261L14.5137 2.47229L14.5814 2.54196L19.6675 7.77744L1.06102 7.77744L0.961017 7.77744L0.961017 7.87744L0.961017 9.59555L0.961017 9.69555L1.06102 9.69555L19.6675 9.69555L14.5813 14.9328L14.5136 15.0025L14.5814 15.0722L15.7627 16.2869L15.8345 16.3606L15.9062 16.2868L23.1694 8.80616Z" fill="white" stroke="white" stroke-width="0.2"/>
+          </svg>
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="cp-founder__image-wrap">
+      {%- if section.settings.image != blank -%}
+        {%- assign founder_alt = section.settings.heading | escape -%}
+        {{
+          section.settings.image
+          | image_url: width: 1200
+          | image_tag:
+            class: 'cp-founder__image',
+            sizes: '(min-width: 750px) 55vw, 90vw',
+            widths: '400, 600, 800, 1000, 1200',
+            loading: 'lazy',
+            alt: founder_alt
+        }}
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Founder Story",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Engineered by a doctor with the heart of a father."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Bestsellers"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Founder Story"
+    }
+  ]
+}
+{% endschema %}

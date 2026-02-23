@@ -1,0 +1,301 @@
+<style>
+  .cp-clean {
+    padding: 50px 0;
+  }
+
+  .cp-clean__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .cp-clean__heading {
+    color: #000;
+    text-align: center;
+    font-family: var(--font-heading-family);
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 125.182%;
+    text-transform: capitalize;
+    margin: 0 0 63px;
+  }
+
+  .cp-clean__heading--mobile {
+    display: none;
+  }
+
+  .cp-clean__steps {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  .cp-clean__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 29.33%;
+    border-radius: 17px;
+    border: 1px solid #EFEFEF;
+    background: #fff;
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.04);
+    padding: 30px 18px;
+    text-align: center;
+  }
+
+  .cp-clean__step-img {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+
+  .cp-clean__step-title {
+    color: #000;
+    font-family: var(--font-heading-family);
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 150%;
+    margin: 0 0 9px;
+  }
+
+  .cp-clean__step-text {
+    color: #000;
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 158%;
+    margin: 0;
+  }
+
+  .cp-clean__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 11px 41px;
+    width: max-content;
+    margin: 0 auto;
+    border: 1px solid #000;
+    font-family: var(--font-heading-family);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .cp-clean__cta:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  .cp-clean__cta-arrow {
+    display: flex;
+    transition: filter 0.2s;
+  }
+
+  .cp-clean__cta:hover .cp-clean__cta-arrow svg path {
+    fill: #000;
+    stroke: #000;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .cp-clean {
+      padding: 31px 0 0;
+    }
+
+    .cp-clean__heading--desktop {
+      display: none;
+    }
+
+    .cp-clean__heading--mobile {
+      display: block;
+      font-size: 23px;
+      font-weight: 700;
+      line-height: 150%;
+      margin-bottom: 20px;
+    }
+
+    .cp-clean__steps {
+      flex-direction: column;
+      gap: 5px;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    .cp-clean__step {
+      flex-direction: row;
+      border: none;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .cp-clean__step-img {
+      width: 102px;
+      height: 102px;
+      flex-shrink: 0;
+      margin-bottom: 0;
+    }
+
+    .cp-clean__step-title {
+      font-size: 18px;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .cp-clean__step-text {
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .cp-clean__cta {
+      margin: 30px auto;
+    }
+  }
+</style>
+
+<div class="cp-clean">
+  <div class="cp-clean__inner">
+
+    <h2 class="cp-clean__heading cp-clean__heading--desktop">{{ section.settings.heading | escape }}</h2>
+    <h2 class="cp-clean__heading cp-clean__heading--mobile">{{ section.settings.heading_mobile | default: section.settings.heading | escape }}</h2>
+
+    <div class="cp-clean__steps">
+      {%- for block in section.blocks -%}
+        <div class="cp-clean__step" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            {%- assign step_alt = block.settings.title | escape -%}
+            {{
+              block.settings.image
+              | image_url: width: 400
+              | image_tag:
+                class: 'cp-clean__step-img',
+                widths: '102, 175, 350',
+                sizes: '(min-width: 750px) 175px, 102px',
+                loading: 'lazy',
+                alt: step_alt
+            }}
+          {%- endif -%}
+          <div>
+            {%- if block.settings.title != blank -%}
+              <p class="cp-clean__step-title">{{ block.settings.title | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p class="cp-clean__step-text">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link | default: '#' }}" class="cp-clean__cta">
+        {{- section.settings.button_label | escape -}}
+        <span class="cp-clean__cta-arrow" aria-hidden="true">
+          <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.1694 8.80616L23.237 8.7365L23.1694 8.66684L15.9062 1.1862L15.8344 1.11231L15.7627 1.18619L14.5813 2.40261L14.5137 2.47229L14.5814 2.54196L19.6675 7.77744L1.06102 7.77744L0.961017 7.77744L0.961017 7.87744L0.961017 9.59555L0.961017 9.69555L1.06102 9.69555L19.6675 9.69555L14.5813 14.9328L14.5136 15.0025L14.5814 15.0722L15.7627 16.2869L15.8345 16.3606L15.9062 16.2868L23.1694 8.80616Z" fill="white" stroke="white" stroke-width="0.2"/>
+          </svg>
+        </span>
+      </a>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "How to Clean",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See how Carepod makes cleaning easy."
+    },
+    {
+      "type": "text",
+      "id": "heading_mobile",
+      "label": "Mobile heading (optional)",
+      "info": "Falls back to main heading if blank."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Choose Your Carepod"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Cleaning step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Step image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step title",
+          "default": "Disassemble"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Step description",
+          "default": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How to Clean",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Disassemble",
+            "text": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Scrub or boil to sterilize.",
+            "text": "Wash the oscillator with soap and water. Fill the water tank with water & place the stainless steel lid cover inside. Boil 1-2 mins for 99.9% sterilization."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Refill & enjoy.",
+            "text": "Snap the pieces back in place, fill with water, and you're ready to breathe fresh, clean air in your home once again."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

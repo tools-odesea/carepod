@@ -1,0 +1,363 @@
+<style>
+  .cp-testimonials {
+    background: {{ section.settings.bg_color }};
+    padding: 60px 0;
+  }
+
+  .cp-testimonials__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .cp-testimonials__heading {
+    font-family: var(--font-heading-family);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.5;
+    text-align: center;
+    color: #1c1d1d;
+    margin: 0 0 40px;
+  }
+
+  .cp-testimonials__grid {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 1rem;
+  }
+
+  .cp-testimonials__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cp-testimonials__card {
+    flex: 0 0 calc(33.333% - 16px);
+    scroll-snap-align: start;
+    background: #ffffff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cp-testimonials__stars {
+    display: block;
+    font-size: 18px;
+    letter-spacing: 0.2em;
+    margin-bottom: 15px;
+    color: #1c1d1d;
+  }
+
+  .cp-testimonials__quote {
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #1c1d1d;
+    margin: 0 0 30px;
+    flex: 1;
+  }
+
+  .cp-testimonials__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cp-testimonials__avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .cp-testimonials__name {
+    font-family: var(--font-heading-family);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #1c1d1d;
+    margin: 0;
+  }
+
+  .cp-testimonials__title {
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    font-weight: 400;
+    color: #1c1d1d;
+    margin: 0;
+  }
+
+  /* Dot navigation */
+  .cp-testimonials__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+  }
+
+  .cp-testimonials__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid #1c1d1d;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .cp-testimonials__dot.is-active {
+    background: #1c1d1d;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .cp-testimonials__card {
+      flex: 0 0 calc(50% - 12px);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-testimonials {
+      padding: 40px 0;
+    }
+
+    .cp-testimonials__heading {
+      font-size: 25px;
+    }
+
+    .cp-testimonials__stars {
+      font-size: 16px;
+    }
+
+    .cp-testimonials__card {
+      flex: 0 0 85vw;
+      scroll-snap-align: center;
+      padding: 24px 20px;
+    }
+
+    .cp-testimonials__quote {
+      font-size: 15px;
+    }
+
+    .cp-testimonials__name {
+      font-size: 16px;
+    }
+
+    .cp-testimonials__title {
+      font-size: 15px;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .cp-testimonials__dots {
+      display: none;
+    }
+  }
+</style>
+
+<div class="cp-testimonials" id="cp-testimonials-{{ section.id }}">
+  <div class="cp-testimonials__inner">
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cp-testimonials__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="cp-testimonials__grid" id="cp-testimonials-track-{{ section.id }}">
+      {%- for block in section.blocks -%}
+        <div class="cp-testimonials__card" {{ block.shopify_attributes }}>
+          <span class="cp-testimonials__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p class="cp-testimonials__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
+          <div class="cp-testimonials__meta">
+            {%- if block.settings.avatar != blank -%}
+              {%- assign avatar_alt = block.settings.name | escape -%}
+              {{
+                block.settings.avatar
+                | image_url: width: 200
+                | image_tag:
+                  class: 'cp-testimonials__avatar',
+                  widths: '65, 130, 200',
+                  sizes: '65px',
+                  loading: 'lazy',
+                  alt: avatar_alt
+              }}
+            {%- endif -%}
+            {%- if block.settings.name != blank -%}
+              <p class="cp-testimonials__name">{{ block.settings.name | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <p class="cp-testimonials__title">{{ block.settings.title | escape }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="cp-testimonials__dots" id="cp-testimonials-dots-{{ section.id }}" aria-hidden="true">
+      {%- for block in section.blocks -%}
+        <button
+          class="cp-testimonials__dot{% if forloop.first %} is-active{% endif %}"
+          data-index="{{ forloop.index0 }}"
+          aria-label="Go to testimonial {{ forloop.index }}"
+        ></button>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var track = document.getElementById('cp-testimonials-track-{{ section.id }}');
+    var dots = document.querySelectorAll('#cp-testimonials-dots-{{ section.id }} .cp-testimonials__dot');
+    if (!track || !dots.length) return;
+
+    function getActiveIndex() {
+      var cards = track.children;
+      var center = track.scrollLeft + track.offsetWidth / 2;
+      var closest = 0;
+      var minDist = Infinity;
+      for (var i = 0; i < cards.length; i++) {
+        var cardCenter = cards[i].offsetLeft + cards[i].offsetWidth / 2;
+        var dist = Math.abs(center - cardCenter);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      }
+      return closest;
+    }
+
+    function updateDots() {
+      var active = getActiveIndex();
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i === active);
+      });
+    }
+
+    track.addEventListener('scroll', updateDots, { passive: true });
+
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var index = parseInt(this.dataset.index, 10);
+        var card = track.children[index];
+        if (card) {
+          track.scrollTo({ left: card.offsetLeft - (track.offsetWidth - card.offsetWidth) / 2, behavior: 'smooth' });
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Loved by Professionals"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f9f9f9"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Photo"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "I finally found a humidifier that is effective yet mold-resistant and easy to clean."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Dr. Tim Tiutan"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Professional title",
+          "default": "Internal Medicine"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod. Given the health benefits associated with it, I love it so far!",
+            "name": "Dr. Tim Tiutan",
+            "title": "Internal Medicine"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I recently discovered Carepod and absolutely love it. As a pediatric naturopathic doctor, the cold and dry climate we're in makes it a valuable addition. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold.",
+            "name": "Dr. Elana Roumell",
+            "title": "Pediatric Naturopathic"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "How often do we talk about sleep when it comes to kids? All the time. They need good sleep to function. Our old humidifier was hard to clean and always got moldy. When I saw that Carepod only had three pieces that needed cleaning (and was easy!), I immediately knew that this was the one.",
+            "name": "Katie Zelinski",
+            "title": "Pediatric Occupational Therapist"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Carepod is hands down the best humidifier on the market. It's sleek, fun to use, soothing, and holds a good amount of water so you can benefit from it day or night. I highly recommend it to all my clients for their skin, and overall wellness!",
+            "name": "Tess Zolly",
+            "title": "Licensed Esthetician"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Once one of my daughters starts coughing, it keeps on going, so we use humidifiers all the time. I love how easy it is to clean our Carepod, with three easy steps. It feels good knowing I'm giving my child the most hydrating air only!",
+            "name": "Dr. Jesse L. Berry",
+            "title": "Ophthalmology Surgeon"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. As a bonus, I love its modern chic design that blends well into any environment.",
+            "name": "Dr. Jiyeh Joo",
+            "title": "Family Physician"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
