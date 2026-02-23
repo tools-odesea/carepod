@@ -63,32 +63,21 @@
     border-top: 1px solid #e8e8e8;
   }
 
-  /* Brand name column: fixed width on the left */
+  /* Brand cell: fixed width on the left */
   .cp-comparative__brand-cell {
     display: flex;
     align-items: center;
-    width: 110px;
-    min-width: 110px;
+    gap: 0.75rem;
+    width: 190px;
+    min-width: 190px;
     flex-shrink: 0;
-    padding: 1.25rem 0.5rem 1.25rem 0;
-    box-sizing: border-box;
-  }
-
-  /* Image column: fixed width, sits between brand name and feature cells */
-  .cp-comparative__img-cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    min-width: 100px;
-    flex-shrink: 0;
-    padding: 0.75rem 0.75rem;
+    padding: 1.25rem 1rem 1.25rem 0;
     box-sizing: border-box;
   }
 
   .cp-comparative__header-spacer {
-    width: 210px;
-    min-width: 210px;
+    width: 190px;
+    min-width: 190px;
     flex-shrink: 0;
     padding: 1.25rem 1rem 1.25rem 0;
     box-sizing: border-box;
@@ -214,20 +203,10 @@
       line-height: 24px;
     }
 
+    .cp-comparative__header-spacer,
     .cp-comparative__brand-cell {
-      width: 80px;
-      min-width: 80px;
-    }
-
-    .cp-comparative__img-cell {
-      width: 70px;
-      min-width: 70px;
-      padding: 0.5rem;
-    }
-
-    .cp-comparative__header-spacer {
-      width: 150px;
-      min-width: 150px;
+      width: 140px;
+      min-width: 140px;
     }
 
     .cp-comparative__feature-header {
@@ -281,8 +260,6 @@
         <div class="cp-comparative__row cp-comparative__row--brand">
           <div class="cp-comparative__brand-cell">
             <p class="cp-comparative__brand-name">Carepod<br>Humidifiers</p>
-          </div>
-          <div class="cp-comparative__img-cell">
             {%- if section.settings.carepod_image != blank -%}
               {{
                 section.settings.carepod_image
@@ -319,8 +296,6 @@
         <div class="cp-comparative__row cp-comparative__row--brand">
           <div class="cp-comparative__brand-cell">
             <p class="cp-comparative__brand-name cp-comparative__brand-name--other">{{ section.settings.other_label | escape }}</p>
-          </div>
-          <div class="cp-comparative__img-cell">
             {%- if section.settings.other_image != blank -%}
               {{
                 section.settings.other_image
