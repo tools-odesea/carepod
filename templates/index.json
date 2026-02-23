@@ -9,76 +9,493 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero_banner": {
+      "type": "cp-hero-banner",
+      "settings": {
+        "badge_text": "Over 130,220+ Humidifiers Sold",
+        "heading": "The ultimate upgrade for your home.",
+        "button_label": "Shop Carepod",
+        "button_link": "/collections/all"
+      }
+    },
+    "press_quotes": {
+      "type": "cp-press-quotes",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "quote_forbes": {
+          "type": "quote",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "quote": "A safe choice for homes with kids and pets. Oh, and it's invented by a doctor",
+            "publication": "Forbes"
           }
         },
-        "button": {
-          "type": "buttons",
+        "quote_wellgood": {
+          "type": "quote",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "quote": "Your face and lungs will thank you.",
+            "publication": "Well + Good"
+          }
+        },
+        "quote_bhg": {
+          "type": "quote",
+          "settings": {
+            "quote": "It has a very simple, intuitive design that puts it above other humidifiers we tested.",
+            "publication": "Better Homes and Gardens"
+          }
+        },
+        "quote_bazaar": {
+          "type": "quote",
+          "settings": {
+            "quote": "Carepod's award-earning humidifier is a winning self-care gift.",
+            "publication": "Bazaar"
+          }
+        },
+        "quote_entrepreneur": {
+          "type": "quote",
+          "settings": {
+            "quote": "Its stainless-steel interior can be 99.9% sterilized with boiling water.",
+            "publication": "Entrepreneur"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "quote_forbes",
+        "quote_wellgood",
+        "quote_bhg",
+        "quote_bazaar",
+        "quote_entrepreneur"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "bg_color": "#ffffff",
+        "card_bg": "#f5f5f5",
+        "text_color": "#1a1a1a"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "shop_collection": {
+      "type": "cp-shop-collection",
+      "blocks": {
+        "product_cube_plus": {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod Cube Plus",
+            "url": "/products/carepod-cube-plus"
+          }
+        },
+        "product_one_plus": {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod One Plus",
+            "url": "/products/carepod-one-plus"
+          }
+        },
+        "product_one": {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod One",
+            "url": "/products/carepod-one"
+          }
+        },
+        "product_mini": {
+          "type": "product_card",
+          "settings": {
+            "name": "Carepod Mini",
+            "url": "/products/carepod-mini"
+          }
+        }
+      },
+      "block_order": [
+        "product_cube_plus",
+        "product_one_plus",
+        "product_one",
+        "product_mini"
+      ],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "heading_prefix": "Shop Our",
+        "heading_accent": "Award Winning",
+        "heading_suffix": "Humidifiers",
+        "accent_color": "#1a6cde",
+        "bg_color": "#ffffff"
+      }
+    },
+    "product_compare": {
+      "type": "cp-product-compare",
+      "blocks": {
+        "prod_cube_plus": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod Cube Plus",
+            "description": "Ultimate coverage and upgraded features for pure, fresh air.",
+            "url": "/products/carepod-cube-plus"
+          }
+        },
+        "prod_one_plus": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod One Plus",
+            "description": "Ideal for living spaces, bedrooms, or studio apartments.",
+            "url": "/products/carepod-one-plus"
+          }
+        },
+        "prod_one": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod One",
+            "description": "Ideal for the bedroom, home office, or studio apartment.",
+            "url": "/products/carepod-one"
+          }
+        },
+        "prod_mini": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod Mini",
+            "description": "Perfect for nurseries and smaller spaces. A favorite for parents.",
+            "url": "/products/carepod-mini"
+          }
+        },
+        "row_coverage": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Coverage",
+            "val_0": "700 ft\u00b2",
+            "val_1": "500 ft\u00b2",
+            "val_2": "500 ft\u00b2",
+            "val_3": "350 ft\u00b2"
+          }
+        },
+        "row_runtime_low": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Running time (Low)",
+            "val_0": "32 hrs",
+            "val_1": "30 hrs",
+            "val_2": "30 hrs",
+            "val_3": "20 hrs"
+          }
+        },
+        "row_runtime_high": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Running time (High)",
+            "val_0": "12 hrs",
+            "val_1": "10 hrs",
+            "val_2": "10 hrs",
+            "val_3": "10 hrs"
+          }
+        },
+        "row_mist_output": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Mist output",
+            "val_0": "Cool 350cc + Warm 440cc/hr",
+            "val_1": "330cc/hr",
+            "val_2": "330cc/hr",
+            "val_3": "250cc/hr"
+          }
+        },
+        "row_mist_type": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Mist type",
+            "val_0": "Cool + Warm mist",
+            "val_1": "Cool mist",
+            "val_2": "Cool mist",
+            "val_3": "Cool mist"
+          }
+        },
+        "row_capacity": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Tank capacity",
+            "val_0": "4.2 L",
+            "val_1": "4.0 L",
+            "val_2": "4.0 L",
+            "val_3": "2.8 L"
+          }
+        },
+        "row_dimensions": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Dimensions (in)",
+            "val_0": "9.9 \u00d7 9.8 \u00d7 11.8",
+            "val_1": "10.8 \u00d7 10.2 \u00d7 9.3",
+            "val_2": "10.8 \u00d7 10.2 \u00d7 9.3",
+            "val_3": "4.5 \u00d7 11.4 \u00d7 9.3"
+          }
+        },
+        "row_night_mode": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Night mode",
+            "val_0": "yes",
+            "val_1": "yes",
+            "val_2": "no",
+            "val_3": "no"
+          }
+        },
+        "row_mood_light": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Mood light",
+            "val_0": "yes",
+            "val_1": "yes",
+            "val_2": "no",
+            "val_3": "no"
+          }
+        },
+        "row_warm_mist": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Warm mist sanitization",
+            "val_0": "yes",
+            "val_1": "no",
+            "val_2": "no",
+            "val_3": "no"
+          }
+        }
+      },
+      "block_order": [
+        "prod_cube_plus",
+        "prod_one_plus",
+        "prod_one",
+        "prod_mini",
+        "row_coverage",
+        "row_runtime_low",
+        "row_runtime_high",
+        "row_mist_output",
+        "row_mist_type",
+        "row_capacity",
+        "row_dimensions",
+        "row_night_mode",
+        "row_mood_light",
+        "row_warm_mist"
+      ],
+      "settings": {
+        "heading": "A Carepod for every room",
+        "subheading": "The Carepod humidifier is versatile and user-friendly, making it ideal for any lifestyle, health need, or living space.",
+        "button_bg": "#0249e3",
+        "button_bg_hover": "#00329d",
+        "button_text": "#ffffff"
+      }
+    },
+    "comparative": {
+      "type": "cp-comparative",
+      "blocks": {
+        "feat_subscriptions": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "No Monthly Subscriptions",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_doctor": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Doctor Designed",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_clean": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Easy To Clean",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_steel": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Premium Stainless Steel*",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_filters": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "No Filters Required",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_mold": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Mold-Resistant",
+            "carepod_has": true,
+            "other_has": false
+          }
+        }
+      },
+      "block_order": [
+        "feat_subscriptions",
+        "feat_doctor",
+        "feat_clean",
+        "feat_steel",
+        "feat_filters",
+        "feat_mold"
+      ],
+      "settings": {
+        "heading": "What sets Carepod apart?",
+        "subtext": "Loved by doctors, made for families. Carepod blends premium grade clean with sleek design, perfect for healthy breathing every day.",
+        "other_label": "Other Humidifiers",
+        "footnote": "*Available for select models only",
+        "button_label": "Choose Your Carepod Bundle",
+        "button_link": "/collections/all",
+        "bg_color": "#ffffff"
+      }
+    },
+    "product_spotlight": {
+      "type": "cp-product-spotlight",
+      "settings": {
+        "eyebrow": "New",
+        "heading": "Cube Plus",
+        "subheading": "The world's cleanest cool-and-warm-mist humidifier, with our patented air hydration technology.",
+        "button_label": "Shop Cube Plus",
+        "button_link": "/products/carepod-cube-plus"
+      }
+    },
+    "how_to_clean": {
+      "type": "cp-how-to-clean",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Disassemble",
+            "text": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Scrub or boil to sterilize.",
+            "text": "Wash the oscillator with soap and water. Fill the water tank with water & place the stainless steel lid cover inside. Boil 1-2 mins for 99.9% sterilization."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Refill & enjoy.",
+            "text": "Snap the pieces back in place, fill with water, and you're ready to breathe fresh, clean air in your home once again."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "heading": "See how Carepod makes cleaning easy.",
+        "button_label": "Choose Your Carepod",
+        "button_link": "/collections/all"
+      }
+    },
+    "testimonials": {
+      "type": "cp-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod. Given the health benefits associated with it, I love it so far!",
+            "name": "Dr. Tim Tiutan",
+            "title": "Internal Medicine"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I recently discovered Carepod and absolutely love it. As a pediatric naturopathic doctor, the cold and dry climate we're in makes it a valuable addition. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold.",
+            "name": "Dr. Elana Roumell",
+            "title": "Pediatric Naturopathic"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "How often do we talk about sleep when it comes to kids? All the time. They need good sleep to function. Our old humidifier was hard to clean and always got moldy. When I saw that Carepod only had three pieces that needed cleaning (and was easy!), I immediately knew that this was the one.",
+            "name": "Katie Zelinski",
+            "title": "Pediatric Occupational Therapist"
+          }
+        },
+        "testimonial_4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Carepod is hands down the best humidifier on the market. It's sleek, fun to use, soothing, and holds a good amount of water so you can benefit from it day or night. I highly recommend it to all my clients for their skin, and overall wellness!",
+            "name": "Tess Zolly",
+            "title": "Licensed Esthetician"
+          }
+        },
+        "testimonial_5": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Once one of my daughters starts coughing, it keeps on going, so we use humidifiers all the time. I love how easy it is to clean our Carepod, with three easy steps. It feels good knowing I'm giving my child the most hydrating air only!",
+            "name": "Dr. Jesse L. Berry",
+            "title": "Ophthalmology Surgeon"
+          }
+        },
+        "testimonial_6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. As a bonus, I love its modern chic design that blends well into any environment.",
+            "name": "Dr. Jiyeh Joo",
+            "title": "Family Physician"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3",
+        "testimonial_4",
+        "testimonial_5",
+        "testimonial_6"
+      ],
+      "settings": {
+        "heading": "Loved by Professionals",
+        "bg_color": "#f9f9f9"
+      }
+    },
+    "founder_story": {
+      "type": "cp-founder-story",
+      "settings": {
+        "heading": "Engineered by a doctor with the heart of a father.",
+        "body": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.",
+        "button_label": "Shop Bestsellers",
+        "button_link": "/collections/all"
+      }
+    },
+    "blog_posts": {
+      "type": "cp-blog-posts",
+      "settings": {
+        "heading": "What's New?",
+        "blog": "news"
+      }
+    },
+    "newsletter": {
+      "type": "cp-newsletter",
+      "settings": {
+        "heading": "Let's Stay Connected",
+        "subtext": "Subscribe to get special offers, free giveaways, and exclusive deals.",
+        "placeholder": "Enter your email",
+        "button_label": "Subscribe",
+        "bg_color": "#2b2b2b",
+        "text_color": "#ffffff"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero_banner",
+    "press_quotes",
+    "shop_collection",
+    "product_compare",
+    "comparative",
+    "product_spotlight",
+    "how_to_clean",
+    "testimonials",
+    "founder_story",
+    "blog_posts",
+    "newsletter"
   ]
 }
