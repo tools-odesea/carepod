@@ -1,34 +1,198 @@
 {% comment %}
-  Carepod Founder Story — About section
+  Carepod Founder Story — text left, image right, with CTA
 {% endcomment %}
 
-<section class="carepod-founder" style="padding: 5rem 2rem; background: {{ section.settings.bg_color }};">
-  <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-    {% if section.settings.image != blank %}
-      <img src="{{ section.settings.image | image_url: 'master' }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" alt="{{ section.settings.title }}">
-    {% endif %}
+<style>
+  .cp-founder {
+    background: {{ section.settings.bg_color }};
+    padding: 5rem 2rem;
+  }
 
-    <div>
-      <p style="font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 300; line-height: 1.4; color: {{ section.settings.text_color }}; font-style: italic; margin-bottom: 1.5rem;">
-        {{ section.settings.heading }}
-      </p>
-      <p style="font-size: 0.95rem; line-height: 1.7; color: {{ section.settings.text_color }}; opacity: 0.8;">
-        {{ section.settings.description }}
-      </p>
+  .cp-founder__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 52fr 48fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .cp-founder__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .cp-founder__heading {
+    font-size: clamp(1.5rem, 2.75vw, 2.25rem);
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: 300;
+    line-height: 1.35;
+    color: {{ section.settings.heading_color }};
+    margin: 0;
+    font-style: italic;
+  }
+
+  .cp-founder__body {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: {{ section.settings.text_color }};
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  .cp-founder__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: {{ section.settings.heading_color }};
+    text-decoration: none;
+    border-bottom: 1.5px solid currentColor;
+    padding-bottom: 1px;
+    width: fit-content;
+    transition: opacity 0.2s ease;
+  }
+
+  .cp-founder__cta:hover {
+    opacity: 0.65;
+  }
+
+  .cp-founder__cta svg {
+    flex-shrink: 0;
+  }
+
+  .cp-founder__image-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .cp-founder__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-founder {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .cp-founder__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    /* Image above text on mobile */
+    .cp-founder__image-wrap {
+      order: -1;
+    }
+  }
+</style>
+
+<div class="cp-founder">
+  <div class="cp-founder__inner">
+
+    <div class="cp-founder__text">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="cp-founder__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <p class="cp-founder__body">{{ section.settings.description }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="cp-founder__cta">
+          {{- section.settings.button_label | escape -}}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      {%- endif -%}
     </div>
+
+    {%- if section.settings.image != blank -%}
+      <div class="cp-founder__image-wrap">
+        {{
+          section.settings.image
+          | image_url: width: 1200
+          | image_tag:
+            class: 'cp-founder__image',
+            widths: '400, 600, 800, 1200',
+            sizes: '(min-width: 750px) 48vw, 100vw',
+            loading: 'lazy',
+            alt: section.settings.heading | strip_html | escape
+        }}
+      </div>
+    {%- endif -%}
+
   </div>
-</section>
+</div>
 
 {% schema %}
 {
   "name": "Founder Story",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Founder Image" },
-    { "type": "textarea", "id": "heading", "label": "Quote", "default": "Engineered by a doctor with the heart of a father." },
-    { "type": "textarea", "id": "description", "label": "Description", "default": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air." },
-    { "type": "color", "id": "bg_color", "label": "Background", "default": "#ffffff" },
-    { "type": "color", "id": "text_color", "label": "Text Color", "default": "#1a1a1a" }
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Engineered by a doctor with the heart of a father."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Bestsellers"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#333333"
+    }
   ],
-  "presets": [{ "name": "Founder Story" }]
+  "presets": [
+    {
+      "name": "Founder Story"
+    }
+  ]
 }
 {% endschema %}

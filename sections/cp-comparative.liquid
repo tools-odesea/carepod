@@ -1,0 +1,376 @@
+<style>
+  .cp-comparative {
+    background: {{ section.settings.bg_color }};
+    padding: 5rem 2rem;
+  }
+
+  .cp-comparative__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .cp-comparative__heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .cp-comparative__subtext {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #555;
+    max-width: 580px;
+    margin: 0 0 2rem;
+  }
+
+  /* Two-column comparison table */
+  .cp-comparative__table {
+    width: 100%;
+    max-width: 820px;
+  }
+
+  /* Column headers */
+  .cp-comparative__cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    margin-bottom: 0;
+  }
+
+  .cp-comparative__col-spacer {
+    /* empty left spacer */
+  }
+
+  .cp-comparative__col-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .cp-comparative__col-img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+  }
+
+  .cp-comparative__col-name {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .cp-comparative__col-name--other {
+    color: #888;
+  }
+
+  /* Feature rows */
+  .cp-comparative__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    border-top: 1px solid #e8e8e8;
+    min-height: 52px;
+  }
+
+  .cp-comparative__feature {
+    font-size: 0.875rem;
+    color: #444;
+    text-align: left;
+    padding: 0.875rem 0.5rem 0.875rem 0;
+    line-height: 1.3;
+  }
+
+  .cp-comparative__check,
+  .cp-comparative__cross {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .cp-comparative__check {
+    color: #1a6cde;
+  }
+
+  .cp-comparative__cross {
+    color: #bbb;
+  }
+
+  /* Footer */
+  .cp-comparative__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .cp-comparative__note {
+    font-size: 0.8125rem;
+    color: #999;
+    margin: 0;
+  }
+
+  .cp-comparative__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.9rem 2.5rem;
+    border-radius: 3px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: background 0.2s ease;
+  }
+
+  .cp-comparative__button:hover {
+    background: #333;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-comparative {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .cp-comparative__col-img {
+      width: 64px;
+      height: 64px;
+    }
+
+    .cp-comparative__col-name {
+      font-size: 0.8125rem;
+    }
+
+    .cp-comparative__feature {
+      font-size: 0.8125rem;
+    }
+  }
+</style>
+
+<div class="cp-comparative">
+  <div class="cp-comparative__inner">
+
+    <h2 class="cp-comparative__heading">{{ section.settings.heading | escape }}</h2>
+    {%- if section.settings.subtext != blank -%}
+      <p class="cp-comparative__subtext">{{ section.settings.subtext | escape }}</p>
+    {%- endif -%}
+
+    <div class="cp-comparative__table">
+
+      <!-- Column headers -->
+      <div class="cp-comparative__cols">
+        <div class="cp-comparative__col-spacer"></div>
+
+        <div class="cp-comparative__col-header">
+          {%- if section.settings.carepod_image != blank -%}
+            {{
+              section.settings.carepod_image
+              | image_url: width: 200
+              | image_tag:
+                class: 'cp-comparative__col-img',
+                widths: '90, 180',
+                sizes: '90px',
+                loading: 'lazy',
+                alt: 'Carepod'
+            }}
+          {%- endif -%}
+          <p class="cp-comparative__col-name">Carepod</p>
+        </div>
+
+        <div class="cp-comparative__col-header">
+          {%- if section.settings.other_image != blank -%}
+            {{
+              section.settings.other_image
+              | image_url: width: 200
+              | image_tag:
+                class: 'cp-comparative__col-img',
+                widths: '90, 180',
+                sizes: '90px',
+                loading: 'lazy',
+                alt: 'Other humidifiers'
+            }}
+          {%- endif -%}
+          <p class="cp-comparative__col-name cp-comparative__col-name--other">{{ section.settings.other_label | escape }}</p>
+        </div>
+      </div>
+
+      <!-- Feature rows -->
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'feature_row' -%}
+          <div class="cp-comparative__row" {{ block.shopify_attributes }}>
+            <div class="cp-comparative__feature">{{ block.settings.feature | escape }}</div>
+            <div class="cp-comparative__check" aria-label="Carepod: yes">
+              {%- if block.settings.carepod_has == true -%}
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="11" fill="#1a6cde" fill-opacity="0.12"/>
+                  <path d="M6.5 11.5L9.5 14.5L15.5 8.5" stroke="#1a6cde" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              {%- else -%}
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="11" fill="#f0f0f0"/>
+                  <path d="M7.5 14.5L14.5 7.5M7.5 7.5L14.5 14.5" stroke="#bbb" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              {%- endif -%}
+            </div>
+            <div class="cp-comparative__cross" aria-label="Others: no">
+              {%- if block.settings.other_has == true -%}
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="11" fill="#1a6cde" fill-opacity="0.12"/>
+                  <path d="M6.5 11.5L9.5 14.5L15.5 8.5" stroke="#1a6cde" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              {%- else -%}
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="11" fill="#f0f0f0"/>
+                  <path d="M7.5 14.5L14.5 7.5M7.5 7.5L14.5 14.5" stroke="#bbb" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+
+    </div>
+
+    <div class="cp-comparative__footer">
+      {%- if section.settings.footnote != blank -%}
+        <p class="cp-comparative__note">{{ section.settings.footnote | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="cp-comparative__button">
+          {{- section.settings.button_label | escape -}}
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Comparative Section",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What sets Carepod apart?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Loved by doctors, made for families. Carepod blends premium grade clean with sleek design, perfect for healthy breathing every day."
+    },
+    {
+      "type": "header",
+      "content": "Columns"
+    },
+    {
+      "type": "image_picker",
+      "id": "carepod_image",
+      "label": "Carepod product image"
+    },
+    {
+      "type": "image_picker",
+      "id": "other_image",
+      "label": "Other humidifiers image"
+    },
+    {
+      "type": "text",
+      "id": "other_label",
+      "label": "Competitor column label",
+      "default": "Other Humidifiers"
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "text",
+      "id": "footnote",
+      "label": "Footnote",
+      "default": "*Available for select models only"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Choose Your Carepod Bundle"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_row",
+      "name": "Feature row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature name",
+          "default": "Doctor Designed"
+        },
+        {
+          "type": "checkbox",
+          "id": "carepod_has",
+          "label": "Carepod has this",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "other_has",
+          "label": "Other humidifiers have this",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparative Section",
+      "blocks": [
+        { "type": "feature_row", "settings": { "feature": "No Monthly Subscriptions", "carepod_has": true, "other_has": false } },
+        { "type": "feature_row", "settings": { "feature": "Doctor Designed", "carepod_has": true, "other_has": false } },
+        { "type": "feature_row", "settings": { "feature": "Easy To Clean", "carepod_has": true, "other_has": false } },
+        { "type": "feature_row", "settings": { "feature": "Premium Stainless Steel*", "carepod_has": true, "other_has": false } },
+        { "type": "feature_row", "settings": { "feature": "No Filters Required", "carepod_has": true, "other_has": false } },
+        { "type": "feature_row", "settings": { "feature": "Mold-Resistant", "carepod_has": true, "other_has": false } }
+      ]
+    }
+  ]
+}
+{% endschema %}
