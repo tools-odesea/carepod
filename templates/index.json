@@ -12,8 +12,6 @@
     "hero_banner": {
       "type": "cp-hero-banner",
       "settings": {
-        "image_desktop": "shopify://shop_images/Hero_Image_1_c215dac7-2485-446f-9a60-d1b548dc09ce.jpg",
-        "image_mobile": "shopify://shop_images/Hero_Image_1_c215dac7-2485-446f-9a60-d1b548dc09ce.jpg",
         "badge_text": "Over 130,220+ Humidifiers Sold",
         "heading": "The ultimate upgrade for your home.",
         "button_label": "Shop Carepod",
@@ -157,10 +155,10 @@
           "type": "spec_row",
           "settings": {
             "label": "Coverage",
-            "val_0": "700 ft²",
-            "val_1": "500 ft²",
-            "val_2": "500 ft²",
-            "val_3": "350 ft²"
+            "val_0": "700 ft\u00b2",
+            "val_1": "500 ft\u00b2",
+            "val_2": "500 ft\u00b2",
+            "val_3": "350 ft\u00b2"
           }
         },
         "row_runtime_low": {
@@ -217,10 +215,10 @@
           "type": "spec_row",
           "settings": {
             "label": "Dimensions (in)",
-            "val_0": "9.9 × 9.8 × 11.8",
-            "val_1": "10.8 × 10.2 × 9.3",
-            "val_2": "10.8 × 10.2 × 9.3",
-            "val_3": "4.5 × 11.4 × 9.3"
+            "val_0": "9.9 \u00d7 9.8 \u00d7 11.8",
+            "val_1": "10.8 \u00d7 10.2 \u00d7 9.3",
+            "val_2": "10.8 \u00d7 10.2 \u00d7 9.3",
+            "val_3": "4.5 \u00d7 11.4 \u00d7 9.3"
           }
         },
         "row_night_mode": {
