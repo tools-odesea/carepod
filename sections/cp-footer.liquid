@@ -1,0 +1,359 @@
+<style>
+  .cp-footer {
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding: 4rem 2rem 2rem;
+  }
+
+  .cp-footer__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+  }
+
+  .cp-footer__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr 1fr 1.2fr;
+    gap: 2rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Logo + social column */
+  .cp-footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cp-footer__logo {
+    display: block;
+    max-width: 140px;
+    height: auto;
+  }
+
+  .cp-footer__logo-text {
+    font-family: var(--font-heading-family);
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cp-footer__social {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cp-footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: {{ section.settings.text_color }};
+    transition: opacity 0.2s;
+  }
+
+  .cp-footer__social-link:hover {
+    opacity: 0.7;
+  }
+
+  /* Link columns */
+  .cp-footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cp-footer__col-title {
+    font-family: var(--font-body-family);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: {{ section.settings.text_color }};
+    margin: 0 0 0.5rem;
+  }
+
+  .cp-footer__link {
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6em;
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .cp-footer__link:hover {
+    color: {{ section.settings.text_color }};
+  }
+
+  /* Info column (address, support) */
+  .cp-footer__info-item {
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6em;
+    color: {{ section.settings.link_color }};
+    margin: 0;
+  }
+
+  .cp-footer__info-item a {
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+  }
+
+  .cp-footer__info-item a:hover {
+    color: {{ section.settings.text_color }};
+  }
+
+  /* Bottom copyright */
+  .cp-footer__bottom {
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  .cp-footer__copyright {
+    font-family: var(--font-body-family);
+    font-size: 13px;
+    font-weight: 400;
+    color: {{ section.settings.link_color }};
+    margin: 0;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .cp-footer {
+      padding: 3rem 1.5rem 1.5rem;
+    }
+
+    .cp-footer__top {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.5rem;
+    }
+
+    .cp-footer__brand {
+      grid-column: 1 / -1;
+    }
+
+    .cp-footer__col-title {
+      font-size: 11px;
+    }
+
+    .cp-footer__link {
+      font-size: 13px;
+    }
+  }
+</style>
+
+<footer class="cp-footer">
+  <div class="cp-footer__inner">
+
+    <div class="cp-footer__top">
+
+      <!-- Brand + social -->
+      <div class="cp-footer__brand">
+        <a href="{{ routes.root_url }}" class="cp-footer__logo-text" aria-label="Carepod home">
+          {%- if section.settings.logo != blank -%}
+            {{
+              section.settings.logo
+              | image_url: width: 300
+              | image_tag:
+                class: 'cp-footer__logo',
+                widths: '140, 280',
+                sizes: '140px',
+                loading: 'lazy',
+                alt: 'Carepod'
+            }}
+          {%- else -%}
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="5" cy="11" r="3" fill="currentColor"/>
+              <circle cx="14" cy="5" r="2.5" fill="currentColor"/>
+              <circle cx="14" cy="17" r="2.5" fill="currentColor"/>
+            </svg>
+            CAREPOD
+          {%- endif -%}
+        </a>
+
+        <div class="cp-footer__social">
+          {%- if settings.social_facebook_link != blank -%}
+            <a href="{{ settings.social_facebook_link }}" class="cp-footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2Z"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_instagram_link != blank -%}
+            <a href="{{ settings.social_instagram_link }}" class="cp-footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_youtube_link != blank -%}
+            <a href="{{ settings.social_youtube_link }}" class="cp-footer__social-link" aria-label="YouTube" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Link columns from blocks -->
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'link_column' -%}
+          <div class="cp-footer__col" {{ block.shopify_attributes }}>
+            {%- if block.settings.title != blank -%}
+              <h3 class="cp-footer__col-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.menu != blank -%}
+              {%- for link in block.settings.menu.links -%}
+                <a href="{{ link.url }}" class="cp-footer__link">{{ link.title | escape }}</a>
+              {%- endfor -%}
+            {%- endif -%}
+          </div>
+        {%- elsif block.type == 'info_column' -%}
+          <div class="cp-footer__col" {{ block.shopify_attributes }}>
+            {%- if block.settings.title != blank -%}
+              <h3 class="cp-footer__col-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.address != blank -%}
+              <p class="cp-footer__info-item">&bull; {{ block.settings.address }}</p>
+            {%- endif -%}
+            {%- if block.settings.support_label != blank -%}
+              <p class="cp-footer__info-item">
+                &bull; {{ block.settings.support_label }}
+                {%- if block.settings.support_email != blank -%}
+                  <br><a href="mailto:{{ block.settings.support_email }}">{{ block.settings.support_email }}</a>
+                {%- endif -%}
+              </p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+
+    </div>
+
+    <div class="cp-footer__bottom">
+      <p class="cp-footer__copyright">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All Rights Reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "CP Footer",
+  "tag": "section",
+  "class": "section cp-footer-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer logo"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1c1d1d"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#b0b0b0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_column",
+      "name": "Link column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Column title",
+          "default": "About"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    },
+    {
+      "type": "info_column",
+      "name": "Info column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Column title",
+          "default": "Carepod US"
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "label": "Address",
+          "default": "6600 Chase Oaks Blvd #150, Plano, TX 75023"
+        },
+        {
+          "type": "text",
+          "id": "support_label",
+          "label": "Support label",
+          "default": "Customer Support:"
+        },
+        {
+          "type": "text",
+          "id": "support_email",
+          "label": "Support email",
+          "default": "support@hellocarepod.com"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CP Footer",
+      "blocks": [
+        {
+          "type": "link_column",
+          "settings": {
+            "title": "About"
+          }
+        },
+        {
+          "type": "link_column",
+          "settings": {
+            "title": "Shop"
+          }
+        },
+        {
+          "type": "link_column",
+          "settings": {
+            "title": "Connect"
+          }
+        },
+        {
+          "type": "info_column",
+          "settings": {
+            "title": "Carepod US",
+            "address": "6600 Chase Oaks Blvd #150, Plano, TX 75023",
+            "support_label": "Customer Support:",
+            "support_email": "support@hellocarepod.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
