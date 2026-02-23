@@ -155,10 +155,10 @@
           "type": "spec_row",
           "settings": {
             "label": "Coverage",
-            "val_0": "700 ft\u00b2",
-            "val_1": "500 ft\u00b2",
-            "val_2": "500 ft\u00b2",
-            "val_3": "350 ft\u00b2"
+            "val_0": "700 ft²",
+            "val_1": "500 ft²",
+            "val_2": "500 ft²",
+            "val_3": "350 ft²"
           }
         },
         "row_runtime_low": {
@@ -215,10 +215,10 @@
           "type": "spec_row",
           "settings": {
             "label": "Dimensions (in)",
-            "val_0": "9.9 \u00d7 9.8 \u00d7 11.8",
-            "val_1": "10.8 \u00d7 10.2 \u00d7 9.3",
-            "val_2": "10.8 \u00d7 10.2 \u00d7 9.3",
-            "val_3": "4.5 \u00d7 11.4 \u00d7 9.3"
+            "val_0": "9.9 × 9.8 × 11.8",
+            "val_1": "10.8 × 10.2 × 9.3",
+            "val_2": "10.8 × 10.2 × 9.3",
+            "val_3": "4.5 × 11.4 × 9.3"
           }
         },
         "row_night_mode": {
@@ -339,10 +339,13 @@
       "settings": {
         "heading": "What sets Carepod apart?",
         "subtext": "Loved by doctors, made for families. Carepod blends premium grade clean with sleek design, perfect for healthy breathing every day.",
+        "carepod_image": "shopify://shop_images/02Image.png",
+        "other_image": "shopify://shop_images/02Image.png",
         "other_label": "Other Humidifiers",
         "footnote": "*Available for select models only",
         "button_label": "Choose Your Carepod Bundle",
         "button_link": "/collections/all",
+        "guarantee_text": "Try it 100% risk free",
         "bg_color": "#ffffff"
       }
     },
@@ -388,6 +391,7 @@
       ],
       "settings": {
         "heading": "See how Carepod makes cleaning easy.",
+        "heading_mobile": "",
         "button_label": "Choose Your Carepod",
         "button_link": "/collections/all"
       }
