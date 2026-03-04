@@ -132,10 +132,16 @@
 .product__info-container ul.icon-with-text {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 0.4rem !important;
+  gap: 0.5rem !important;
   padding: 0 !important;
   margin: 0.15rem 0 0 !important;
   list-style: none !important;
+  justify-content: flex-start !important;
+}
+
+/* Space between the two benefit pill rows */
+.product__info-container ul.icon-with-text + ul.icon-with-text {
+  margin-top: 0.25rem !important;
 }
 
 .product__info-container ul.icon-with-text li.icon-with-text__item {
