@@ -48,7 +48,9 @@
             "icon_1": "recycle",
             "heading_1": "No filter required",
             "icon_2": "star",
-            "heading_2": "Best in class sterilization"
+            "heading_2": "Best in class sterilization",
+            "heading_3": "",
+            "icon_3": "none"
           }
         },
         "price": {
@@ -98,7 +100,7 @@
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "thumbnail",
+        "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
