@@ -128,33 +128,33 @@
   }
 }
 
-/* Icon-with-text benefits — small pill badges */
+/* Icon-with-text benefits — small blue pill badges */
 .product__info-container .icon-with-text {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 0.5rem !important;
-  padding: 0.15rem 0 !important;
-  margin-top: 0.25rem !important;
+  gap: 0.4rem !important;
+  padding: 0 !important;
+  margin-top: 0.15rem !important;
 }
 
 .product__info-container .icon-with-text .icon-with-text__item {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 0.4rem !important;
-  border: 1px solid #e0e0e0 !important;
-  border-radius: 20px !important;
-  padding: 0.3rem 0.75rem !important;
-  background: #fff !important;
+  gap: 0.3rem !important;
+  border: none !important;
+  border-radius: 16px !important;
+  padding: 0.25rem 0.6rem !important;
+  background: #1F07F2 !important;
   flex-direction: row !important;
 }
 
 /* Text inside pill (Dawn uses span.h4) */
 .product__info-container .icon-with-text .icon-with-text__item .h4 {
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  color: #4a4a4a !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
   white-space: nowrap !important;
-  letter-spacing: normal !important;
+  letter-spacing: 0.02em !important;
   text-transform: none !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -172,9 +172,9 @@
 }
 
 .product__info-container .icon-with-text .icon-with-text__item .svg-wrapper svg {
-  width: 18px !important;
-  height: 18px !important;
-  color: #2253f5 !important;
+  width: 14px !important;
+  height: 14px !important;
+  color: #ffffff !important;
 }
 
 /* Price styling — match original */
