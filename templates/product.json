@@ -49,8 +49,8 @@
             "heading_1": "No filter required",
             "icon_2": "star",
             "heading_2": "Best in class sterilization",
-            "heading_3": "",
-            "icon_3": "none"
+            "icon_3": "none",
+            "heading_3": ""
           }
         },
         "price": {
@@ -214,6 +214,7 @@
     "video_text": {
       "type": "cp-video-text",
       "settings": {
+        "video_url": "",
         "heading": "Say Hello To Carepod Cube Plus.",
         "subtitle": "Refreshingly simple, powerfully effective.",
         "body": "Take a peek underneath the sleek, minimalist exterior and discover how Carepod makes healthy living easier than ever.",
@@ -243,7 +244,8 @@
             "icon": "night",
             "label": "Night Mode",
             "title": "Restful, hydrated sleep.",
-            "description": "Time to relax with display lights off at bedtime. Perfect for the most light-sensitive sleeper."
+            "description": "Time to relax with display lights off at bedtime. Perfect for the most light-sensitive sleeper.",
+            "footnote": ""
           }
         },
         "card_humidity": {
@@ -252,7 +254,8 @@
             "icon": "humidity",
             "label": "Auto-Humidity",
             "title": "Optimal comfort.",
-            "description": "Set it and forget it, with a smart feature that adapts to your room's humidity levels for perfect hydration."
+            "description": "Set it and forget it, with a smart feature that adapts to your room's humidity levels for perfect hydration.",
+            "footnote": ""
           }
         }
       },
@@ -314,7 +317,7 @@
           "type": "slide",
           "settings": {
             "title": "Schedule Your Sanitize Cycle.",
-            "description": "Press the \"Sanitize\" button. After the tank's water reaches a low level and the built-in heating ramps up to 158\u00b0F, the cycle will begin."
+            "description": "Press the \"Sanitize\" button. After the tank's water reaches a low level and the built-in heating ramps up to 158°F, the cycle will begin."
           }
         },
         "slide_2": {
@@ -342,7 +345,7 @@
           "type": "slide",
           "settings": {
             "title": "Easy 3-Piece Cleaning.",
-            "description": "Disassemble the three stainless steel components, wash or boil, and reassemble. It's that simple \u2014 no hard-to-reach crevices or mold buildup."
+            "description": "Disassemble the three stainless steel components, wash or boil, and reassemble. It's that simple — no hard-to-reach crevices or mold buildup."
           }
         }
       },
@@ -407,6 +410,7 @@
         "footnote": "",
         "button_label": "Choose Your Carepod Bundle",
         "button_link": "/collections/all",
+        "guarantee_text": "Try it 100% risk free",
         "bg_color": "#ffffff"
       }
     },
@@ -425,7 +429,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Does The Carepod Cube Plus Clean Itself?",
-            "answer": "<p>The Cube Plus features a built-in sanitization cycle that heats water to 158\u00b0F, killing 99.9% of bacteria. While this significantly reduces the need for manual cleaning, we still recommend a full clean every 1-2 weeks for optimal performance.</p>",
+            "answer": "<p>The Cube Plus features a built-in sanitization cycle that heats water to 158°F, killing 99.9% of bacteria. While this significantly reduces the need for manual cleaning, we still recommend a full clean every 1-2 weeks for optimal performance.</p>",
             "open_default": false
           }
         },
@@ -477,6 +481,26 @@
         "button_bg": "#f0b43e",
         "button_text": "#000000"
       }
+    },
+    "1772637314ddf7c386": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_CBaJYU": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_CBaJYU"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -487,6 +511,7 @@
     "feature_cards",
     "testimonials",
     "feature_slider",
+    "1772637314ddf7c386",
     "comparative",
     "product_faq",
     "risk_free"
