@@ -1,1 +1,466 @@
-{"sections":{"main":{"type":"main-product","blocks":{"vendor":{"type":"text","settings":{"text":"{{ product.vendor }}","text_style":"uppercase"}},"title":{"type":"title","settings":{}},"price":{"type":"price","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":true,"show_gift_card_recipient":true}},"description":{"type":"description","settings":{}},"share":{"type":"share","settings":{"share_label":"Share"}}},"block_order":["vendor","title","price","variant_picker","quantity_selector","buy_buttons","description","share"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-1","media_size":"large","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"stacked","mobile_thumbnails":"hide","media_position":"left","image_zoom":"lightbox","hide_variants":true,"enable_video_looping":false,"padding_top":36,"padding_bottom":12}},"related-products":{"type":"related-products","settings":{"heading":"You may also like","heading_size":"h2","products_to_show":4,"columns_desktop":4,"columns_mobile":"2","color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"padding_top":36,"padding_bottom":28}}},"order":["main","related-products"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "product_benefits": {
+      "type": "cp-product-benefits",
+      "blocks": {
+        "benefit_doctor": {
+          "type": "benefit",
+          "settings": {
+            "icon": "doctor",
+            "title": "Doctor Designed",
+            "description": "Simple, sleek, award-winning. With just three parts to clean."
+          }
+        },
+        "benefit_sterilize": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sterilize",
+            "title": "99.9% Sterilizable",
+            "description": "Easy to boil to eliminate mold + bacteria."
+          }
+        },
+        "benefit_steel": {
+          "type": "benefit",
+          "settings": {
+            "icon": "steel",
+            "title": "Stainless Steel",
+            "description": "Dishwasher-safe water tank with a top-fill design."
+          }
+        },
+        "benefit_germ": {
+          "type": "benefit",
+          "settings": {
+            "icon": "germ-free",
+            "title": "Safe and Germ-Free",
+            "description": "No hidden nooks or crannies that breed bacteria."
+          }
+        },
+        "benefit_subscription": {
+          "type": "benefit",
+          "settings": {
+            "icon": "no-subscription",
+            "title": "No Monthly Subscriptions",
+            "description": "Skip the hassle of filter replacements. Perfect for long-term cost savings."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_doctor",
+        "benefit_sterilize",
+        "benefit_steel",
+        "benefit_germ",
+        "benefit_subscription"
+      ],
+      "settings": {
+        "heading": "The Humidifier, Reinvented.",
+        "bg_color": "#2b2b2b",
+        "text_color": "#ffffff"
+      }
+    },
+    "press_quotes": {
+      "type": "cp-press-quotes",
+      "blocks": {
+        "quote_forbes": {
+          "type": "quote",
+          "settings": {
+            "quote": "A safe choice for homes with kids and pets. Oh, and it's invented by a doctor",
+            "publication": "Forbes"
+          }
+        },
+        "quote_wellgood": {
+          "type": "quote",
+          "settings": {
+            "quote": "Your face and lungs will thank you.",
+            "publication": "Well + Good"
+          }
+        },
+        "quote_bhg": {
+          "type": "quote",
+          "settings": {
+            "quote": "It has a very simple, intuitive design that puts it above other humidifiers we tested.",
+            "publication": "Better Homes and Gardens"
+          }
+        },
+        "quote_bazaar": {
+          "type": "quote",
+          "settings": {
+            "quote": "Carepod's award-earning humidifier is a winning self-care gift.",
+            "publication": "Bazaar"
+          }
+        }
+      },
+      "block_order": [
+        "quote_forbes",
+        "quote_wellgood",
+        "quote_bhg",
+        "quote_bazaar"
+      ],
+      "settings": {
+        "bg_color": "#ffffff",
+        "card_bg": "#f5f5f5",
+        "text_color": "#1a1a1a"
+      }
+    },
+    "video_text": {
+      "type": "cp-video-text",
+      "settings": {
+        "heading": "Say Hello To Carepod Cube Plus.",
+        "subtitle": "Refreshingly simple, powerfully effective.",
+        "body": "Take a peek underneath the sleek, minimalist exterior and discover how Carepod makes healthy living easier than ever.",
+        "button_label": "Choose Your Carepod Bundle",
+        "button_link": "/collections/all",
+        "guarantee_text": "Try it 100% risk free",
+        "invert_layout": false,
+        "bg_color": "#ffffff"
+      }
+    },
+    "feature_cards": {
+      "type": "cp-feature-cards",
+      "blocks": {
+        "card_sanitize": {
+          "type": "feature",
+          "settings": {
+            "icon": "sanitize",
+            "label": "One-Touch Sanitization",
+            "title": "Blissfully clean air.",
+            "description": "Capable of killing bacteria* within a 2-hour cycle, for peace of mind in-between deep cleanings.",
+            "footnote": "*Kills 99.9% of harmful bacteria such as Pseudomonas aeruginosa, E. coli, Staphylococcus aureus, Pneumococcus, and Listeria bacteria with our patented pasteurization method"
+          }
+        },
+        "card_night": {
+          "type": "feature",
+          "settings": {
+            "icon": "night",
+            "label": "Night Mode",
+            "title": "Restful, hydrated sleep.",
+            "description": "Time to relax with display lights off at bedtime. Perfect for the most light-sensitive sleeper."
+          }
+        },
+        "card_humidity": {
+          "type": "feature",
+          "settings": {
+            "icon": "humidity",
+            "label": "Auto-Humidity",
+            "title": "Optimal comfort.",
+            "description": "Set it and forget it, with a smart feature that adapts to your room's humidity levels for perfect hydration."
+          }
+        }
+      },
+      "block_order": [
+        "card_sanitize",
+        "card_night",
+        "card_humidity"
+      ],
+      "settings": {
+        "heading": "The Cube, Upgraded",
+        "button_label": "Choose Your Carepod Bundle",
+        "button_link": "/collections/all",
+        "guarantee_text": "Try it 100% risk free",
+        "bg_color": "#ffffff"
+      }
+    },
+    "testimonials": {
+      "type": "cp-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. As a bonus, I love its modern chic design that blends well into any environment.",
+            "name": "Dr. Jiyeh Joo",
+            "title": "Family Physician"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod. Given the health benefits associated with it, I love it so far!",
+            "name": "Dr. Tim Tiutan",
+            "title": "Internal Medicine"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I recently discovered Carepod and absolutely love it. As a pediatric naturopathic doctor, the cold and dry climate we're in makes it a valuable addition. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold.",
+            "name": "Dr. Elana Roumell",
+            "title": "Pediatric Naturopathic"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "settings": {
+        "heading": "Loved by Families. Approved by Doctors.",
+        "bg_color": "#ffffff"
+      }
+    },
+    "feature_slider": {
+      "type": "cp-feature-slider",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "title": "Schedule Your Sanitize Cycle.",
+            "description": "Press the \"Sanitize\" button. After the tank's water reaches a low level and the built-in heating ramps up to 158\u00b0F, the cycle will begin."
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "title": "Warm Mist for Winter Comfort.",
+            "description": "Switch to warm mist mode for a cozy, soothing atmosphere during the colder months. The built-in heater gently warms the water before dispersing it."
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "title": "Auto-Humidity Sensing.",
+            "description": "The built-in sensor detects your room's humidity level and automatically adjusts mist output to maintain optimal comfort."
+          }
+        },
+        "slide_4": {
+          "type": "slide",
+          "settings": {
+            "title": "Night Mode.",
+            "description": "Dim all display lights with a single touch for an uninterrupted, peaceful night's sleep in complete darkness."
+          }
+        },
+        "slide_5": {
+          "type": "slide",
+          "settings": {
+            "title": "Easy 3-Piece Cleaning.",
+            "description": "Disassemble the three stainless steel components, wash or boil, and reassemble. It's that simple \u2014 no hard-to-reach crevices or mold buildup."
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "slide_3",
+        "slide_4",
+        "slide_5"
+      ],
+      "settings": {
+        "heading": "Extra Clean Air for Peace of Mind.",
+        "bg_color": "#ffffff"
+      }
+    },
+    "comparative": {
+      "type": "cp-comparative",
+      "blocks": {
+        "feat_doctor": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Doctor Designed",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_clean": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Easy To Clean",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_award": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Award Winning",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_returns": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "30-Day Free Returns",
+            "carepod_has": true,
+            "other_has": true
+          }
+        }
+      },
+      "block_order": [
+        "feat_doctor",
+        "feat_clean",
+        "feat_award",
+        "feat_returns"
+      ],
+      "settings": {
+        "heading": "What sets Cube Plus apart?",
+        "subtext": "There's plenty of air humidifiers out there. But when it comes to safety, simplicity, and fresh innovation... there can only be One.",
+        "other_label": "Other Humidifiers",
+        "footnote": "",
+        "button_label": "Choose Your Carepod Bundle",
+        "button_link": "/collections/all",
+        "bg_color": "#ffffff"
+      }
+    },
+    "product_faq": {
+      "type": "cp-product-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What Is The Difference Between The Carepod Cube & Carepod Cube Plus?",
+            "answer": "<p>The Carepod Cube Plus is the latest iteration of our high-end humidifier. It includes quality-of-life improvements such as built-in heat sanitization, auto-humidity controls, and night mode.</p>",
+            "open_default": true
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does The Carepod Cube Plus Clean Itself?",
+            "answer": "<p>The Cube Plus features a built-in sanitization cycle that heats water to 158\u00b0F, killing 99.9% of bacteria. While this significantly reduces the need for manual cleaning, we still recommend a full clean every 1-2 weeks for optimal performance.</p>",
+            "open_default": false
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How About Shipping?",
+            "answer": "<p>We offer free shipping on all orders within the United States. Orders are typically processed within 1-2 business days and delivered within 3-5 business days.</p>",
+            "open_default": false
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What Is Your Warranty?",
+            "answer": "<p>Every Carepod comes with a 1-year manufacturer's warranty that covers defects in materials and workmanship under normal use.</p>",
+            "open_default": false
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How Do I Clean My Carepod?",
+            "answer": "<p>Simply disassemble the three stainless steel components, wash with soap and water or place in the dishwasher, and for a deeper clean, boil the components for 1-2 minutes. Reassemble and you're good to go!</p>",
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "heading": "You May Be Wondering...",
+        "bg_color": "#ffffff"
+      }
+    },
+    "risk_free": {
+      "type": "cp-risk-free-banner",
+      "settings": {
+        "heading": "Try It Now, 100% Risk Free",
+        "body": "Your Carepod Cube Plus is backed by our satisfaction guarantee, meaning you'll have 30 days to try it out for yourself to see why over 71,000+ homes love theirs.",
+        "button_label": "Choose Your Carepod Bundle",
+        "button_link": "/collections/all",
+        "guarantee_text": "Try it 100% risk free",
+        "button_bg": "#f0b43e",
+        "button_text": "#000000"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_benefits",
+    "press_quotes",
+    "video_text",
+    "feature_cards",
+    "testimonials",
+    "feature_slider",
+    "comparative",
+    "product_faq",
+    "risk_free"
+  ]
+}

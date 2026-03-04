@@ -1,0 +1,301 @@
+<style>
+  .cp-fslider {
+    background: {{ section.settings.bg_color }};
+    padding: 4rem 2rem;
+  }
+
+  .cp-fslider__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cp-fslider__heading {
+    font-size: 35px;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: 700;
+    color: #1c1d1d;
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: 0.4px;
+    text-align: center;
+  }
+
+  .cp-fslider__slide {
+    display: none;
+  }
+
+  .cp-fslider__slide.is-active {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .cp-fslider__text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cp-fslider__nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .cp-fslider__nav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid #1c1d1d;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .cp-fslider__nav-btn:hover {
+    background: #1c1d1d;
+    color: #fff;
+  }
+
+  .cp-fslider__nav-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .cp-fslider__counter {
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    color: #666;
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .cp-fslider__title {
+    font-family: var(--font-heading-family);
+    font-size: 28px;
+    font-weight: 700;
+    color: #1c1d1d;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .cp-fslider__desc {
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    font-weight: 400;
+    color: #4a4a4a;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  .cp-fslider__image-wrap {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cp-fslider__image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-fslider {
+      padding: 3rem 1.5rem;
+    }
+
+    .cp-fslider__heading {
+      font-size: 24px;
+    }
+
+    .cp-fslider__slide.is-active {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .cp-fslider__title {
+      font-size: 22px;
+    }
+
+    .cp-fslider__desc {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div class="cp-fslider" id="cp-fslider-{{ section.id }}">
+  <div class="cp-fslider__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cp-fslider__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- for block in section.blocks -%}
+      <div class="cp-fslider__slide{% if forloop.first %} is-active{% endif %}" data-slide-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+        <div class="cp-fslider__text">
+          <div class="cp-fslider__nav">
+            <button type="button" class="cp-fslider__nav-btn cp-fslider__prev" aria-label="Previous slide">
+              <svg viewBox="0 0 16 16"><path d="M10 4L6 8L10 12"/></svg>
+            </button>
+            <span class="cp-fslider__counter">{{ forloop.index }} / {{ forloop.length }}</span>
+            <button type="button" class="cp-fslider__nav-btn cp-fslider__next" aria-label="Next slide">
+              <svg viewBox="0 0 16 16"><path d="M6 4L10 8L6 12"/></svg>
+            </button>
+          </div>
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="cp-fslider__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.description != blank -%}
+            <p class="cp-fslider__desc">{{ block.settings.description | escape }}</p>
+          {%- endif -%}
+        </div>
+
+        <div class="cp-fslider__image-wrap">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'cp-fslider__image', loading: 'lazy', sizes: '(min-width: 750px) 50vw, 100vw', widths: '375, 550, 750, 1000' }}
+          {%- else -%}
+            <div class="cp-fslider__image" style="background: #f0f0f0; aspect-ratio: 1/1; border-radius: 12px;"></div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    const section = document.getElementById('cp-fslider-{{ section.id }}');
+    if (!section) return;
+
+    const slides = section.querySelectorAll('.cp-fslider__slide');
+    if (slides.length <= 1) return;
+
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach(function(s) { s.classList.remove('is-active'); });
+      slides[index].classList.add('is-active');
+      current = index;
+    }
+
+    section.addEventListener('click', function(e) {
+      const prev = e.target.closest('.cp-fslider__prev');
+      const next = e.target.closest('.cp-fslider__next');
+      if (prev) {
+        showSlide(current <= 0 ? slides.length - 1 : current - 1);
+      } else if (next) {
+        showSlide(current >= slides.length - 1 ? 0 : current + 1);
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Feature Slider",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Extra Clean Air for Peace of Mind."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Schedule Your Sanitize Cycle."
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Press the \"Sanitize\" button. After the tank's water reaches a low level and the built-in heating ramps up to 158°F, the cycle will begin."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Schedule Your Sanitize Cycle.",
+            "description": "Press the \"Sanitize\" button. After the tank's water reaches a low level and the built-in heating ramps up to 158°F, the cycle will begin."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Warm Mist for Winter Comfort.",
+            "description": "Switch to warm mist mode for a cozy, soothing atmosphere during the colder months. The built-in heater gently warms the water before dispersing it."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Auto-Humidity Sensing.",
+            "description": "The built-in sensor detects your room's humidity level and automatically adjusts mist output to maintain optimal comfort."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Night Mode.",
+            "description": "Dim all display lights with a single touch for an uninterrupted, peaceful night's sleep in complete darkness."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Easy 3-Piece Cleaning.",
+            "description": "Disassemble the three stainless steel components, wash or boil, and reassemble. It's that simple — no hard-to-reach crevices or mold buildup."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
