@@ -14,9 +14,14 @@
       "blocks": {
         "star_rating": {
           "type": "custom_liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<div class=\"cp-star-rating\">\n  <div class=\"cp-star-rating__stars\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#1f07f2\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg>\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#1f07f2\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg>\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#1f07f2\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg>\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#1f07f2\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg>\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"half-star\"><stop offset=\"50%\" stop-color=\"#1f07f2\"/><stop offset=\"50%\" stop-color=\"#d0d0d0\"/></linearGradient></defs><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\" fill=\"url(#half-star)\"/></svg>\n  </div>\n  <span class=\"cp-star-rating__score\">4.3</span>\n  <span class=\"cp-star-rating__divider\">|</span>\n  <span class=\"cp-star-rating__count\">(627)</span>\n  <span class=\"cp-star-rating__badge\">Verified Reviews</span>\n</div>"
           }
+        },
+        "judge_me_reviews_preview_badge_Az8cFM": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         },
         "title": {
           "type": "title",
@@ -85,6 +90,7 @@
       },
       "block_order": [
         "star_rating",
+        "judge_me_reviews_preview_badge_Az8cFM",
         "title",
         "tagline",
         "benefits_strip",
@@ -361,6 +367,26 @@
         "bg_color": "#ffffff"
       }
     },
+    "1772637314ddf7c386": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_CBaJYU": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_CBaJYU"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "comparative": {
       "type": "cp-comparative",
       "blocks": {
@@ -480,26 +506,6 @@
         "guarantee_text": "Try it 100% risk free",
         "button_bg": "#f0b43e",
         "button_text": "#000000"
-      }
-    },
-    "1772637314ddf7c386": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_CBaJYU": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_CBaJYU"
-      ],
-      "settings": {
-        "include_margins": true
       }
     }
   },
