@@ -129,30 +129,35 @@
 }
 
 /* Icon-with-text benefits — small blue pill badges */
-.product__info-container .icon-with-text {
+.product__info-container ul.icon-with-text {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 0.4rem !important;
   padding: 0 !important;
-  margin-top: 0.15rem !important;
+  margin: 0.15rem 0 0 !important;
+  list-style: none !important;
 }
 
-.product__info-container .icon-with-text .icon-with-text__item {
+.product__info-container ul.icon-with-text li.icon-with-text__item {
   display: inline-flex !important;
   align-items: center !important;
   gap: 0.3rem !important;
   border: none !important;
   border-radius: 16px !important;
-  padding: 0.25rem 0.6rem !important;
-  background: #1F07F2 !important;
+  padding: 6px 12px !important;
+  background: #F0F6FF !important;
   flex-direction: row !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
 }
 
-/* Text inside pill (Dawn uses span.h4) */
-.product__info-container .icon-with-text .icon-with-text__item .h4 {
-  font-size: 11px !important;
+/* Text inside pill */
+.product__info-container ul.icon-with-text li.icon-with-text__item span {
+  font-size: 12px !important;
   font-weight: 500 !important;
-  color: #ffffff !important;
+  color: #0054FF !important;
   white-space: nowrap !important;
   letter-spacing: 0.02em !important;
   text-transform: none !important;
@@ -161,20 +166,33 @@
   line-height: 1.3 !important;
 }
 
-/* Icon inside pill (Dawn uses span.svg-wrapper) */
-.product__info-container .icon-with-text .icon-with-text__item .svg-wrapper {
-  display: flex !important;
+/* Icon inside pill — force white */
+.product__info-container ul.icon-with-text li.icon-with-text__item .svg-wrapper {
+  display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   width: auto !important;
   height: auto !important;
   flex-shrink: 0 !important;
+  color: #0054FF !important;
 }
 
-.product__info-container .icon-with-text .icon-with-text__item .svg-wrapper svg {
+.product__info-container ul.icon-with-text li.icon-with-text__item .svg-wrapper svg {
   width: 14px !important;
   height: 14px !important;
-  color: #ffffff !important;
+  color: #0054FF !important;
+  fill: none !important;
+  stroke: #0054FF !important;
+}
+
+.product__info-container ul.icon-with-text li.icon-with-text__item .svg-wrapper svg path,
+.product__info-container ul.icon-with-text li.icon-with-text__item .svg-wrapper svg circle,
+.product__info-container ul.icon-with-text li.icon-with-text__item .svg-wrapper svg polyline,
+.product__info-container ul.icon-with-text li.icon-with-text__item .svg-wrapper svg line,
+.product__info-container ul.icon-with-text li.icon-with-text__item .svg-wrapper svg rect,
+.product__info-container ul.icon-with-text li.icon-with-text__item .svg-wrapper svg polygon {
+  stroke: #0054FF !important;
+  fill: none !important;
 }
 
 /* Price styling — match original */
