@@ -1,0 +1,158 @@
+/* ===== Carepod Header Overrides ===== */
+
+/* Center the navigation between logo and icons */
+@media screen and (min-width: 990px) {
+  .header--middle-left {
+    grid-template-columns: 1fr auto 1fr !important;
+    column-gap: 2rem;
+  }
+
+  .header--middle-left .header__heading-link {
+    margin-left: 0;
+  }
+
+  /* Push icons to the right */
+  .header--middle-left .header__icons {
+    justify-self: end;
+  }
+}
+
+/* Nav link styling to match original */
+.header__inline-menu .list-menu--inline > .list-menu__item > .header__menu-item {
+  font-family: var(--font-body-family);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #1c1d1d;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.header__inline-menu .list-menu--inline > .list-menu__item > .header__menu-item:hover {
+  color: #666;
+}
+
+/* Clean up header padding */
+.header-wrapper {
+  border-bottom: 1px solid #e8e8e8 !important;
+}
+
+/* Logo size */
+.header__heading-logo {
+  max-width: 160px;
+  height: auto;
+}
+
+/* Icon styling */
+.header__icon {
+  color: #1c1d1d;
+}
+
+/* Remove section spacing between header and content */
+.section-header {
+  margin-bottom: 0 !important;
+}
+
+/* ===== Carepod Product Page Overrides ===== */
+
+/* Product title — match original sizing */
+.product__title h1,
+.product__title .h1 {
+  font-size: 26px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.2px !important;
+}
+
+@media screen and (max-width: 749px) {
+  .product__title h1,
+  .product__title .h1 {
+    font-size: 22px !important;
+  }
+}
+
+/* Tagline / subtitle text under title */
+.product__text.subtitle {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #4a4a4a !important;
+  line-height: 1.55 !important;
+  margin-top: -0.25rem !important;
+}
+
+@media screen and (max-width: 749px) {
+  .product__text.subtitle {
+    font-size: 14px !important;
+  }
+}
+
+/* Icon-with-text benefits strip styling */
+.product__info-container .icon-with-text {
+  gap: 0.5rem !important;
+  padding: 0.25rem 0 !important;
+}
+
+.product__info-container .icon-with-text .icon-with-text__item {
+  gap: 0.35rem !important;
+}
+
+.product__info-container .icon-with-text .icon-with-text__text {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #666 !important;
+}
+
+.product__info-container .icon-with-text .icon-with-text__icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  color: #2253f5 !important;
+}
+
+/* Price styling — match original */
+.product__info-container .price--large .price-item--regular {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+}
+
+/* Reduce spacing in product info area */
+.product__info-container > * + * {
+  margin-top: 0.75rem;
+}
+
+/* Buy button styling — full-width dark button */
+.product-form__submit {
+  background: #1c1d1d !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  padding: 0.85rem 2rem !important;
+  min-height: 48px !important;
+}
+
+.product-form__submit:hover {
+  background: #333 !important;
+}
+
+/* Hide the "View full details" link on product page */
+.product__view-details {
+  display: none !important;
+}
+
+/* Thumbnail gallery — tighter spacing */
+.product--thumbnail .product__media-list {
+  gap: 0.5rem;
+}
+
+/* Collapsible tab styling */
+.product__accordion .accordion__title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+
+/* ===== Carepod Footer Section Overrides ===== */
+.cp-footer-section {
+  margin-top: 0 !important;
+}

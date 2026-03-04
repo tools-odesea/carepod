@@ -12,27 +12,42 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
         },
+        "tagline": {
+          "type": "text",
+          "settings": {
+            "text": "The world's cleanest cool-and-warm-mist humidifier, with our patented air hydration technology.",
+            "text_style": "subtitle"
+          }
+        },
+        "benefits_strip": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "heading_1": "Better breathing",
+            "icon_2": "leaf",
+            "heading_2": "Clearer skin",
+            "icon_3": "check_mark",
+            "heading_3": "Improved sleep"
+          }
+        },
+        "benefits_strip_2": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "recycle",
+            "heading_1": "No filter required",
+            "icon_2": "star",
+            "heading_2": "Best in class sterilization"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
         },
         "quantity_selector": {
           "type": "quantity_selector",
@@ -41,44 +56,53 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
           }
         },
         "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
+          "type": "collapsible_tab",
           "settings": {
-            "share_label": "Share"
+            "heading": "Description",
+            "icon": "clipboard",
+            "content": "",
+            "page": ""
+          }
+        },
+        "shipping_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "icon": "truck",
+            "content": "<p>Free shipping on all orders. 30-day free returns.</p>",
+            "page": ""
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
+        "tagline",
+        "benefits_strip",
+        "benefits_strip_2",
         "price",
-        "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "shipping_tab"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
+        "gallery_layout": "thumbnail",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
+        "padding_top": 20,
         "padding_bottom": 12
       }
     },
