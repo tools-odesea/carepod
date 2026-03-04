@@ -5,7 +5,7 @@
   }
 
   .cp-fslider__inner {
-    max-width: var(--page-width, 1200px);
+    max-width: 80%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -13,10 +13,10 @@
   }
 
   .cp-fslider__heading {
-    font-size: 35px;
+    font-size: 40px;
     font-family: var(--font-heading-family);
     font-style: var(--font-heading-style);
-    font-weight: 700;
+    font-weight: 600;
     color: #1c1d1d;
     margin: 0;
     line-height: 1.3;
@@ -87,7 +87,7 @@
 
   .cp-fslider__title {
     font-family: var(--font-heading-family);
-    font-size: 28px;
+    font-size: 27px;
     font-weight: 700;
     color: #1c1d1d;
     margin: 0;
@@ -100,7 +100,8 @@
     font-weight: 400;
     color: #4a4a4a;
     margin: 0;
-    line-height: 1.65;
+    line-height: 151%;
+    letter-spacing: 0.32px;
   }
 
   .cp-fslider__image-wrap {
@@ -122,7 +123,11 @@
     }
 
     .cp-fslider__heading {
-      font-size: 24px;
+      font-size: 26px;
+    }
+
+    .cp-fslider__inner {
+      max-width: 100%;
     }
 
     .cp-fslider__slide.is-active {
@@ -227,7 +232,7 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background color",
-      "default": "#ffffff"
+      "default": "#FAFAFA"
     }
   ],
   "blocks": [
