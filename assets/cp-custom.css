@@ -56,6 +56,47 @@
 
 /* ===== Carepod Product Page Overrides ===== */
 
+/* Star rating */
+.cp-star-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.cp-star-rating__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.cp-star-rating__score {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2253f5;
+}
+
+.cp-star-rating__divider {
+  font-size: 14px;
+  color: #999;
+}
+
+.cp-star-rating__count {
+  font-size: 14px;
+  color: #666;
+}
+
+.cp-star-rating__badge {
+  background-color: #1f07f2;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+
 /* Product title — match original sizing */
 .product__title h1,
 .product__title .h1 {
@@ -74,8 +115,8 @@
 
 /* Tagline / subtitle text under title */
 .product__text.subtitle {
-  font-size: 16px !important;
-  font-weight: 500 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
   color: #4a4a4a !important;
   line-height: 1.55 !important;
   margin-top: -0.25rem !important;
@@ -87,20 +128,39 @@
   }
 }
 
-/* Icon-with-text benefits strip styling */
+/* Icon-with-text benefits — small pill badges */
 .product__info-container .icon-with-text {
+  display: flex !important;
+  flex-wrap: wrap !important;
   gap: 0.5rem !important;
-  padding: 0.25rem 0 !important;
+  padding: 0.15rem 0 !important;
+  margin-top: 0.25rem !important;
 }
 
 .product__info-container .icon-with-text .icon-with-text__item {
-  gap: 0.35rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 20px !important;
+  padding: 0.3rem 0.75rem !important;
+  background: #fff !important;
+  flex-direction: row !important;
 }
 
 .product__info-container .icon-with-text .icon-with-text__text {
   font-size: 13px !important;
   font-weight: 400 !important;
-  color: #666 !important;
+  color: #4a4a4a !important;
+  white-space: nowrap !important;
+}
+
+.product__info-container .icon-with-text .icon-with-text__icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: auto !important;
 }
 
 .product__info-container .icon-with-text .icon-with-text__icon svg {
