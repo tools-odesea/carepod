@@ -109,13 +109,20 @@
             "url": "/products/carepod-mini",
             "image_url": "https://hellocarepod.com/cdn/shop/files/02__06.jpg"
           }
+        },
+        "award_logos": {
+          "type": "award_logo",
+          "settings": {
+            "alt_text": "iF Design Award, Red Dot Design Award, Forbes Best 2021"
+          }
         }
       },
       "block_order": [
         "product_cube_plus",
         "product_one_plus",
         "product_one",
-        "product_mini"
+        "product_mini",
+        "award_logos"
       ],
       "settings": {
         "heading_prefix": "Shop Our",

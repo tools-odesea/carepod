@@ -110,8 +110,9 @@
   }
 
   .cp-shop__award-img {
-    height: 44px;
+    height: 50px;
     width: auto;
+    max-width: 100%;
     display: block;
     object-fit: contain;
   }
@@ -198,8 +199,8 @@
     {%- if award_blocks.size > 0 -%}
       <div class="cp-shop__awards">
         {%- for block in award_blocks -%}
+          {%- assign award_alt = block.settings.alt_text | default: 'Award' | escape -%}
           {%- if block.settings.logo != blank -%}
-            {%- assign award_alt = block.settings.alt_text | default: 'Award' | escape -%}
             {{
               block.settings.logo
               | image_url: width: 200
@@ -210,6 +211,12 @@
                 loading: 'lazy',
                 alt: award_alt
             }}
+          {%- elsif block.settings.image_url != blank -%}
+            {%- if block.settings.image_url contains '://' -%}
+              <img src="{{ block.settings.image_url }}" class="cp-shop__award-img" alt="{{ award_alt }}" loading="lazy">
+            {%- else -%}
+              <img src="{{ block.settings.image_url | asset_url }}" class="cp-shop__award-img" alt="{{ award_alt }}" loading="lazy">
+            {%- endif -%}
           {%- endif -%}
         {%- endfor -%}
       </div>
@@ -303,6 +310,11 @@
           "type": "image_picker",
           "id": "logo",
           "label": "Award logo image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Award logo URL (fallback)"
         },
         {
           "type": "text",
