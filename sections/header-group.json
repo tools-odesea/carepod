@@ -14,6 +14,20 @@
     "header": {
       "type": "header",
       "blocks": {
+        "mega_menu_product_XnmE7n": {
+          "type": "mega_menu_product",
+          "settings": {
+            "product": "",
+            "description": ""
+          }
+        },
+        "mega_menu_product_NGgjcb": {
+          "type": "mega_menu_product",
+          "settings": {
+            "product": "",
+            "description": ""
+          }
+        },
         "mega_menu_product_QEWYq6": {
           "type": "mega_menu_product",
           "settings": {
@@ -23,6 +37,8 @@
         }
       },
       "block_order": [
+        "mega_menu_product_XnmE7n",
+        "mega_menu_product_NGgjcb",
         "mega_menu_product_QEWYq6"
       ],
       "settings": {
