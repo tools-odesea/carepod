@@ -223,8 +223,10 @@
               <span class="cp-testimonials__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
               <p class="cp-testimonials__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
               <div class="cp-testimonials__meta">
-                {%- if block.settings.avatar != blank -%}
-                  {%- assign avatar_alt = block.settings.name | escape -%}
+                {%- assign avatar_alt = block.settings.name | escape -%}
+                {%- if block.settings.avatar_url != blank -%}
+                  <img src="{{ block.settings.avatar_url }}" class="cp-testimonials__avatar" alt="{{ avatar_alt }}" loading="lazy" width="65" height="65">
+                {%- elsif block.settings.avatar != blank -%}
                   {{
                     block.settings.avatar
                     | image_url: width: 200
@@ -542,6 +544,11 @@
           "type": "image_picker",
           "id": "avatar",
           "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "avatar_url",
+          "label": "Photo URL (fallback)"
         },
         {
           "type": "textarea",

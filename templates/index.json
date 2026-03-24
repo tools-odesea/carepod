@@ -81,7 +81,7 @@
           "settings": {
             "name": "Carepod Cube Plus",
             "url": "/products/carepod-cube-plus",
-            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CubePlusGraphic.png?v=1724788101"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/cubepluslive.png"
           }
         },
         "product_one_plus": {
@@ -89,7 +89,7 @@
           "settings": {
             "name": "Carepod One Plus",
             "url": "/products/carepod-one-plus",
-            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Image_6_-min.png"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/CP_One_Plus.jpg"
           }
         },
         "product_one": {
@@ -97,7 +97,7 @@
           "settings": {
             "name": "Carepod One",
             "url": "/products/carepod-one",
-            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod_One_1_2.jpg"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/Carepod_One-min-rev.png"
           }
         },
         "product_mini": {
@@ -132,7 +132,7 @@
             "name": "Carepod Cube Plus",
             "description": "Ultimate coverage and upgraded features for pure, fresh air.",
             "url": "/products/carepod-cube-plus",
-            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CubePlusGraphic.png?v=1724788101"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/cubepluslive.png"
           }
         },
         "prod_one_plus": {
@@ -141,7 +141,7 @@
             "name": "Carepod One Plus",
             "description": "Ideal for living spaces, bedrooms, or studio apartments.",
             "url": "/products/carepod-one-plus",
-            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Image_6_-min.png"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/CP_One_Plus.jpg"
           }
         },
         "prod_one": {
@@ -150,7 +150,7 @@
             "name": "Carepod One",
             "description": "Ideal for the bedroom, home office, or studio apartment.",
             "url": "/products/carepod-one",
-            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod_One_1_2.jpg"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/Carepod_One-min-rev.png"
           }
         },
         "prod_mini": {
@@ -419,7 +419,6 @@
         "testimonial_1": {
           "type": "testimonial",
           "settings": {
-            "avatar": "shopify://shop_images/CPEdit2.png",
             "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod. Given the health benefits associated with it, I love it so far!",
             "name": "Dr. Tim Tiutan",
             "title": "Internal Medicine"
@@ -428,7 +427,6 @@
         "testimonial_2": {
           "type": "testimonial",
           "settings": {
-            "avatar": "shopify://shop_images/CPEdit2.png",
             "quote": "I recently discovered Carepod and absolutely love it. As a pediatric naturopathic doctor, the cold and dry climate we're in makes it a valuable addition. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold.",
             "name": "Dr. Elana Roumell",
             "title": "Pediatric Naturopathic"
@@ -437,7 +435,6 @@
         "testimonial_3": {
           "type": "testimonial",
           "settings": {
-            "avatar": "shopify://shop_images/CPEdit2.png",
             "quote": "How often do we talk about sleep when it comes to kids? All the time. They need good sleep to function. Our old humidifier was hard to clean and always got moldy. When I saw that Carepod only had three pieces that needed cleaning (and was easy!), I immediately knew that this was the one.",
             "name": "Katie Zelinski",
             "title": "Pediatric Occupational Therapist"
@@ -446,7 +443,6 @@
         "testimonial_4": {
           "type": "testimonial",
           "settings": {
-            "avatar": "shopify://shop_images/CPEdit2.png",
             "quote": "Carepod is hands down the best humidifier on the market. It's sleek, fun to use, soothing, and holds a good amount of water so you can benefit from it day or night. I highly recommend it to all my clients for their skin, and overall wellness!",
             "name": "Tess Zolly",
             "title": "Licensed Esthetician"
@@ -455,7 +451,6 @@
         "testimonial_5": {
           "type": "testimonial",
           "settings": {
-            "avatar": "shopify://shop_images/CPEdit2.png",
             "quote": "Once one of my daughters starts coughing, it keeps on going, so we use humidifiers all the time. I love how easy it is to clean our Carepod, with three easy steps. It feels good knowing I'm giving my child the most hydrating air only!",
             "name": "Dr. Jesse L. Berry",
             "title": "Ophthalmology Surgeon"
@@ -464,7 +459,6 @@
         "testimonial_6": {
           "type": "testimonial",
           "settings": {
-            "avatar": "shopify://shop_images/CPEdit2.png",
             "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. As a bonus, I love its modern chic design that blends well into any environment.",
             "name": "Dr. Jiyeh Joo",
             "title": "Family Physician"
@@ -487,7 +481,6 @@
     "founder_story": {
       "type": "cp-founder-story",
       "settings": {
-        "image": "shopify://shop_images/CPEdit2.png",
         "heading": "Engineered by a doctor with the heart of a father.",
         "body": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.",
         "button_label": "Shop Bestsellers",
