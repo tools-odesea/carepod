@@ -158,7 +158,7 @@
       </h2>
     {%- endif -%}
 
-    <div class="cp-shop__grid" data-version="xyz123">
+    <div class="cp-shop__grid">
       {%- for block in section.blocks -%}
         {%- if block.type == 'product_card' -%}
           <a
@@ -174,7 +174,6 @@
               {%- when 'Carepod One' -%}{%- assign _shop_img = 'https://hellocarepod.com/cdn/shop/files/carepod-one_b35eafe6-d021-4405-90d1-fc0b3620e991.png' -%}
               {%- when 'Carepod Mini' -%}{%- assign _shop_img = 'https://hellocarepod.com/cdn/shop/files/02__06.jpg' -%}
             {%- endcase -%}
-            <!-- DEBUG name=[{{ block.settings.name }}] img=[{{ _shop_img }}] -->
             {%- if _shop_img != blank -%}
               <img src="{{ _shop_img }}" class="cp-shop__card-img" alt="{{ card_alt }}" loading="lazy">
             {%- elsif block.settings.image != blank -%}
