@@ -221,6 +221,7 @@
     "video_text": {
       "type": "cp-video-text",
       "settings": {
+        "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod-CubePlus-02-Key-Feature.webp?v=1754425336",
         "heading": "Say Hello To Carepod.",
         "subtitle": "Refreshingly simple, powerfully effective.",
         "body": "Take a peek underneath the sleek, minimalist exterior and discover how Carepod makes healthy living easier than ever.",
@@ -323,35 +324,40 @@
           "type": "slide",
           "settings": {
             "title": "Schedule Your Sanitize Cycle.",
-            "description": "Press the \"Sanitize\" button. After the tank's water reaches a low level and the built-in heating ramps up to 158°F, the cycle will begin."
+            "description": "Press the \"Sanitize\" button. After the tank's water reaches a low level and the built-in heating ramps up to 158°F, the cycle will begin.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod-CubePlus-02-Key-Feature.webp?v=1754425336"
           }
         },
         "slide_2": {
           "type": "slide",
           "settings": {
             "title": "Warm Mist for Winter Comfort.",
-            "description": "Switch to warm mist mode for a cozy, soothing atmosphere during the colder months. The built-in heater gently warms the water before dispersing it."
+            "description": "Switch to warm mist mode for a cozy, soothing atmosphere during the colder months. The built-in heater gently warms the water before dispersing it.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod-CubePlus-06-Different-Settings.webp?v=1754425336"
           }
         },
         "slide_3": {
           "type": "slide",
           "settings": {
             "title": "Auto-Humidity Sensing.",
-            "description": "The built-in sensor detects your room's humidity level and automatically adjusts mist output to maintain optimal comfort."
+            "description": "The built-in sensor detects your room's humidity level and automatically adjusts mist output to maintain optimal comfort.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod-CubePlus-05-Minimalist-Design.webp?v=1754425336"
           }
         },
         "slide_4": {
           "type": "slide",
           "settings": {
             "title": "Night Mode.",
-            "description": "Dim all display lights with a single touch for an uninterrupted, peaceful night's sleep in complete darkness."
+            "description": "Dim all display lights with a single touch for an uninterrupted, peaceful night's sleep in complete darkness.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod-CubePlus-04-Designed-by-Doctor.webp?v=1754425336"
           }
         },
         "slide_5": {
           "type": "slide",
           "settings": {
             "title": "Easy 3-Piece Cleaning.",
-            "description": "Disassemble the three stainless steel components, wash or boil, and reassemble. It's that simple — no hard-to-reach crevices or mold buildup."
+            "description": "Disassemble the three stainless steel components, wash or boil, and reassemble. It's that simple — no hard-to-reach crevices or mold buildup.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod-CubePlus-03-Easy-to-Clean.webp?v=1754425336"
           }
         }
       },
