@@ -11,36 +11,40 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "header": {
-      "type": "header",
+    "announcement_bar": {
+      "type": "announcement-bar",
       "blocks": {
-        "mega_menu_product_XnmE7n": {
-          "type": "mega_menu_product",
+        "announcement_1": {
+          "type": "announcement",
           "settings": {
-            "product": "",
-            "description": ""
+            "text": "Meet the world's cleanest humidifier | <a href='/collections/all'>Shop Now</a>",
+            "link": ""
           }
         },
-        "mega_menu_product_NGgjcb": {
-          "type": "mega_menu_product",
+        "announcement_2": {
+          "type": "announcement",
           "settings": {
-            "product": "",
-            "description": ""
-          }
-        },
-        "mega_menu_product_QEWYq6": {
-          "type": "mega_menu_product",
-          "settings": {
-            "product": "test",
-            "description": ""
+            "text": "Free Shipping on All Orders | <a href='/collections/all'>Shop Now</a>",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "mega_menu_product_XnmE7n",
-        "mega_menu_product_NGgjcb",
-        "mega_menu_product_QEWYq6"
+        "announcement_1",
+        "announcement_2"
       ],
+      "settings": {
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-2",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
@@ -60,6 +64,7 @@
     }
   },
   "order": [
+    "announcement_bar",
     "header"
   ]
 }

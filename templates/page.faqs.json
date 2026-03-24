@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "faq_main": {
+      "type": "cp-product-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes Carepod different from other humidifiers?",
+            "answer": "<p>Carepod is the world's cleanest humidifier. Unlike traditional humidifiers with plastic interiors that harbor mold and bacteria, Carepod uses a stainless steel water tank that can be boiled for 99.9% sterilization — no filters required.</p>",
+            "open_default": true
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I clean my Carepod?",
+            "answer": "<p>It's simple — just 3 parts to clean. Disassemble the oscillator, water tank, and lid cover. Wash with soap and water, or for a deep clean, boil the stainless steel components for 1-2 minutes to achieve 99.9% sterilization. Reassemble and you're done.</p>",
+            "open_default": false
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the Carepod Cube Plus sanitization cycle?",
+            "answer": "<p>The Cube Plus features a built-in sanitization cycle that heats water to 158°F (70°C), killing 99.9% of bacteria within a 2-hour cycle. Simply press the sanitize button and let it do the work.</p>",
+            "open_default": false
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to buy filters?",
+            "answer": "<p>No — Carepod requires no filters. The stainless steel design eliminates the need for costly replacements. Simply clean the components regularly and you're good to go.</p>",
+            "open_default": false
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What type of water should I use?",
+            "answer": "<p>We recommend using distilled or demineralised water to prevent mineral buildup and white dust. Tap water can be used but may result in more frequent cleaning.</p>",
+            "open_default": false
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your shipping policy?",
+            "answer": "<p>We offer free shipping on all orders. Orders are typically processed within 1-2 business days. Delivery times vary by region.</p>",
+            "open_default": false
+          }
+        },
+        "faq_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day free return policy. If you're not completely satisfied with your Carepod, contact us within 30 days of delivery for a full refund.</p>",
+            "open_default": false
+          }
+        },
+        "faq_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What warranty does Carepod come with?",
+            "answer": "<p>Every Carepod comes with a 1-year manufacturer's warranty covering defects in materials and workmanship under normal use.</p>",
+            "open_default": false
+          }
+        },
+        "faq_9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which Carepod is right for me?",
+            "answer": "<p>It depends on your room size. The Cube Plus covers up to 700 ft², the One Plus and One cover up to 500 ft², and the Mini covers up to 350 ft². The Cube Plus also features warm mist and a built-in sanitization cycle for the most complete experience.</p>",
+            "open_default": false
+          }
+        },
+        "faq_10": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Carepod safe for babies and children?",
+            "answer": "<p>Yes. Carepod uses cool mist technology (except Cube Plus warm mist mode) and produces no hot steam, making it completely safe around children and pets. The stainless steel design also means no mold or bacteria growth.</p>",
+            "open_default": false
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7", "faq_8", "faq_9", "faq_10"],
+      "settings": {
+        "heading": "FAQs",
+        "bg_color": "#ffffff"
+      }
+    },
+    "risk_free": {
+      "type": "cp-risk-free-banner",
+      "settings": {
+        "heading": "Still Have Questions?",
+        "body": "Our team is here to help. Contact us and we'll get back to you within 24 hours.",
+        "button_label": "Contact Us",
+        "button_link": "/pages/contact",
+        "guarantee_text": "Try it 100% risk free",
+        "button_bg": "#f0b43e",
+        "button_text": "#000000"
+      }
+    }
+  },
+  "order": ["faq_main", "risk_free"]
+}

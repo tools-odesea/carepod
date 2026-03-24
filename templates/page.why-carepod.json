@@ -1,0 +1,222 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "why_hero": {
+      "type": "cp-hero-banner",
+      "settings": {
+        "heading": "Hello, fresh air. Goodbye, mold.",
+        "badge_text": "Why Carepod",
+        "button_label": "Shop Now",
+        "button_link": "/collections/all"
+      }
+    },
+    "product_benefits": {
+      "type": "cp-product-benefits",
+      "blocks": {
+        "benefit_doctor": {
+          "type": "benefit",
+          "settings": {
+            "icon": "doctor",
+            "title": "Doctor Designed",
+            "description": "Simple, sleek, award-winning. With just three parts to clean."
+          }
+        },
+        "benefit_sterilize": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sterilize",
+            "title": "99.9% Sterilizable",
+            "description": "Easy to boil to eliminate mold + bacteria."
+          }
+        },
+        "benefit_steel": {
+          "type": "benefit",
+          "settings": {
+            "icon": "steel",
+            "title": "Stainless Steel",
+            "description": "Dishwasher-safe water tank with a top-fill design."
+          }
+        },
+        "benefit_germ": {
+          "type": "benefit",
+          "settings": {
+            "icon": "germ-free",
+            "title": "Safe and Germ-Free",
+            "description": "No hidden nooks or crannies that breed bacteria."
+          }
+        },
+        "benefit_subscription": {
+          "type": "benefit",
+          "settings": {
+            "icon": "no-subscription",
+            "title": "No Monthly Subscriptions",
+            "description": "Skip the hassle of filter replacements."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_doctor",
+        "benefit_sterilize",
+        "benefit_steel",
+        "benefit_germ",
+        "benefit_subscription"
+      ],
+      "settings": {
+        "heading": "No Filters. No Fuss.",
+        "bg_color": "#2b2b2b",
+        "text_color": "#ffffff"
+      }
+    },
+    "how_to_clean": {
+      "type": "cp-how-to-clean",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Disassemble",
+            "text": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Scrub or boil to sterilize.",
+            "text": "Wash the oscillator with soap and water. Fill the water tank with water & place the stainless steel lid cover inside. Boil 1-2 mins for 99.9% sterilization."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "Refill & enjoy.",
+            "text": "Snap the pieces back in place, fill with water, and you're ready to breathe fresh, clean air in your home once again."
+          }
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3"],
+      "settings": {
+        "heading": "Cleaning. 3 simple steps.",
+        "button_label": "Shop Now",
+        "button_link": "/collections/all"
+      }
+    },
+    "testimonials": {
+      "type": "cp-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod.",
+            "name": "Dr. Tim Tiutan",
+            "title": "Internal Medicine"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I recently discovered Carepod and absolutely love it. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold.",
+            "name": "Dr. Elana Roumell",
+            "title": "Pediatric Naturopathic"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Carepod is hands down the best humidifier on the market. It's sleek, fun to use, soothing, and holds a good amount of water so you can benefit from it day or night.",
+            "name": "Tess Zolly",
+            "title": "Licensed Esthetician"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3"],
+      "settings": {
+        "heading": "Trusted by Doctors.",
+        "bg_color": "#f9f9f9"
+      }
+    },
+    "product_compare": {
+      "type": "cp-product-compare",
+      "blocks": {
+        "prod_cube_plus": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod Cube Plus",
+            "description": "Ultimate coverage and upgraded features.",
+            "url": "/products/carepod-cube-plus"
+          }
+        },
+        "prod_one_plus": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod One Plus",
+            "description": "Ideal for living spaces and bedrooms.",
+            "url": "/products/carepod-one-plus"
+          }
+        },
+        "prod_one": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod One",
+            "description": "Ideal for the bedroom or home office.",
+            "url": "/products/carepod-one"
+          }
+        },
+        "prod_mini": {
+          "type": "product",
+          "settings": {
+            "name": "Carepod Mini",
+            "description": "Perfect for nurseries and smaller spaces.",
+            "url": "/products/carepod-mini"
+          }
+        },
+        "row_coverage": {
+          "type": "spec_row",
+          "settings": { "label": "Coverage", "val_0": "700 ft²", "val_1": "500 ft²", "val_2": "500 ft²", "val_3": "350 ft²" }
+        },
+        "row_mist_type": {
+          "type": "spec_row",
+          "settings": { "label": "Mist type", "val_0": "Cool + Warm", "val_1": "Cool mist", "val_2": "Cool mist", "val_3": "Cool mist" }
+        },
+        "row_capacity": {
+          "type": "spec_row",
+          "settings": { "label": "Tank capacity", "val_0": "4.2 L", "val_1": "4.0 L", "val_2": "4.0 L", "val_3": "2.8 L" }
+        }
+      },
+      "block_order": ["prod_cube_plus", "prod_one_plus", "prod_one", "prod_mini", "row_coverage", "row_mist_type", "row_capacity"],
+      "settings": {
+        "heading": "A Carepod for every room",
+        "subheading": "Choose the right Carepod for your space.",
+        "button_bg": "#0249e3",
+        "button_bg_hover": "#00329d",
+        "button_text": "#ffffff"
+      }
+    },
+    "risk_free": {
+      "type": "cp-risk-free-banner",
+      "settings": {
+        "heading": "Try It Now, 100% Risk Free",
+        "body": "Your Carepod is backed by our satisfaction guarantee — 30 days to try it out for yourself.",
+        "button_label": "Shop Carepod",
+        "button_link": "/collections/all",
+        "guarantee_text": "Try it 100% risk free",
+        "button_bg": "#f0b43e",
+        "button_text": "#000000"
+      }
+    }
+  },
+  "order": [
+    "why_hero",
+    "product_benefits",
+    "how_to_clean",
+    "testimonials",
+    "product_compare",
+    "risk_free"
+  ]
+}

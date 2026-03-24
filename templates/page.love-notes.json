@@ -1,0 +1,119 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "reviews_hero": {
+      "type": "cp-product-benefits",
+      "blocks": {
+        "stat_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "4.8 / 5 Stars",
+            "description": "Average rating across all products."
+          }
+        },
+        "stat_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "doctor",
+            "title": "1,000+ Reviews",
+            "description": "From verified customers worldwide."
+          }
+        },
+        "stat_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sterilize",
+            "title": "130,000+ Homes",
+            "description": "Trust Carepod for clean, fresh air."
+          }
+        }
+      },
+      "block_order": ["stat_1", "stat_2", "stat_3"],
+      "settings": {
+        "heading": "Love Notes",
+        "bg_color": "#2b2b2b",
+        "text_color": "#ffffff"
+      }
+    },
+    "testimonials": {
+      "type": "cp-testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual. Given the health benefits associated with it, I love it so far!",
+            "name": "Dr. Tim Tiutan",
+            "title": "Internal Medicine"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I recently discovered Carepod and absolutely love it. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold.",
+            "name": "Dr. Elana Roumell",
+            "title": "Pediatric Naturopathic"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "How often do we talk about sleep when it comes to kids? All the time. When I saw that Carepod only had three pieces that needed cleaning, I immediately knew that this was the one.",
+            "name": "Katie Zelinski",
+            "title": "Pediatric Occupational Therapist"
+          }
+        },
+        "t4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Carepod is hands down the best humidifier on the market. It's sleek, fun to use, soothing, and holds a good amount of water. I highly recommend it to all my clients for their skin and overall wellness!",
+            "name": "Tess Zolly",
+            "title": "Licensed Esthetician"
+          }
+        },
+        "t5": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Once one of my daughters starts coughing, it keeps on going, so we use humidifiers all the time. I love how easy it is to clean our Carepod, with three easy steps.",
+            "name": "Dr. Jesse L. Berry",
+            "title": "Ophthalmology Surgeon"
+          }
+        },
+        "t6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. I love its modern chic design that blends well into any environment.",
+            "name": "Dr. Jiyeh Joo",
+            "title": "Family Physician"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
+      "settings": {
+        "heading": "What Our Customers Say",
+        "bg_color": "#ffffff"
+      }
+    },
+    "risk_free": {
+      "type": "cp-risk-free-banner",
+      "settings": {
+        "heading": "Join 130,000+ Happy Homes",
+        "body": "Try Carepod risk-free for 30 days. If you're not completely satisfied, we'll make it right.",
+        "button_label": "Shop Carepod",
+        "button_link": "/collections/all",
+        "guarantee_text": "Try it 100% risk free",
+        "button_bg": "#f0b43e",
+        "button_text": "#000000"
+      }
+    }
+  },
+  "order": ["reviews_hero", "testimonials", "risk_free"]
+}

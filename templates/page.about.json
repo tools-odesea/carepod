@@ -1,0 +1,70 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "founder_story": {
+      "type": "cp-founder-story",
+      "settings": {
+        "heading": "Engineered by a doctor, with the heart of a father.",
+        "body": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. After years of frustration with humidifiers that were difficult to clean and prone to growing mold, he set out to create the world's cleanest humidifier. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.\n\nTo continually improve your health, we believe clean air matters as much as what you eat and drink. That's why we created Carepod — the cleanest humidifier on the planet, built without compromise.\n\nBy signing up for the Carepod newsletter, you agree to our Privacy Policy and Terms of Service.",
+        "button_label": "Shop Bestsellers",
+        "button_link": "/collections/all"
+      }
+    },
+    "product_benefits": {
+      "type": "cp-product-benefits",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "doctor",
+            "title": "Transparency",
+            "description": "We are open about what goes into our products and how they work."
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "germ-free",
+            "title": "No Filters, No Fuss",
+            "description": "Designed to be simple, clean, and easy to maintain."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sterilize",
+            "title": "Satisfaction",
+            "description": "We stand behind every product with a 100% satisfaction guarantee."
+          }
+        }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3"],
+      "settings": {
+        "heading": "Our Values",
+        "bg_color": "#2b2b2b",
+        "text_color": "#ffffff"
+      }
+    },
+    "risk_free": {
+      "type": "cp-risk-free-banner",
+      "settings": {
+        "heading": "Try It Now, 100% Risk Free",
+        "body": "Your Carepod is backed by our satisfaction guarantee — 30 days to try it out for yourself.",
+        "button_label": "Shop Carepod",
+        "button_link": "/collections/all",
+        "guarantee_text": "Try it 100% risk free",
+        "button_bg": "#f0b43e",
+        "button_text": "#000000"
+      }
+    }
+  },
+  "order": ["founder_story", "product_benefits", "risk_free"]
+}
