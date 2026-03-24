@@ -172,7 +172,9 @@
     <div class="cp-clean__steps">
       {%- for block in section.blocks -%}
         <div class="cp-clean__step" {{ block.shopify_attributes }}>
-          {%- if block.settings.image != blank -%}
+          {%- if block.settings.image_url != blank -%}
+            <img src="{{ block.settings.image_url }}" class="cp-clean__step-img" alt="{{ block.settings.title | escape }}" loading="lazy">
+          {%- elsif block.settings.image != blank -%}
             {%- assign step_alt = block.settings.title | escape -%}
             {{
               block.settings.image
@@ -184,8 +186,6 @@
                 loading: 'lazy',
                 alt: step_alt
             }}
-          {%- elsif block.settings.image_url != blank -%}
-            <img src="{{ block.settings.image_url }}" class="cp-clean__step-img" alt="{{ block.settings.title | escape }}" loading="lazy">
           {%- endif -%}
           <div>
             {%- if block.settings.title != blank -%}
