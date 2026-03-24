@@ -13,6 +13,18 @@
   "sections": {
     "header": {
       "type": "header",
+      "blocks": {
+        "mega_menu_product_QEWYq6": {
+          "type": "mega_menu_product",
+          "settings": {
+            "product": "test",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_product_QEWYq6"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
