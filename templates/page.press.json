@@ -1,0 +1,99 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "cp-hero-banner",
+      "settings": {
+        "heading": "Carepod in the Press",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "press_quotes": {
+      "type": "cp-press-quotes",
+      "blocks": {
+        "quote_forbes": {
+          "type": "quote",
+          "settings": {
+            "quote": "A safe choice for homes with kids and pets. Oh, and it's invented by a doctor.",
+            "publication": "Forbes",
+            "logo": "shopify://shop_images/Frame_25.png"
+          }
+        },
+        "quote_wellgood": {
+          "type": "quote",
+          "settings": {
+            "quote": "Your face and lungs will thank you.",
+            "publication": "Well + Good"
+          }
+        },
+        "quote_bhg": {
+          "type": "quote",
+          "settings": {
+            "quote": "It has a very simple, intuitive design that puts it above other humidifiers we tested.",
+            "publication": "Better Homes and Gardens"
+          }
+        },
+        "quote_bazaar": {
+          "type": "quote",
+          "settings": {
+            "quote": "Carepod's award-earning humidifier is a winning self-care gift.",
+            "publication": "Bazaar"
+          }
+        },
+        "quote_real_simple": {
+          "type": "quote",
+          "settings": {
+            "quote": "The cleanest humidifier we've ever tested. We're obsessed.",
+            "publication": "Real Simple"
+          }
+        },
+        "quote_wirecutter": {
+          "type": "quote",
+          "settings": {
+            "quote": "A humidifier that's actually easy to keep clean — a rarity in this category.",
+            "publication": "Wirecutter"
+          }
+        }
+      },
+      "block_order": [
+        "quote_forbes",
+        "quote_wellgood",
+        "quote_bhg",
+        "quote_bazaar",
+        "quote_real_simple",
+        "quote_wirecutter"
+      ],
+      "settings": {
+        "bg_color": "#ffffff",
+        "card_bg": "#f5f5f5",
+        "text_color": "#1a1a1a"
+      }
+    },
+    "risk_free": {
+      "type": "cp-risk-free-banner",
+      "settings": {
+        "heading": "Experience The Difference",
+        "body": "Join over 71,000+ homes that have discovered the world's cleanest humidifier. Backed by a 30-day satisfaction guarantee.",
+        "button_label": "Shop Now",
+        "button_link": "/collections/all",
+        "guarantee_text": "Try it 100% risk free",
+        "button_bg": "#f0b43e",
+        "button_text": "#000000"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "press_quotes",
+    "risk_free"
+  ]
+}
