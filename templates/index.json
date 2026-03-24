@@ -110,11 +110,25 @@
             "image_url": "https://hellocarepod.com/cdn/shop/files/02__06.jpg"
           }
         },
-        "award_logos": {
+        "award_if": {
           "type": "award_logo",
           "settings": {
-            "image_url": "award-logos.webp",
-            "alt_text": "iF Design Award, Red Dot Design Award, Forbes Best 2021"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/Frame_25.png?v=1739995888&width=268",
+            "alt_text": "iF Design Award"
+          }
+        },
+        "award_reddot": {
+          "type": "award_logo",
+          "settings": {
+            "image_url": "https://hellocarepod.com/cdn/shop/files/Frame_21_1.png?v=1739995902&width=268",
+            "alt_text": "Red Dot Design Award"
+          }
+        },
+        "award_forbes": {
+          "type": "award_logo",
+          "settings": {
+            "image_url": "https://hellocarepod.com/cdn/shop/files/Frame_25_1.png?v=1739995971&width=268",
+            "alt_text": "Forbes Best 2021"
           }
         }
       },
@@ -123,7 +137,9 @@
         "product_one_plus",
         "product_one",
         "product_mini",
-        "award_logos"
+        "award_if",
+        "award_reddot",
+        "award_forbes"
       ],
       "settings": {
         "heading_prefix": "Shop Our",
