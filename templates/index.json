@@ -97,7 +97,7 @@
           "settings": {
             "name": "Carepod One",
             "url": "/products/carepod-one",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/Carepod_One-min-rev.png"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/carepod-one_b35eafe6-d021-4405-90d1-fc0b3620e991.png"
           }
         },
         "product_mini": {
@@ -105,7 +105,7 @@
           "settings": {
             "name": "Carepod Mini",
             "url": "/products/carepod-mini",
-            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/products/CarepodMini-100.jpg"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/02__06.jpg"
           }
         }
       },
@@ -132,7 +132,7 @@
             "name": "Carepod Cube Plus",
             "description": "Ultimate coverage and upgraded features for pure, fresh air.",
             "url": "/products/carepod-cube-plus",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/cubepluslive.png"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/02Image.png"
           }
         },
         "prod_one_plus": {
@@ -141,7 +141,7 @@
             "name": "Carepod One Plus",
             "description": "Ideal for living spaces, bedrooms, or studio apartments.",
             "url": "/products/carepod-one-plus",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/CP_One_Plus.jpg"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/Image_with_tag_4.png"
           }
         },
         "prod_one": {
@@ -150,7 +150,7 @@
             "name": "Carepod One",
             "description": "Ideal for the bedroom, home office, or studio apartment.",
             "url": "/products/carepod-one",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/Carepod_One-min-rev.png"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/1_dbcce4a8-f8c0-4f13-ae30-078afb89b065.jpg"
           }
         },
         "prod_mini": {
@@ -159,7 +159,7 @@
             "name": "Carepod Mini",
             "description": "Perfect for nurseries and smaller spaces. A favorite for parents.",
             "url": "/products/carepod-mini",
-            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/products/CarepodMini-100.jpg"
+            "image_url": "https://hellocarepod.com/cdn/shop/files/3_57ce011d-23b6-44a3-96c0-23c385e0a603.jpg"
           }
         },
         "row_coverage": {
@@ -487,7 +487,7 @@
     "founder_story": {
       "type": "cp-founder-story",
       "settings": {
-        "image_url": "https://hellocarepod.com/cdn/shop/files/Image_with_tag_4.png",
+        "image_url": "https://hellocarepod.com/cdn/shop/files/CPEdit2.png",
         "heading": "Engineered by a doctor with the heart of a father.",
         "body": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.",
         "button_label": "Shop Bestsellers",
