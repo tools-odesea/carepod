@@ -1,0 +1,228 @@
+<style>
+  .cp-contact {
+    padding: 3rem 2rem 5rem;
+    background: #fff;
+  }
+
+  .cp-contact__inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .cp-contact__heading {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-size: 42px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    margin: 0 0 2.5rem;
+    line-height: 1.2;
+  }
+
+  .cp-contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .cp-contact__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .cp-contact__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cp-contact__label {
+    font-family: var(--font-body-family);
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  .cp-contact__input,
+  .cp-contact__textarea {
+    font-family: var(--font-body-family);
+    font-size: 15px;
+    color: #1a1a1a;
+    background: #fff;
+    border: 1px solid #d0d0d0;
+    border-radius: 0;
+    padding: 12px 14px;
+    width: 100%;
+    transition: border-color 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .cp-contact__input:focus,
+  .cp-contact__textarea:focus {
+    border-color: #1a1a1a;
+  }
+
+  .cp-contact__input::placeholder,
+  .cp-contact__textarea::placeholder {
+    color: #aaa;
+  }
+
+  .cp-contact__textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  .cp-contact__submit {
+    font-family: var(--font-body-family);
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: #1a1a1a;
+    border: none;
+    border-radius: 0;
+    padding: 14px 40px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    align-self: flex-start;
+    letter-spacing: 0.02em;
+  }
+
+  .cp-contact__submit:hover {
+    opacity: 0.8;
+  }
+
+  .cp-contact__success {
+    text-align: center;
+    padding: 2rem 0;
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    color: #2a7d2e;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-contact {
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .cp-contact__heading {
+      font-size: 30px;
+      margin-bottom: 2rem;
+    }
+
+    .cp-contact__row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="cp-contact">
+  <div class="cp-contact__inner">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="cp-contact__heading">{{ section.settings.heading | escape }}</h1>
+    {%- endif -%}
+
+    {%- form 'contact', class: 'cp-contact__form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="cp-contact__success">{{ section.settings.success_message | default: 'Thank you for your message. We will get back to you shortly.' }}</p>
+      {%- endif -%}
+
+      {%- if form.errors -%}
+        <div class="cp-contact__errors">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+
+      <div class="cp-contact__row">
+        <div class="cp-contact__field">
+          <label class="cp-contact__label" for="ContactName">Name</label>
+          <input
+            class="cp-contact__input"
+            type="text"
+            id="ContactName"
+            name="contact[{{ 'templates.contact.form.name' | t }}]"
+            value=""
+            autocomplete="name"
+          >
+        </div>
+        <div class="cp-contact__field">
+          <label class="cp-contact__label" for="ContactEmail">Email <span aria-hidden="true">*</span></label>
+          <input
+            class="cp-contact__input"
+            type="email"
+            id="ContactEmail"
+            name="contact[email]"
+            value=""
+            autocomplete="email"
+            required
+          >
+        </div>
+      </div>
+
+      <div class="cp-contact__field">
+        <label class="cp-contact__label" for="ContactPhone">Phone number</label>
+        <input
+          class="cp-contact__input"
+          type="tel"
+          id="ContactPhone"
+          name="contact[{{ 'templates.contact.form.phone' | t }}]"
+          value=""
+          autocomplete="tel"
+        >
+      </div>
+
+      <div class="cp-contact__field">
+        <label class="cp-contact__label" for="ContactComment">Comment</label>
+        <textarea
+          class="cp-contact__textarea"
+          id="ContactComment"
+          name="contact[{{ 'templates.contact.form.comment' | t }}]"
+          rows="6"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="cp-contact__submit">
+        {{ section.settings.button_label | default: 'Send' }}
+      </button>
+    {%- endform -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CP Contact Form",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Submit button label",
+      "default": "Send"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you for your message. We will get back to you shortly."
+    }
+  ],
+  "presets": [
+    {
+      "name": "CP Contact Form"
+    }
+  ]
+}
+{% endschema %}

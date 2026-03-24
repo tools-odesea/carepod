@@ -378,6 +378,7 @@
         "step_1": {
           "type": "step",
           "settings": {
+            "image": "",
             "image_url": "https://hellocarepod.com/cdn/shop/files/Rectangle_1136.svg?v=1694804652",
             "title": "Disassemble",
             "text": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean."
@@ -386,6 +387,7 @@
         "step_2": {
           "type": "step",
           "settings": {
+            "image": "",
             "image_url": "https://hellocarepod.com/cdn/shop/files/Rectangle_1136_1.svg?v=1694805742",
             "title": "Scrub or boil to sterilize.",
             "text": "Wash the oscillator with soap and water. Fill the water tank with water & place the stainless steel lid cover inside. Boil 1-2 mins for 99.9% sterilization."
@@ -394,6 +396,7 @@
         "step_3": {
           "type": "step",
           "settings": {
+            "image": "",
             "image_url": "https://hellocarepod.com/cdn/shop/files/Rectangle_1136_2.svg?v=1694805809",
             "title": "Refill & enjoy.",
             "text": "Snap the pieces back in place, fill with water, and you're ready to breathe fresh, clean air in your home once again."
