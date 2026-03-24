@@ -221,8 +221,7 @@
     "video_text": {
       "type": "cp-video-text",
       "settings": {
-        "video_url": "",
-        "heading": "Say Hello To Carepod Cube Plus.",
+        "heading": "Say Hello To Carepod.",
         "subtitle": "Refreshingly simple, powerfully effective.",
         "body": "Take a peek underneath the sleek, minimalist exterior and discover how Carepod makes healthy living easier than ever.",
         "button_label": "Choose Your Carepod Bundle",

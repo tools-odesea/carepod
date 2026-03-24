@@ -176,6 +176,8 @@
         <div class="cp-fslider__image-wrap">
           {%- if block.settings.image != blank -%}
             {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'cp-fslider__image', loading: 'lazy', sizes: '(min-width: 750px) 50vw, 100vw', widths: '375, 550, 750, 1000' }}
+          {%- elsif block.settings.image_url != blank -%}
+            <img src="{{ block.settings.image_url }}" class="cp-fslider__image" alt="{{ block.settings.title | escape }}" loading="lazy">
           {%- else -%}
             <div class="cp-fslider__image" style="background: #f0f0f0; aspect-ratio: 1/1; border-radius: 12px;"></div>
           {%- endif -%}
@@ -256,6 +258,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Image URL (fallback)"
         }
       ]
     }

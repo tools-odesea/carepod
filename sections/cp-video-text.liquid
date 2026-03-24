@@ -183,6 +183,8 @@
         </div>
       {%- elsif section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1200 | image_tag: class: 'cp-video-text__image', loading: 'lazy', sizes: '(min-width: 750px) 50vw, 100vw', widths: '375, 550, 750, 1000, 1200' }}
+      {%- elsif section.settings.image_url != blank -%}
+        <img src="{{ section.settings.image_url }}" class="cp-video-text__image" alt="{{ section.settings.heading | escape }}" loading="lazy">
       {%- endif -%}
     </div>
 
@@ -252,6 +254,12 @@
       "id": "image",
       "label": "Fallback image",
       "info": "Shown if no video is set."
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Fallback image URL",
+      "info": "External URL used if no image is uploaded."
     },
     {
       "type": "header",
