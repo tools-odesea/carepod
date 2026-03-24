@@ -85,3 +85,91 @@
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
 }
+
+/* Custom Shop Carepod mega menu */
+.cp-mega-menu {
+  display: flex;
+  gap: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  align-items: flex-start;
+}
+
+.cp-mega-menu__left {
+  flex-shrink: 0;
+  width: 190px;
+}
+
+.cp-mega-menu__heading {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 0 0 1.4rem;
+  color: rgb(var(--color-foreground));
+  letter-spacing: 0.02em;
+}
+
+.cp-mega-menu__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cp-mega-menu__link {
+  display: block;
+  color: rgba(var(--color-foreground), 0.75);
+  text-decoration: none;
+  padding: 0.45rem 0;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.cp-mega-menu__link:hover,
+.cp-mega-menu__link--active {
+  color: rgb(var(--color-foreground));
+  text-decoration: underline;
+}
+
+.cp-mega-menu__right {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
+  flex: 1;
+}
+
+.cp-mega-menu__product {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cp-mega-menu__product:hover .cp-mega-menu__product-name {
+  text-decoration: underline;
+}
+
+.cp-mega-menu__product-img {
+  aspect-ratio: 1;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: #f5f5f3;
+}
+
+.cp-mega-menu__product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cp-mega-menu__product-name {
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin: 0 0 0.4rem;
+  color: rgb(var(--color-foreground));
+}
+
+.cp-mega-menu__product-desc {
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.6);
+  margin: 0;
+  line-height: 1.4;
+}
