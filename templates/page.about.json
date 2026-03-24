@@ -13,7 +13,8 @@
       "type": "cp-about-hero",
       "settings": {
         "heading": "Engineered By A Doctor, With The Heart Of A Father.",
-        "body_text": "<p>Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. After years of frustration with humidifiers that were difficult to clean and prone to growing mold, he set out to create the world's cleanest humidifier. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.<\/p><p>To continually improve your health, we believe clean air matters as much as what you eat and drink. That's why we created Carepod — the cleanest humidifier on the planet, built without compromise.<\/p><p>By signing up for the Carepod newsletter, you agree to our Privacy Policy and Terms of Service.<\/p>",
+        "body_text": "<p>Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. After years of frustration with humidifiers that were difficult to clean and prone to growing mold, he set out to create the world's cleanest humidifier. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.</p><p>To continually improve your health, we believe clean air matters as much as what you eat and drink. That's why we created Carepod — the cleanest humidifier on the planet, built without compromise.</p><p>By signing up for the Carepod newsletter, you agree to our Privacy Policy and Terms of Service.</p>",
+        "founder_image": "shopify://shop_images/CPEdit2.png",
         "button_label": "Shop Bestsellers",
         "button_link": "/collections/all"
       }
@@ -46,7 +47,11 @@
           }
         }
       },
-      "block_order": ["benefit_1", "benefit_2", "benefit_3"],
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3"
+      ],
       "settings": {
         "heading": "",
         "bg_color": "#ffffff",
@@ -66,5 +71,9 @@
       }
     }
   },
-  "order": ["about_hero", "product_benefits", "risk_free"]
+  "order": [
+    "about_hero",
+    "product_benefits",
+    "risk_free"
+  ]
 }
