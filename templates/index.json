@@ -113,6 +113,7 @@
         "award_logos": {
           "type": "award_logo",
           "settings": {
+            "image_url": "award-logos.webp",
             "alt_text": "iF Design Award, Red Dot Design Award, Forbes Best 2021"
           }
         }
