@@ -167,8 +167,15 @@
             {{ block.shopify_attributes }}
           >
             {%- assign card_alt = block.settings.name | escape -%}
-            {%- if block.settings.image_url != blank -%}
-              <img src="{{ block.settings.image_url }}" class="cp-shop__card-img" alt="{{ card_alt }}" loading="lazy">
+            {%- assign _shop_img = block.settings.image_url -%}
+            {%- case block.settings.name -%}
+              {%- when 'Carepod Cube Plus' -%}{%- assign _shop_img = 'https://hellocarepod.com/cdn/shop/files/cubepluslive.png' -%}
+              {%- when 'Carepod One Plus' -%}{%- assign _shop_img = 'https://hellocarepod.com/cdn/shop/files/CP_One_Plus.jpg' -%}
+              {%- when 'Carepod One' -%}{%- assign _shop_img = 'https://hellocarepod.com/cdn/shop/files/carepod-one_b35eafe6-d021-4405-90d1-fc0b3620e991.png' -%}
+              {%- when 'Carepod Mini' -%}{%- assign _shop_img = 'https://hellocarepod.com/cdn/shop/files/02__06.jpg' -%}
+            {%- endcase -%}
+            {%- if _shop_img != blank -%}
+              <img src="{{ _shop_img }}" class="cp-shop__card-img" alt="{{ card_alt }}" loading="lazy">
             {%- elsif block.settings.image != blank -%}
               {{
                 block.settings.image

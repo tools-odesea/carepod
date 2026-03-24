@@ -453,9 +453,16 @@
             {{ block.shopify_attributes }}
           >
             {%- assign product_alt = block.settings.name | escape -%}
-            {%- if block.settings.image_url != blank -%}
+            {%- assign _cmp_img = block.settings.image_url -%}
+            {%- case block.settings.name -%}
+              {%- when 'Carepod Cube Plus' -%}{%- assign _cmp_img = 'https://hellocarepod.com/cdn/shop/files/02Image.png' -%}
+              {%- when 'Carepod One Plus' -%}{%- assign _cmp_img = 'https://hellocarepod.com/cdn/shop/files/Image_with_tag_4.png' -%}
+              {%- when 'Carepod One' -%}{%- assign _cmp_img = 'https://hellocarepod.com/cdn/shop/files/1_dbcce4a8-f8c0-4f13-ae30-078afb89b065.jpg' -%}
+              {%- when 'Carepod Mini' -%}{%- assign _cmp_img = 'https://hellocarepod.com/cdn/shop/files/3_57ce011d-23b6-44a3-96c0-23c385e0a603.jpg' -%}
+            {%- endcase -%}
+            {%- if _cmp_img != blank -%}
               <div class="cp-compare__product-img-wrap">
-                <img src="{{ block.settings.image_url }}" class="cp-compare__product-img" alt="{{ product_alt }}" loading="lazy">
+                <img src="{{ _cmp_img }}" class="cp-compare__product-img" alt="{{ product_alt }}" loading="lazy">
               </div>
             {%- elsif block.settings.image != blank -%}
               <div class="cp-compare__product-img-wrap">

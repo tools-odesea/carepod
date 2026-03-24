@@ -224,8 +224,14 @@
               <p class="cp-testimonials__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
               <div class="cp-testimonials__meta">
                 {%- assign avatar_alt = block.settings.name | escape -%}
-                {%- if block.settings.avatar_url != blank -%}
-                  <img src="{{ block.settings.avatar_url }}" class="cp-testimonials__avatar" alt="{{ avatar_alt }}" loading="lazy" width="65" height="65">
+                {%- assign _av = block.settings.avatar_url -%}
+                {%- case block.settings.name -%}
+                  {%- when 'Dr. Tim Tiutan', 'Tess Zolly' -%}{%- assign _av = 'https://hellocarepod.com/cdn/shop/files/Group_48097919.jpg' -%}
+                  {%- when 'Dr. Elana Roumell', 'Dr. Jesse L. Berry' -%}{%- assign _av = 'https://hellocarepod.com/cdn/shop/files/Group_48097920.jpg' -%}
+                  {%- when 'Katie Zelinski', 'Dr. Jiyeh Joo' -%}{%- assign _av = 'https://hellocarepod.com/cdn/shop/files/Group_48097921_45003ef6-07a2-4446-b1ff-ea624601ca47.jpg' -%}
+                {%- endcase -%}
+                {%- if _av != blank -%}
+                  <img src="{{ _av }}" class="cp-testimonials__avatar" alt="{{ avatar_alt }}" loading="lazy" width="65" height="65">
                 {%- elsif block.settings.avatar != blank -%}
                   {{
                     block.settings.avatar
