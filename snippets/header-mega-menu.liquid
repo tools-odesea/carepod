@@ -61,13 +61,11 @@
                       </ul>
                     </div>
                     <div class="cp-mega-menu__right">
-                      {%- assign cp_mega_products = section.settings.mega_product_1 | append: ',' | append: section.settings.mega_product_2 | append: ',' | append: section.settings.mega_product_3 | append: ',' | append: section.settings.mega_product_4 | split: ',' -%}
-                      {%- assign cp_mega_descs = section.settings.mega_product_1_desc | append: '|||' | append: section.settings.mega_product_2_desc | append: '|||' | append: section.settings.mega_product_3_desc | append: '|||' | append: section.settings.mega_product_4_desc | split: '|||' -%}
-                      {%- for cp_handle in cp_mega_products -%}
-                        {%- if cp_handle != blank -%}
-                          {%- assign cp_product = all_products[cp_handle] -%}
+                      {%- for block in section.blocks -%}
+                        {%- if block.type == 'mega_menu_product' -%}
+                          {%- assign cp_product = all_products[block.settings.product] -%}
                           {%- unless cp_product == empty -%}
-                            <a href="{{ cp_product.url }}" class="cp-mega-menu__product">
+                            <a href="{{ cp_product.url }}" class="cp-mega-menu__product" {{ block.shopify_attributes }}>
                               {%- if cp_product.featured_image -%}
                                 <div class="cp-mega-menu__product-img">
                                   {{
@@ -80,8 +78,8 @@
                                 </div>
                               {%- endif -%}
                               <p class="cp-mega-menu__product-name">{{ cp_product.title | escape }}</p>
-                              {%- if cp_mega_descs[forloop.index0] != blank -%}
-                                <p class="cp-mega-menu__product-desc">{{ cp_mega_descs[forloop.index0] }}</p>
+                              {%- if block.settings.description != blank -%}
+                                <p class="cp-mega-menu__product-desc">{{ block.settings.description }}</p>
                               {%- endif -%}
                             </a>
                           {%- endunless -%}
