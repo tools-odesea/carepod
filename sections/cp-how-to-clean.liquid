@@ -184,6 +184,8 @@
                 loading: 'lazy',
                 alt: step_alt
             }}
+          {%- elsif block.settings.image_url != blank -%}
+            <img src="{{ block.settings.image_url }}" class="cp-clean__step-img" alt="{{ block.settings.title | escape }}" loading="lazy">
           {%- endif -%}
           <div>
             {%- if block.settings.title != blank -%}
@@ -253,6 +255,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Step image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Step image URL (fallback)"
         },
         {
           "type": "text",
