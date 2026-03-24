@@ -79,7 +79,8 @@
           "settings": {
             "title": "Carepod Europe",
             "support_label": "Customer Support:",
-            "support_email": "support@carepod-europe.com"
+            "support_email": "support@carepod-europe.com",
+            "address": ""
           }
         }
       },
