@@ -68,7 +68,19 @@
                           {%- assign cp_product = all_products[block.settings.product] -%}
                           {%- unless cp_product == empty -%}
                             <a href="{{ cp_product.url }}" class="cp-mega-menu__product" {{ block.shopify_attributes }}>
-                              {%- if cp_product.featured_image -%}
+                              {%- if block.settings.custom_image != blank -%}
+                                <div class="cp-mega-menu__product-img">
+                                  {{
+                                    block.settings.custom_image
+                                    | image_url: width: 400
+                                    | image_tag:
+                                      loading: 'lazy',
+                                      sizes: '(min-width: 990px) 220px, 50vw',
+                                      widths: '200, 300, 400',
+                                      alt: cp_product.title
+                                  }}
+                                </div>
+                              {%- elsif cp_product.featured_image -%}
                                 <div class="cp-mega-menu__product-img">
                                   {{
                                     cp_product.featured_image
