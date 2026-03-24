@@ -213,9 +213,11 @@
         "quote_bazaar"
       ],
       "settings": {
-        "bg_color": "#ffffff",
+        "display_mode": "banner",
+        "heading": "The Humidifier. Reinvented.",
+        "bg_color": "#1a1a1a",
         "card_bg": "#f5f5f5",
-        "text_color": "#1a1a1a"
+        "text_color": "#ffffff"
       }
     },
     "video_text": {

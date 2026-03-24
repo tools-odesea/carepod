@@ -1,24 +1,70 @@
 <style>
-  .cp-press {
+  .cp-pressquotes {
     background: {{ section.settings.bg_color }};
-    padding: 3.5rem 2rem;
+    padding: 3.5rem 0;
     overflow: hidden;
   }
 
-  .cp-press__track-wrapper {
+  .cp-pressquotes__inner {
     max-width: var(--page-width, 1200px);
     margin: 0 auto;
+    padding: 0 2rem;
     position: relative;
   }
 
-  /* Desktop: uniform grid row */
-  .cp-press__track {
+  /* ── Banner mode (heading + logo row) ── */
+  .cp-pressquotes__heading {
+    font-family: var(--font-heading-family);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: {{ section.settings.text_color }};
+    text-align: center;
+    margin: 0 0 2.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .cp-pressquotes__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem 3.5rem;
+  }
+
+  .cp-pressquotes__logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cp-pressquotes__pub-logo {
+    display: block;
+    max-height: 28px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .cp-pressquotes__pub-name {
+    font-family: var(--font-body-family);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: {{ section.settings.text_color }};
+    margin: 0;
+    line-height: 1;
+    opacity: 0.85;
+  }
+
+  /* ── Card / quote mode ── */
+  .cp-pressquotes__track {
     display: grid;
     grid-template-columns: repeat({{ section.blocks.size }}, 1fr);
     gap: 1.25rem;
   }
 
-  .cp-press__card {
+  .cp-pressquotes__card {
     background: {{ section.settings.card_bg }};
     border-radius: 12px;
     padding: 2rem 1.75rem;
@@ -29,7 +75,7 @@
     min-height: 160px;
   }
 
-  .cp-press__quote {
+  .cp-pressquotes__quote {
     font-family: var(--font-body-family);
     font-size: 14px;
     font-weight: 400;
@@ -40,7 +86,7 @@
     margin: 0;
   }
 
-  .cp-press__publication {
+  .cp-pressquotes__publication {
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -51,20 +97,35 @@
     text-align: center;
   }
 
-  .cp-press__pub-logo {
+  .cp-pressquotes__card-logo {
     display: block;
     max-height: 28px;
     width: auto;
     margin: 0 auto;
   }
 
-  /* Mobile: scrollable carousel */
+  /* Mobile: scrollable carousel for card mode */
   @media screen and (max-width: 749px) {
-    .cp-press {
+    .cp-pressquotes {
       padding: 2.5rem 0;
     }
 
-    .cp-press__track {
+    .cp-pressquotes__heading {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      padding: 0 1.5rem;
+    }
+
+    .cp-pressquotes__logos {
+      gap: 1.5rem 2rem;
+      padding: 0 1.5rem;
+    }
+
+    .cp-pressquotes__pub-logo {
+      max-height: 22px;
+    }
+
+    .cp-pressquotes__track {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
@@ -75,18 +136,18 @@
       grid-template-columns: unset;
     }
 
-    .cp-press__track::-webkit-scrollbar {
+    .cp-pressquotes__track::-webkit-scrollbar {
       display: none;
     }
 
-    .cp-press__card {
+    .cp-pressquotes__card {
       flex: 0 0 82vw;
       scroll-snap-align: center;
       min-height: 180px;
     }
 
     /* Dot indicators */
-    .cp-press__dots {
+    .cp-pressquotes__dots {
       display: flex;
       justify-content: center;
       gap: 8px;
@@ -94,7 +155,7 @@
       padding: 0 1.5rem;
     }
 
-    .cp-press__dot {
+    .cp-pressquotes__dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -105,61 +166,93 @@
       transition: background 0.2s;
     }
 
-    .cp-press__dot.is-active {
-      background: #1a1a1a;
+    .cp-pressquotes__dot.is-active {
+      background: {{ section.settings.text_color }};
     }
   }
 
   @media screen and (min-width: 750px) {
-    .cp-press__dots { display: none; }
+    .cp-pressquotes__dots { display: none; }
   }
 </style>
 
-<div class="cp-press" id="cp-press-{{ section.id }}">
-  <div class="cp-press__track-wrapper">
+<div class="cp-pressquotes" id="cp-pressquotes-{{ section.id }}">
+  <div class="cp-pressquotes__inner">
 
-    <div class="cp-press__track" id="cp-press-track-{{ section.id }}">
-      {%- for block in section.blocks -%}
-        <div class="cp-press__card" {{ block.shopify_attributes }}>
-          <p class="cp-press__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
-          <div>
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cp-pressquotes__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.display_mode == 'banner' -%}
+      {%- comment -%} Banner mode: logos only, no quote text {%- endcomment -%}
+      <div class="cp-pressquotes__logos">
+        {%- for block in section.blocks -%}
+          <div class="cp-pressquotes__logo-item" {{ block.shopify_attributes }}>
             {%- if block.settings.logo != blank -%}
               {%- assign pub_alt = block.settings.publication | escape -%}
               {{
                 block.settings.logo
                 | image_url: width: 300
                 | image_tag:
-                  class: 'cp-press__pub-logo',
+                  class: 'cp-pressquotes__pub-logo',
                   widths: '120, 200, 300',
-                  sizes: '120px',
+                  sizes: '150px',
                   loading: 'lazy',
                   alt: pub_alt
               }}
             {%- elsif block.settings.publication != blank -%}
-              <p class="cp-press__publication">{{ block.settings.publication | escape }}</p>
+              <p class="cp-pressquotes__pub-name">{{ block.settings.publication | escape }}</p>
             {%- endif -%}
           </div>
-        </div>
-      {%- endfor -%}
-    </div>
+        {%- endfor -%}
+      </div>
 
-    <div class="cp-press__dots" id="cp-press-dots-{{ section.id }}" aria-hidden="true">
-      {%- for block in section.blocks -%}
-        <button
-          class="cp-press__dot{% if forloop.first %} is-active{% endif %}"
-          data-index="{{ forloop.index0 }}"
-          aria-label="Go to slide {{ forloop.index }}"
-        ></button>
-      {%- endfor -%}
-    </div>
+    {%- else -%}
+      {%- comment -%} Card mode: quote cards with publication name/logo {%- endcomment -%}
+      <div class="cp-pressquotes__track" id="cp-pressquotes-track-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          <div class="cp-pressquotes__card" {{ block.shopify_attributes }}>
+            <p class="cp-pressquotes__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
+            <div>
+              {%- if block.settings.logo != blank -%}
+                {%- assign pub_alt = block.settings.publication | escape -%}
+                {{
+                  block.settings.logo
+                  | image_url: width: 300
+                  | image_tag:
+                    class: 'cp-pressquotes__card-logo',
+                    widths: '120, 200, 300',
+                    sizes: '120px',
+                    loading: 'lazy',
+                    alt: pub_alt
+                }}
+              {%- elsif block.settings.publication != blank -%}
+                <p class="cp-pressquotes__publication">{{ block.settings.publication | escape }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="cp-pressquotes__dots" id="cp-pressquotes-dots-{{ section.id }}" aria-hidden="true">
+        {%- for block in section.blocks -%}
+          <button
+            class="cp-pressquotes__dot{% if forloop.first %} is-active{% endif %}"
+            data-index="{{ forloop.index0 }}"
+            aria-label="Go to slide {{ forloop.index }}"
+          ></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
 
   </div>
 </div>
 
+{%- unless section.settings.display_mode == 'banner' -%}
 <script>
   (function () {
-    var track = document.getElementById('cp-press-track-{{ section.id }}');
-    var dots  = document.querySelectorAll('#cp-press-dots-{{ section.id }} .cp-press__dot');
+    var track = document.getElementById('cp-pressquotes-track-{{ section.id }}');
+    var dots  = document.querySelectorAll('#cp-pressquotes-dots-{{ section.id }} .cp-pressquotes__dot');
     if (!track || !dots.length) return;
 
     function getActiveIndex() {
@@ -195,6 +288,7 @@
     });
   })();
 </script>
+{%- endunless -%}
 
 {% schema %}
 {
@@ -206,22 +300,39 @@
   },
   "settings": [
     {
+      "type": "select",
+      "id": "display_mode",
+      "label": "Display mode",
+      "options": [
+        { "value": "banner", "label": "Banner (heading + logos)" },
+        { "value": "cards", "label": "Quote cards" }
+      ],
+      "default": "banner"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Humidifier. Reinvented."
+    },
+    {
       "type": "color",
       "id": "bg_color",
       "label": "Background color",
-      "default": "#ffffff"
+      "default": "#1a1a1a"
     },
     {
       "type": "color",
       "id": "card_bg",
       "label": "Card background color",
+      "info": "Only used in card mode.",
       "default": "#f5f5f5"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text color",
-      "default": "#1a1a1a"
+      "label": "Text / logo color",
+      "default": "#ffffff"
     }
   ],
   "blocks": [
@@ -246,7 +357,7 @@
           "type": "image_picker",
           "id": "logo",
           "label": "Publication logo",
-          "info": "Upload a logo to replace the text name."
+          "info": "Upload a logo to replace the text name. Use white/light logos for dark banner mode."
         }
       ]
     }
@@ -254,6 +365,12 @@
   "presets": [
     {
       "name": "Press Quotes",
+      "settings": {
+        "display_mode": "banner",
+        "heading": "The Humidifier. Reinvented.",
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff"
+      },
       "blocks": [
         {
           "type": "quote",
@@ -280,7 +397,7 @@
           "type": "quote",
           "settings": {
             "quote": "Carepod's award-earning humidifier is a winning self-care gift.",
-            "publication": "Bazaar"
+            "publication": "Harper's Bazaar"
           }
         },
         {

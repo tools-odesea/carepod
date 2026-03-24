@@ -75,6 +75,59 @@
         "text_color": "#ffffff"
       }
     },
+    "feature_banners": {
+      "type": "cp-feature-banners",
+      "blocks": {
+        "banner_1": {
+          "type": "banner",
+          "settings": {
+            "number": "01",
+            "heading": "Doctor-Invented for Families + Kids",
+            "description": "Carepod humidifier efficiently infuses indoor air with clean moisture.",
+            "bullet_1": "Easy to use for the whole family",
+            "bullet_2": "Soothes dry skin, eyes, and throat",
+            "bullet_3": "Safe, hygienic design for babies and pets"
+          }
+        },
+        "banner_2": {
+          "type": "banner",
+          "settings": {
+            "number": "02",
+            "heading": "99.9% Sterilizable & Mold-Resistant",
+            "description": "The first stainless steel, sterilizable humidifier for truly fresh, clean air.",
+            "bullet_1": "Award-winning filter-free design",
+            "bullet_2": "Safe for babies and pets",
+            "bullet_3": "Reduces the spread of airborne germs"
+          }
+        },
+        "banner_3": {
+          "type": "banner",
+          "settings": {
+            "number": "03",
+            "heading": "Easy to Clean & Dishwasher-Safe",
+            "description": "Sleek, minimalist, three-piece design, with a simple water tank.",
+            "bullet_1": "Only 3 pieces to clean",
+            "bullet_2": "Dishwasher-safe stainless steel",
+            "bullet_3": "No hidden spaces where mold can grow"
+          }
+        },
+        "banner_4": {
+          "type": "banner",
+          "settings": {
+            "number": "04",
+            "heading": "Unique Hydration Technology",
+            "description": "Transforms indoor spaces by keeping air moist, helping faster sleep onset.",
+            "bullet_1": "Easier breathing for the whole family",
+            "bullet_2": "Eases respiratory discomfort",
+            "bullet_3": "Improves sleep quality naturally"
+          }
+        }
+      },
+      "block_order": ["banner_1", "banner_2", "banner_3", "banner_4"],
+      "settings": {
+        "heading": ""
+      }
+    },
     "how_to_clean": {
       "type": "cp-how-to-clean",
       "blocks": {
@@ -214,6 +267,7 @@
   "order": [
     "why_hero",
     "product_benefits",
+    "feature_banners",
     "how_to_clean",
     "testimonials",
     "product_compare",

@@ -44,7 +44,7 @@
         "text_color": "#ffffff"
       }
     },
-    "testimonials": {
+    "doctor_testimonials": {
       "type": "cp-testimonials",
       "blocks": {
         "t1": {
@@ -98,8 +98,66 @@
       },
       "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
       "settings": {
-        "heading": "What Our Customers Say",
+        "heading": "Trusted by Doctors & Professionals",
         "bg_color": "#ffffff"
+      }
+    },
+    "customer_testimonials": {
+      "type": "cp-testimonials",
+      "blocks": {
+        "c1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I've spent over $500 on humidifiers over the years and have never been so satisfied. My son has asthma and this is the only humidifier I trust to keep his air clean and mold-free.",
+            "name": "Sarah M.",
+            "title": "Verified Buyer — Carepod One Plus"
+          }
+        },
+        "c2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I have three! One for every bedroom. They stay clean and I never have to worry about mold growing inside. Best purchase I've made for our home.",
+            "name": "Laura S.",
+            "title": "Verified Buyer — Carepod One"
+          }
+        },
+        "c3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Living in Colorado, the dry air is brutal. This is the best and easiest to clean humidifier I've ever owned. No subscription filters is a huge bonus.",
+            "name": "Michael R.",
+            "title": "Verified Buyer — Carepod Cube Plus"
+          }
+        },
+        "c4": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I slept the entire night without coughing for the first time in weeks. The warm mist feature on the Cube Plus is a game changer during winter.",
+            "name": "Mary Z.",
+            "title": "Verified Buyer — Carepod Cube Plus"
+          }
+        },
+        "c5": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "No mold after a month of daily use. Still looks brand new inside. I've thrown away so many humidifiers because of mold — this one is different.",
+            "name": "Lindsay T.",
+            "title": "Verified Buyer — Carepod One"
+          }
+        },
+        "c6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The stainless steel tank is brilliant. I can actually see that it's clean, unlike plastic humidifiers where mold hides in every crevice. Worth every penny.",
+            "name": "James K.",
+            "title": "Verified Buyer — Carepod Mini"
+          }
+        }
+      },
+      "block_order": ["c1", "c2", "c3", "c4", "c5", "c6"],
+      "settings": {
+        "heading": "What Our Customers Say",
+        "bg_color": "#f9f9f9"
       }
     },
     "risk_free": {
@@ -115,5 +173,5 @@
       }
     }
   },
-  "order": ["reviews_hero", "testimonials", "risk_free"]
+  "order": ["reviews_hero", "doctor_testimonials", "customer_testimonials", "risk_free"]
 }

@@ -9,11 +9,11 @@
  */
 {
   "sections": {
-    "founder_story": {
-      "type": "cp-founder-story",
+    "about_hero": {
+      "type": "cp-about-hero",
       "settings": {
-        "heading": "Engineered by a doctor, with the heart of a father.",
-        "body": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. After years of frustration with humidifiers that were difficult to clean and prone to growing mold, he set out to create the world's cleanest humidifier. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.\n\nTo continually improve your health, we believe clean air matters as much as what you eat and drink. That's why we created Carepod — the cleanest humidifier on the planet, built without compromise.\n\nBy signing up for the Carepod newsletter, you agree to our Privacy Policy and Terms of Service.",
+        "heading": "Engineered By A Doctor, With The Heart Of A Father.",
+        "body_text": "<p>Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. After years of frustration with humidifiers that were difficult to clean and prone to growing mold, he set out to create the world's cleanest humidifier. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.<\/p><p>To continually improve your health, we believe clean air matters as much as what you eat and drink. That's why we created Carepod — the cleanest humidifier on the planet, built without compromise.<\/p><p>By signing up for the Carepod newsletter, you agree to our Privacy Policy and Terms of Service.<\/p>",
         "button_label": "Shop Bestsellers",
         "button_link": "/collections/all"
       }
@@ -26,7 +26,7 @@
           "settings": {
             "icon": "doctor",
             "title": "Transparency",
-            "description": "We are open about what goes into our products and how they work."
+            "description": "Speaking honestly to customers and treating them like family."
           }
         },
         "benefit_2": {
@@ -34,7 +34,7 @@
           "settings": {
             "icon": "germ-free",
             "title": "No Filters, No Fuss",
-            "description": "Designed to be simple, clean, and easy to maintain."
+            "description": "Eliminating the hassle of filter replacement."
           }
         },
         "benefit_3": {
@@ -42,15 +42,15 @@
           "settings": {
             "icon": "sterilize",
             "title": "Satisfaction",
-            "description": "We stand behind every product with a 100% satisfaction guarantee."
+            "description": "We stand by our product with a money back guarantee."
           }
         }
       },
       "block_order": ["benefit_1", "benefit_2", "benefit_3"],
       "settings": {
-        "heading": "Our Values",
-        "bg_color": "#2b2b2b",
-        "text_color": "#ffffff"
+        "heading": "",
+        "bg_color": "#ffffff",
+        "text_color": "#2b2b2b"
       }
     },
     "risk_free": {
@@ -66,5 +66,5 @@
       }
     }
   },
-  "order": ["founder_story", "product_benefits", "risk_free"]
+  "order": ["about_hero", "product_benefits", "risk_free"]
 }

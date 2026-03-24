@@ -68,6 +68,8 @@
         "quote_entrepreneur"
       ],
       "settings": {
+        "display_mode": "cards",
+        "heading": "",
         "bg_color": "#ffffff",
         "card_bg": "#f5f5f5",
         "text_color": "#1a1a1a"

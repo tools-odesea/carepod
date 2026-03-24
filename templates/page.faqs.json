@@ -9,94 +9,352 @@
  */
 {
   "sections": {
-    "faq_main": {
+    "faq_general": {
       "type": "cp-product-faq",
       "blocks": {
-        "faq_1": {
+        "gen_1": {
           "type": "faq_item",
           "settings": {
             "question": "What makes Carepod different from other humidifiers?",
-            "answer": "<p>Carepod is the world's cleanest humidifier. Unlike traditional humidifiers with plastic interiors that harbor mold and bacteria, Carepod uses a stainless steel water tank that can be boiled for 99.9% sterilization — no filters required.</p>",
+            "answer": "<p>Carepod is the world's first humidifier designed from the ground up for hygiene. While most humidifiers use plastic water tanks that are nearly impossible to fully clean, Carepod uses medical-grade stainless steel that can be boiled for 99.9% sterilization. The entire unit disassembles into just 3 parts — no hidden crevices, no hard-to-reach corners, no filters to replace. It's a fundamentally different approach to humidification.</p>",
             "open_default": true
           }
         },
-        "faq_2": {
+        "gen_2": {
           "type": "faq_item",
           "settings": {
-            "question": "How do I clean my Carepod?",
-            "answer": "<p>It's simple — just 3 parts to clean. Disassemble the oscillator, water tank, and lid cover. Wash with soap and water, or for a deep clean, boil the stainless steel components for 1-2 minutes to achieve 99.9% sterilization. Reassemble and you're done.</p>",
+            "question": "How is Carepod different from other humidifiers on the market?",
+            "answer": "<p>Most humidifiers on the market are made with plastic water reservoirs that can harbor mold, bacteria, and biofilm — even with regular cleaning. Carepod's 18/8 stainless steel interior eliminates this problem entirely. There are no filters to buy, no cartridges to replace, and no UV lamps that degrade over time. Additionally, Carepod's 3-part design means you can see and clean every surface the water touches. Many humidifier brands claim to be \"easy to clean\" but still have narrow openings or internal components you can't reach. With Carepod, what you see is what you get.</p>",
             "open_default": false
           }
         },
-        "faq_3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What is the Carepod Cube Plus sanitization cycle?",
-            "answer": "<p>The Cube Plus features a built-in sanitization cycle that heats water to 158°F (70°C), killing 99.9% of bacteria within a 2-hour cycle. Simply press the sanitize button and let it do the work.</p>",
-            "open_default": false
-          }
-        },
-        "faq_4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Do I need to buy filters?",
-            "answer": "<p>No — Carepod requires no filters. The stainless steel design eliminates the need for costly replacements. Simply clean the components regularly and you're good to go.</p>",
-            "open_default": false
-          }
-        },
-        "faq_5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What type of water should I use?",
-            "answer": "<p>We recommend using distilled or demineralised water to prevent mineral buildup and white dust. Tap water can be used but may result in more frequent cleaning.</p>",
-            "open_default": false
-          }
-        },
-        "faq_6": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What is your shipping policy?",
-            "answer": "<p>We offer free shipping on all orders. Orders are typically processed within 1-2 business days. Delivery times vary by region.</p>",
-            "open_default": false
-          }
-        },
-        "faq_7": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What is your return policy?",
-            "answer": "<p>We offer a 30-day free return policy. If you're not completely satisfied with your Carepod, contact us within 30 days of delivery for a full refund.</p>",
-            "open_default": false
-          }
-        },
-        "faq_8": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What warranty does Carepod come with?",
-            "answer": "<p>Every Carepod comes with a 1-year manufacturer's warranty covering defects in materials and workmanship under normal use.</p>",
-            "open_default": false
-          }
-        },
-        "faq_9": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Which Carepod is right for me?",
-            "answer": "<p>It depends on your room size. The Cube Plus covers up to 700 ft², the One Plus and One cover up to 500 ft², and the Mini covers up to 350 ft². The Cube Plus also features warm mist and a built-in sanitization cycle for the most complete experience.</p>",
-            "open_default": false
-          }
-        },
-        "faq_10": {
+        "gen_3": {
           "type": "faq_item",
           "settings": {
             "question": "Is Carepod safe for babies and children?",
-            "answer": "<p>Yes. Carepod uses cool mist technology (except Cube Plus warm mist mode) and produces no hot steam, making it completely safe around children and pets. The stainless steel design also means no mold or bacteria growth.</p>",
+            "answer": "<p>Absolutely. Carepod was designed with families in mind. The cool mist models (Carepod One, One Plus, and Mini) produce no hot steam whatsoever, eliminating burn risks. Because the stainless steel components can be fully sterilized by boiling, you can be confident that the mist your baby breathes is clean. Pediatricians and allergists frequently recommend humidifiers with easy-to-clean designs, and Carepod fits that bill perfectly. The Cube Plus does offer a warm mist mode — if you use that model around children, simply keep it out of reach during warm mist operation.</p>",
+            "open_default": false
+          }
+        },
+        "gen_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use Carepod around pets?",
+            "answer": "<p>Yes. Carepod is safe to use around cats, dogs, birds, and other household pets. Cool mist humidifiers are generally recommended for homes with pets, as they help maintain comfortable humidity levels without posing a burn hazard. The stainless steel design also means there's no mold or bacteria being dispersed into the air your pets breathe. Just make sure to place your Carepod on a stable surface where curious pets can't knock it over.</p>",
+            "open_default": false
+          }
+        },
+        "gen_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where is Carepod made?",
+            "answer": "<p>Carepod is designed in New York City and manufactured in South Korea, a country known for high-quality electronics and appliance manufacturing. Every unit undergoes rigorous quality control testing before leaving the factory. The stainless steel components are medical-grade 18/8 stainless steel — the same material used in surgical instruments and high-end cookware.</p>",
+            "open_default": false
+          }
+        },
+        "gen_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What awards has Carepod won?",
+            "answer": "<p>Carepod has been recognized with numerous design and innovation awards, including the Red Dot Design Award and CES Innovation Award. It has been featured in leading publications such as Vogue, The New York Times, GQ, Architectural Digest, and Wirecutter. These accolades reflect our commitment to combining beautiful design with genuine functionality and hygiene innovation.</p>",
             "open_default": false
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7", "faq_8", "faq_9", "faq_10"],
+      "block_order": ["gen_1", "gen_2", "gen_3", "gen_4", "gen_5", "gen_6"],
       "settings": {
-        "heading": "FAQs",
+        "heading": "General / About Carepod",
         "bg_color": "#ffffff"
+      }
+    },
+    "faq_cleaning": {
+      "type": "cp-product-faq",
+      "blocks": {
+        "clean_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I clean my Carepod?",
+            "answer": "<p>Cleaning Carepod takes less than 60 seconds. Simply disassemble the 3 components — the oscillator disc, the stainless steel water tank, and the lid cover. Wash each piece with warm soapy water and a soft sponge. For a deep clean, you can boil the stainless steel components for 1-2 minutes, which kills 99.9% of bacteria. Rinse, reassemble, and you're done. No special brushes, cleaning tablets, or tools needed.</p>",
+            "open_default": false
+          }
+        },
+        "clean_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the Carepod Cube Plus sanitization cycle?",
+            "answer": "<p>The Cube Plus features a built-in self-sanitization cycle. When activated, it heats the water inside the tank to 158°F (70°C) and maintains that temperature for a 2-hour cycle. This process kills 99.9% of bacteria and germs without any chemicals or manual scrubbing. Simply press the sanitize button on the control panel and let the Cube Plus do the work. We recommend running the sanitization cycle once a week for optimal hygiene, in addition to regular manual cleaning.</p>",
+            "open_default": false
+          }
+        },
+        "clean_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How often should I clean my Carepod?",
+            "answer": "<p>We recommend cleaning your Carepod at least once a week for daily use, and performing a deep clean (boiling the stainless steel components) every 1-2 weeks. If you use tap water, you may want to clean more frequently due to mineral buildup. If you use the Cube Plus, running the built-in sanitization cycle weekly will supplement your regular cleaning routine. Always empty and dry the tank if you won't be using it for more than 2 days.</p>",
+            "open_default": false
+          }
+        },
+        "clean_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I put my Carepod in the dishwasher?",
+            "answer": "<p>Yes! The stainless steel water tank and lid cover are dishwasher-safe — place them on the top rack. However, the oscillator disc and the base unit with electrical components should never be placed in the dishwasher or submerged in water. Hand-wash the oscillator disc with a soft cloth and warm water. This dishwasher-safe design is another way Carepod makes cleaning easier than any other humidifier on the market.</p>",
+            "open_default": false
+          }
+        },
+        "clean_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to buy filters?",
+            "answer": "<p>No — Carepod is 100% filter-free. Traditional humidifiers rely on filters or cartridges to trap minerals and impurities, which need regular replacement (typically every 1-3 months at $10-$20 each). Carepod's stainless steel design eliminates the need for any consumable parts. There are no filters, no cartridges, no UV bulbs, and no demineralization pads to replace. This saves you money over time and means less waste going to landfills.</p>",
+            "open_default": false
+          }
+        },
+        "clean_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I descale my Carepod?",
+            "answer": "<p>If you notice mineral deposits (white, chalky buildup) on the stainless steel surfaces, fill the tank with a mixture of equal parts white vinegar and water. Let it soak for 30-60 minutes, then scrub gently with a soft sponge. Rinse thoroughly with clean water. For stubborn deposits, you can use a citric acid solution (1 tablespoon per liter of water). To prevent scale buildup in the first place, we recommend using distilled or demineralized water.</p>",
+            "open_default": false
+          }
+        },
+        "clean_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use essential oils in my Carepod?",
+            "answer": "<p>We do not recommend adding essential oils directly to the water tank. Essential oils can leave residue on the oscillator disc and stainless steel surfaces, potentially affecting mist output and requiring more frequent cleaning. If you'd like to enjoy aromatherapy, we suggest using a separate essential oil diffuser alongside your Carepod. This keeps your humidifier performing at its best while still allowing you to enjoy your favorite scents.</p>",
+            "open_default": false
+          }
+        },
+        "clean_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What happens if I don't clean my humidifier regularly?",
+            "answer": "<p>An unclean humidifier can become a breeding ground for mold, bacteria, and other microorganisms. These can be dispersed into the air with the mist, potentially causing respiratory issues, allergic reactions, and worsening asthma symptoms — especially in children and the elderly. Studies have shown that poorly maintained humidifiers can actually make indoor air quality worse than not using one at all. This is exactly why we designed Carepod with stainless steel and a 3-part disassembly — to make thorough cleaning quick, easy, and verifiable.</p>",
+            "open_default": false
+          }
+        }
+      },
+      "block_order": ["clean_1", "clean_2", "clean_3", "clean_4", "clean_5", "clean_6", "clean_7", "clean_8"],
+      "settings": {
+        "heading": "Cleaning & Maintenance",
+        "bg_color": "#f9f9f9"
+      }
+    },
+    "faq_water": {
+      "type": "cp-product-faq",
+      "blocks": {
+        "water_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What type of water should I use?",
+            "answer": "<p>For the best performance and least maintenance, we recommend distilled or demineralized water. These types of water have had minerals removed, which prevents white dust on surfaces near the humidifier and reduces mineral buildup inside the tank. Distilled water is widely available at grocery stores and pharmacies. If distilled water isn't accessible, filtered water from a Brita or similar pitcher is a good alternative.</p>",
+            "open_default": false
+          }
+        },
+        "water_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use tap water?",
+            "answer": "<p>Yes, you can use tap water — Carepod will work fine with it. However, tap water contains dissolved minerals that can cause two things: (1) white mineral dust may settle on surfaces near the humidifier, and (2) mineral deposits will build up inside the tank more quickly, requiring more frequent descaling. If you choose to use tap water, we recommend cleaning the tank 2-3 times per week instead of once per week. The stainless steel makes this cleanup quick and easy either way.</p>",
+            "open_default": false
+          }
+        },
+        "water_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does a full tank last?",
+            "answer": "<p>Run time depends on the model and mist output setting. The Cube Plus (2.3L tank) runs for approximately 10-24 hours on a single fill. The One Plus and One (2.3L tank) last approximately 10-20 hours. The Mini (1.0L tank) runs for approximately 8-12 hours. Higher mist settings will use water faster, while lower settings will extend run time. All models feature auto shut-off when the tank is empty.</p>",
+            "open_default": false
+          }
+        },
+        "water_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the coverage area for each model?",
+            "answer": "<p>Each Carepod model is designed for different room sizes:<br><br><strong>Cube Plus:</strong> Up to 700 sq ft (65 m²) — ideal for large living rooms, open-plan spaces, and master bedrooms.<br><strong>One Plus:</strong> Up to 500 sq ft (46 m²) — great for bedrooms, offices, and medium living areas.<br><strong>One:</strong> Up to 500 sq ft (46 m²) — same coverage as One Plus in a classic design.<br><strong>Mini:</strong> Up to 350 sq ft (33 m²) — perfect for nurseries, small bedrooms, desks, and travel.</p>",
+            "open_default": false
+          }
+        },
+        "water_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I know when to refill the water?",
+            "answer": "<p>All Carepod models feature an auto shut-off function that turns the unit off when the water level gets too low. The Cube Plus also has an LED indicator that alerts you when water is running low. With the One, One Plus, and Mini, you can visually check the water level through the transparent or semi-transparent design. We recommend refilling with fresh water daily for optimal hygiene rather than topping off old water.</p>",
+            "open_default": false
+          }
+        },
+        "water_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I leave my Carepod running overnight?",
+            "answer": "<p>Yes, absolutely. Carepod is designed for safe overnight operation. All models include auto shut-off when the water tank is empty, so you never need to worry about the unit running dry. Many customers use Carepod throughout the night to maintain comfortable humidity levels for better sleep, especially during dry winter months. The Cube Plus also features a Night Mode that dims the display and operates at the quietest setting for undisturbed rest.</p>",
+            "open_default": false
+          }
+        },
+        "water_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How loud is Carepod?",
+            "answer": "<p>Carepod operates at a whisper-quiet level — approximately 25-30 dB on the lowest setting, which is quieter than a library. Even on the highest mist output, it stays below 38 dB. For reference, normal conversation is about 60 dB and a quiet bedroom is around 30 dB. The Cube Plus Night Mode reduces the operating noise even further, making it virtually silent. Many customers report that the gentle sound of the mist is actually soothing and helps them sleep.</p>",
+            "open_default": false
+          }
+        }
+      },
+      "block_order": ["water_1", "water_2", "water_3", "water_4", "water_5", "water_6", "water_7"],
+      "settings": {
+        "heading": "Water & Usage",
+        "bg_color": "#ffffff"
+      }
+    },
+    "faq_compare": {
+      "type": "cp-product-faq",
+      "blocks": {
+        "comp_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which Carepod is right for me?",
+            "answer": "<p>Here's a quick guide:<br><br><strong>Cube Plus</strong> — Our flagship model. Best for those who want the most advanced features including warm mist, built-in sanitization, auto-humidity control, and night mode. Covers up to 700 sq ft.<br><br><strong>One Plus</strong> — Our most popular model. A sleek, modern design with a powerful mist output. Great for bedrooms and living rooms up to 500 sq ft.<br><br><strong>One</strong> — The original Carepod. Same stainless steel quality and coverage as One Plus in the classic cylindrical design. Up to 500 sq ft.<br><br><strong>Mini</strong> — Compact and portable. Perfect for nurseries, desks, dorm rooms, or travel. Covers up to 350 sq ft.</p>",
+            "open_default": false
+          }
+        },
+        "comp_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the difference between Carepod One and One Plus?",
+            "answer": "<p>Both the One and One Plus use the same stainless steel tank, oscillator technology, and 3-part cleaning design. They cover the same room size (up to 500 sq ft) and offer the same tank capacity (2.3L). The One Plus features an updated, more modern exterior design with refined aesthetics and a slightly smaller footprint. Functionally, they deliver the same clean mist performance. Choose the One Plus if you prefer the newer design, or the One if you love the original classic look.</p>",
+            "open_default": false
+          }
+        },
+        "comp_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the difference between Cube Plus and One Plus?",
+            "answer": "<p>The Cube Plus is our premium model with several additional features:<br><br><strong>Warm Mist:</strong> The Cube Plus can produce warm mist in addition to cool mist. The One Plus is cool mist only.<br><strong>Built-in Sanitization:</strong> The Cube Plus heats water to 158°F to kill 99.9% of bacteria automatically. The One Plus relies on manual cleaning (boiling).<br><strong>Auto Humidity Control:</strong> The Cube Plus has a built-in hygrometer that automatically adjusts mist output to maintain your desired humidity level.<br><strong>Night Mode:</strong> Dims the display and operates at the quietest setting.<br><strong>Coverage:</strong> Cube Plus covers 700 sq ft vs. 500 sq ft for the One Plus.<br><br>Choose the One Plus for a streamlined cool-mist experience, or the Cube Plus for the most complete feature set.</p>",
+            "open_default": false
+          }
+        },
+        "comp_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does the Cube Plus have warm mist?",
+            "answer": "<p>Yes. The Cube Plus is the only Carepod model that offers both warm and cool mist. The warm mist mode heats water before dispersing it, which can feel more comfortable during cold winter months and may help soothe congestion. You can switch between warm and cool mist modes at any time using the control panel. Note: when using warm mist mode around children or pets, place the unit on an elevated surface out of reach.</p>",
+            "open_default": false
+          }
+        },
+        "comp_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the mood light feature?",
+            "answer": "<p>Select Carepod models include an ambient mood light built into the base or body of the unit. This soft LED light can cycle through colors or be set to a single color, creating a calming atmosphere — especially nice in nurseries or bedrooms at night. The light can be turned off entirely if you prefer complete darkness. It's a subtle design touch that adds to the overall experience without affecting humidification performance.</p>",
+            "open_default": false
+          }
+        }
+      },
+      "block_order": ["comp_1", "comp_2", "comp_3", "comp_4", "comp_5"],
+      "settings": {
+        "heading": "Product Comparison",
+        "bg_color": "#f9f9f9"
+      }
+    },
+    "faq_shipping": {
+      "type": "cp-product-faq",
+      "blocks": {
+        "ship_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your shipping policy?",
+            "answer": "<p>We offer free standard shipping on all orders. Orders are typically processed within 1-2 business days (Monday through Friday, excluding holidays). Standard delivery takes 3-7 business days depending on your location. You'll receive a shipping confirmation email with tracking information once your order ships. During peak seasons or promotional periods, processing times may be slightly longer.</p>",
+            "open_default": false
+          }
+        },
+        "ship_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>Yes, we ship to many countries worldwide. International shipping rates and delivery times vary by destination. Shipping costs for international orders will be calculated at checkout based on your location and order weight. Please note that international orders may be subject to customs duties and taxes imposed by your country, which are the responsibility of the recipient. Delivery typically takes 7-21 business days for international orders.</p>",
+            "open_default": false
+          }
+        },
+        "ship_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day free return policy. If you're not completely satisfied with your Carepod, you can return it within 30 days of delivery for a full refund. The product must be in its original packaging and in good condition. To initiate a return, contact our customer support team at hello@carepod.com and we'll provide you with a prepaid return shipping label. Refunds are processed within 5-7 business days after we receive the returned item.</p>",
+            "open_default": false
+          }
+        },
+        "ship_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What warranty does Carepod come with?",
+            "answer": "<p>Every Carepod comes with a 1-year manufacturer's warranty that covers defects in materials and workmanship under normal household use. This includes the motor, electrical components, and stainless steel parts. The warranty does not cover damage from misuse, accidents, unauthorized modifications, or normal wear and tear (such as minor scratches on stainless steel surfaces). If you experience an issue covered by warranty, contact us at hello@carepod.com with your order number and a description of the problem, and we'll make it right.</p>",
+            "open_default": false
+          }
+        },
+        "ship_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I contact customer support?",
+            "answer": "<p>You can reach our customer support team in several ways:<br><br><strong>Email:</strong> hello@carepod.com — we respond within 24 hours on business days.<br><strong>Contact Form:</strong> Visit our <a href=\"/pages/contact\">Contact page</a> and fill out the form.<br><br>Our support team is available Monday through Friday, 9 AM - 6 PM EST. We're happy to help with product questions, troubleshooting, returns, warranty claims, or anything else.</p>",
+            "open_default": false
+          }
+        },
+        "ship_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I track my order?",
+            "answer": "<p>Yes. Once your order ships, you'll receive a shipping confirmation email with a tracking number and a link to track your package in real-time. You can also check your order status by visiting our website and using the order tracking page, or by contacting our customer support team with your order number. If you haven't received a shipping confirmation within 3 business days of placing your order, please check your spam folder or reach out to us.</p>",
+            "open_default": false
+          }
+        }
+      },
+      "block_order": ["ship_1", "ship_2", "ship_3", "ship_4", "ship_5", "ship_6"],
+      "settings": {
+        "heading": "Shipping & Returns",
+        "bg_color": "#ffffff"
+      }
+    },
+    "faq_technical": {
+      "type": "cp-product-faq",
+      "blocks": {
+        "tech_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the wattage / power consumption?",
+            "answer": "<p>Carepod is energy-efficient and designed for continuous use:<br><br><strong>Cube Plus:</strong> 25W (cool mist) / 110W (warm mist) / 280W (sanitization cycle)<br><strong>One Plus:</strong> 25W<br><strong>One:</strong> 25W<br><strong>Mini:</strong> 18W<br><br>At 25W on cool mist mode, running Carepod 24 hours a day would cost roughly $0.07 per day (based on average US electricity rates). All models use a standard AC power adapter and plug into a regular household outlet.</p>",
+            "open_default": false
+          }
+        },
+        "tech_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does Carepod have auto shut-off?",
+            "answer": "<p>Yes, all Carepod models include an automatic shut-off safety feature. When the water level drops below the minimum threshold, the unit will turn itself off to prevent the motor from running dry. This protects the oscillator disc from damage and means you can safely leave your Carepod running overnight or while you're away without worry. Simply refill the tank and turn it back on when you're ready.</p>",
+            "open_default": false
+          }
+        },
+        "tech_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use a timer with Carepod?",
+            "answer": "<p>The Cube Plus features a built-in timer function that allows you to set the unit to run for a specific duration (2, 4, 6, or 8 hours) before automatically turning off. The One, One Plus, and Mini do not have built-in timers, but you can use an external smart plug or outlet timer to achieve the same effect. Pair it with a smart plug like a TP-Link or Wemo to control your Carepod with voice assistants or automated schedules.</p>",
+            "open_default": false
+          }
+        },
+        "tech_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the oscillator and how does it work?",
+            "answer": "<p>The oscillator (also called the ultrasonic disc or vibration plate) is the component that creates the mist. It sits at the bottom of the water tank and vibrates at an ultrasonic frequency — over 1.7 million times per second. This rapid vibration breaks water into micro-fine droplets (1-5 microns in diameter) that are light enough to float in the air as a cool, visible mist. The oscillator disc in Carepod is made of ceramic and stainless steel, is easily removable for cleaning, and is designed to last for years of continuous use. If it ever needs replacing, you can order a replacement disc from our store.</p>",
+            "open_default": false
+          }
+        }
+      },
+      "block_order": ["tech_1", "tech_2", "tech_3", "tech_4"],
+      "settings": {
+        "heading": "Technical",
+        "bg_color": "#f9f9f9"
       }
     },
     "risk_free": {
@@ -112,5 +370,5 @@
       }
     }
   },
-  "order": ["faq_main", "risk_free"]
+  "order": ["faq_general", "faq_cleaning", "faq_water", "faq_compare", "faq_shipping", "faq_technical", "risk_free"]
 }

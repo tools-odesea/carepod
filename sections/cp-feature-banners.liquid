@@ -1,0 +1,332 @@
+{{ 'cp-custom.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .cp-featurebanners {
+    padding: 60px 0;
+  }
+
+  .cp-featurebanners__container {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .cp-featurebanners__heading {
+    font-family: var(--font-heading-family);
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -0.02em;
+  }
+
+  .cp-featurebanners__list {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .cp-featurebanners__banner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .cp-featurebanners__banner--reverse {
+    direction: rtl;
+  }
+
+  .cp-featurebanners__banner--reverse > * {
+    direction: ltr;
+  }
+
+  .cp-featurebanners__image-wrap {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background-color: #f5f5f5;
+  }
+
+  .cp-featurebanners__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cp-featurebanners__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cp-featurebanners__number {
+    font-family: var(--font-heading-family);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.08);
+    letter-spacing: -0.02em;
+  }
+
+  .cp-featurebanners__title {
+    font-family: var(--font-heading-family);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .cp-featurebanners__description {
+    font-family: var(--font-body-family);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+  }
+
+  .cp-featurebanners__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cp-featurebanners__bullet {
+    font-family: var(--font-body-family);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding-left: 24px;
+    position: relative;
+    color: #333;
+  }
+
+  .cp-featurebanners__bullet::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #4a90d9;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-featurebanners {
+      padding: 40px 0;
+    }
+
+    .cp-featurebanners__heading {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+    }
+
+    .cp-featurebanners__list {
+      gap: 50px;
+    }
+
+    .cp-featurebanners__banner {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .cp-featurebanners__banner--reverse {
+      direction: ltr;
+    }
+
+    .cp-featurebanners__image-wrap {
+      order: -1;
+    }
+
+    .cp-featurebanners__number {
+      font-size: 3rem;
+    }
+
+    .cp-featurebanners__title {
+      font-size: 1.4rem;
+    }
+  }
+{%- endstyle -%}
+
+<section class="cp-featurebanners">
+  <div class="cp-featurebanners__container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cp-featurebanners__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="cp-featurebanners__list">
+      {%- for block in section.blocks -%}
+        {%- assign is_even = forloop.index | modulo: 2 -%}
+        <div
+          class="cp-featurebanners__banner{% if is_even == 0 %} cp-featurebanners__banner--reverse{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          <div class="cp-featurebanners__image-wrap">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 800
+                | image_tag:
+                  class: 'cp-featurebanners__image',
+                  loading: 'lazy',
+                  widths: '400, 600, 800',
+                  sizes: '(max-width: 749px) 100vw, 50vw'
+              }}
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'cp-featurebanners__image' }}
+            {%- endif -%}
+          </div>
+
+          <div class="cp-featurebanners__content">
+            {%- if block.settings.number != blank -%}
+              <span class="cp-featurebanners__number">{{ block.settings.number }}</span>
+            {%- endif -%}
+
+            {%- if block.settings.heading != blank -%}
+              <h3 class="cp-featurebanners__title">{{ block.settings.heading }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+              <p class="cp-featurebanners__description">{{ block.settings.description }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.bullet_1 != blank
+              or block.settings.bullet_2 != blank
+              or block.settings.bullet_3 != blank
+            -%}
+              <ul class="cp-featurebanners__bullets">
+                {%- if block.settings.bullet_1 != blank -%}
+                  <li class="cp-featurebanners__bullet">{{ block.settings.bullet_1 }}</li>
+                {%- endif -%}
+                {%- if block.settings.bullet_2 != blank -%}
+                  <li class="cp-featurebanners__bullet">{{ block.settings.bullet_2 }}</li>
+                {%- endif -%}
+                {%- if block.settings.bullet_3 != blank -%}
+                  <li class="cp-featurebanners__bullet">{{ block.settings.bullet_3 }}</li>
+                {%- endif -%}
+              </ul>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CP Feature Banners",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Carepod"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Feature Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Feature description goes here."
+        },
+        {
+          "type": "text",
+          "id": "bullet_1",
+          "label": "Bullet 1"
+        },
+        {
+          "type": "text",
+          "id": "bullet_2",
+          "label": "Bullet 2"
+        },
+        {
+          "type": "text",
+          "id": "bullet_3",
+          "label": "Bullet 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CP Feature Banners",
+      "blocks": [
+        {
+          "type": "banner",
+          "settings": {
+            "number": "01",
+            "heading": "Doctor-Invented for Families + Kids",
+            "description": "Carepod humidifier efficiently infuses indoor air with clean moisture.",
+            "bullet_1": "Easy to use for the whole family",
+            "bullet_2": "Soothes dry skin, eyes, and throat",
+            "bullet_3": "Safe, hygienic design for babies and pets"
+          }
+        },
+        {
+          "type": "banner",
+          "settings": {
+            "number": "02",
+            "heading": "99.9% Sterilizable & Mold-Resistant",
+            "description": "The first stainless steel, sterilizable humidifier for truly fresh, clean air.",
+            "bullet_1": "Award-winning filter-free design",
+            "bullet_2": "Safe for babies and pets",
+            "bullet_3": "Reduces the spread of airborne germs"
+          }
+        },
+        {
+          "type": "banner",
+          "settings": {
+            "number": "03",
+            "heading": "Easy to Clean & Dishwasher-Safe",
+            "description": "Sleek, minimalist, three-piece design, with a simple water tank.",
+            "bullet_1": "Only 3 pieces to clean",
+            "bullet_2": "Dishwasher-safe stainless steel",
+            "bullet_3": "No hidden spaces where mold can grow"
+          }
+        },
+        {
+          "type": "banner",
+          "settings": {
+            "number": "04",
+            "heading": "Unique Hydration Technology",
+            "description": "Transforms indoor spaces by keeping air moist, helping faster sleep onset.",
+            "bullet_1": "Easier breathing for the whole family",
+            "bullet_2": "Eases respiratory discomfort",
+            "bullet_3": "Improves sleep quality naturally"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
