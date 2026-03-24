@@ -45,6 +45,42 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "mega_product_cube_plus": {
+          "type": "mega_menu_product",
+          "settings": {
+            "product": "carepod-cube-plus",
+            "description": "Cool + Warm mist with 700 ft² coverage"
+          }
+        },
+        "mega_product_one_plus": {
+          "type": "mega_menu_product",
+          "settings": {
+            "product": "carepod-one-plus",
+            "description": "Ideal for living spaces and bedrooms"
+          }
+        },
+        "mega_product_one": {
+          "type": "mega_menu_product",
+          "settings": {
+            "product": "carepod-one",
+            "description": "Perfect for bedrooms and home offices"
+          }
+        },
+        "mega_product_mini": {
+          "type": "mega_menu_product",
+          "settings": {
+            "product": "carepod-mini",
+            "description": "Compact and perfect for nurseries"
+          }
+        }
+      },
+      "block_order": [
+        "mega_product_cube_plus",
+        "mega_product_one_plus",
+        "mega_product_one",
+        "mega_product_mini"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
