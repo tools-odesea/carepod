@@ -166,8 +166,8 @@
             href="{{ block.settings.url | default: '#' }}"
             {{ block.shopify_attributes }}
           >
+            {%- assign card_alt = block.settings.name | escape -%}
             {%- if block.settings.image != blank -%}
-              {%- assign card_alt = block.settings.name | escape -%}
               {{
                 block.settings.image
                 | image_url: width: 800
@@ -178,6 +178,8 @@
                   loading: 'lazy',
                   alt: card_alt
               }}
+            {%- elsif block.settings.image_url != blank -%}
+              <img src="{{ block.settings.image_url }}" class="cp-shop__card-img" alt="{{ card_alt }}" loading="lazy">
             {%- endif -%}
             <div class="cp-shop__card-label">
               <p class="cp-shop__card-name">{{ block.settings.name | escape }}</p>
@@ -285,6 +287,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Product image URL (fallback)"
         }
       ]
     },

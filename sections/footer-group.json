@@ -13,10 +13,83 @@
   "sections": {
     "footer": {
       "type": "cp-footer",
-      "settings": {}
+      "blocks": {
+        "col_about": {
+          "type": "link_column",
+          "settings": {
+            "title": "About",
+            "link_1_label": "About Us",
+            "link_1_url": "/pages/about",
+            "link_2_label": "Why Carepod?",
+            "link_2_url": "/pages/why-carepod",
+            "link_3_label": "Privacy Policy",
+            "link_3_url": "/policies/privacy-policy",
+            "link_4_label": "Terms of Service",
+            "link_4_url": "/policies/terms-of-service",
+            "link_5_label": "Returns & Exchanges",
+            "link_5_url": "/policies/refund-policy",
+            "link_6_label": "FAQ",
+            "link_6_url": "/pages/faqs"
+          }
+        },
+        "col_shop": {
+          "type": "link_column",
+          "settings": {
+            "title": "Shop",
+            "link_1_label": "Carepod Cube Plus",
+            "link_1_url": "/products/carepod-cube-plus",
+            "link_2_label": "Carepod One Plus",
+            "link_2_url": "/products/carepod-one-plus",
+            "link_3_label": "Carepod One Plus With Stand",
+            "link_3_url": "/products/carepod-one-with-stand",
+            "link_4_label": "Carepod One",
+            "link_4_url": "/products/carepod-one",
+            "link_5_label": "Carepod Mini",
+            "link_5_url": "/products/carepod-mini",
+            "link_6_label": "Humidifier Accessories",
+            "link_6_url": "/collections/humidifier-accessories",
+            "link_7_label": "Track My Package",
+            "link_7_url": "/pages/contact",
+            "link_8_label": "Shipping Policy",
+            "link_8_url": "/policies/shipping-policy"
+          }
+        },
+        "col_connect": {
+          "type": "link_column",
+          "settings": {
+            "title": "Connect",
+            "link_1_label": "Instagram",
+            "link_1_url": "https://www.instagram.com/hellocarepod/",
+            "link_2_label": "Facebook",
+            "link_2_url": "https://www.facebook.com/hellocarepod",
+            "link_3_label": "YouTube",
+            "link_3_url": "https://www.youtube.com/channel/UCWEpg1gelJwnHOSoySsVMJA",
+            "link_4_label": "Carepod Blog",
+            "link_4_url": "/blogs/news",
+            "link_5_label": "Press",
+            "link_5_url": "/blogs/news",
+            "link_6_label": "Reviews",
+            "link_6_url": "/pages/love-notes",
+            "link_7_label": "Contact Us",
+            "link_7_url": "/pages/contact"
+          }
+        },
+        "col_info": {
+          "type": "info_column",
+          "settings": {
+            "title": "Carepod Europe",
+            "support_label": "Customer Support:",
+            "support_email": "support@carepod-europe.com"
+          }
+        }
+      },
+      "block_order": ["col_about", "col_shop", "col_connect", "col_info"],
+      "settings": {
+        "bg_color": "#1c1d1d",
+        "text_color": "#ffffff",
+        "link_color": "#b0b0b0"
+      }
     }
   },
-  "order": [
-    "footer"
-  ]
+  "order": ["footer"]
 }

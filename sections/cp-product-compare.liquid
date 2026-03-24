@@ -452,8 +452,8 @@
             data-compare="{{ block.id }}"
             {{ block.shopify_attributes }}
           >
+            {%- assign product_alt = block.settings.name | escape -%}
             {%- if block.settings.image != blank -%}
-              {%- assign product_alt = block.settings.name | escape -%}
               <div class="cp-compare__product-img-wrap">
                 {{
                   block.settings.image
@@ -465,6 +465,10 @@
                     loading: 'lazy',
                     alt: product_alt
                 }}
+              </div>
+            {%- elsif block.settings.image_url != blank -%}
+              <div class="cp-compare__product-img-wrap">
+                <img src="{{ block.settings.image_url }}" class="cp-compare__product-img" alt="{{ product_alt }}" loading="lazy">
               </div>
             {%- endif -%}
             <div class="cp-compare__product-text">
@@ -669,6 +673,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Product image URL (fallback)"
         }
       ]
     },

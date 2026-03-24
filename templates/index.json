@@ -81,7 +81,7 @@
           "settings": {
             "name": "Carepod Cube Plus",
             "url": "/products/carepod-cube-plus",
-            "image": "shopify://shop_images/Screenshot_2025-01-29_at_12.11.32_AM.png"
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CubePlusGraphic.png?v=1724788101"
           }
         },
         "product_one_plus": {
@@ -89,7 +89,7 @@
           "settings": {
             "name": "Carepod One Plus",
             "url": "/products/carepod-one-plus",
-            "image": "shopify://shop_images/Screenshot_2025-01-29_at_12.11.32_AM.png"
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Image_6_-min.png"
           }
         },
         "product_one": {
@@ -97,7 +97,7 @@
           "settings": {
             "name": "Carepod One",
             "url": "/products/carepod-one",
-            "image": "shopify://shop_images/Screenshot_2025-01-29_at_12.11.32_AM.png"
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod_One_1_2.jpg"
           }
         },
         "product_mini": {
@@ -105,7 +105,7 @@
           "settings": {
             "name": "Carepod Mini",
             "url": "/products/carepod-mini",
-            "image": "shopify://shop_images/Screenshot_2025-01-29_at_12.11.32_AM.png"
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/products/CarepodMini-100.jpg"
           }
         }
       },
@@ -132,7 +132,7 @@
             "name": "Carepod Cube Plus",
             "description": "Ultimate coverage and upgraded features for pure, fresh air.",
             "url": "/products/carepod-cube-plus",
-            "image": "shopify://shop_images/02Image.png"
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CubePlusGraphic.png?v=1724788101"
           }
         },
         "prod_one_plus": {
@@ -141,7 +141,7 @@
             "name": "Carepod One Plus",
             "description": "Ideal for living spaces, bedrooms, or studio apartments.",
             "url": "/products/carepod-one-plus",
-            "image": "shopify://shop_images/02Image.png"
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Image_6_-min.png"
           }
         },
         "prod_one": {
@@ -150,7 +150,7 @@
             "name": "Carepod One",
             "description": "Ideal for the bedroom, home office, or studio apartment.",
             "url": "/products/carepod-one",
-            "image": "shopify://shop_images/02Image.png"
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/Carepod_One_1_2.jpg"
           }
         },
         "prod_mini": {
@@ -159,7 +159,7 @@
             "name": "Carepod Mini",
             "description": "Perfect for nurseries and smaller spaces. A favorite for parents.",
             "url": "/products/carepod-mini",
-            "image": "shopify://shop_images/02Image.png"
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/products/CarepodMini-100.jpg"
           }
         },
         "row_coverage": {

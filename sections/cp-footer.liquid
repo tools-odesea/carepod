@@ -207,11 +207,13 @@
             {%- if block.settings.title != blank -%}
               <h3 class="cp-footer__col-title">{{ block.settings.title | escape }}</h3>
             {%- endif -%}
-            {%- if block.settings.menu != blank -%}
-              {%- for link in block.settings.menu.links -%}
-                <a href="{{ link.url }}" class="cp-footer__link">{{ link.title | escape }}</a>
-              {%- endfor -%}
-            {%- endif -%}
+            {%- for i in (1..8) -%}
+              {%- assign label_key = 'link_' | append: i | append: '_label' -%}
+              {%- assign url_key = 'link_' | append: i | append: '_url' -%}
+              {%- if block.settings[label_key] != blank -%}
+                <a href="{{ block.settings[url_key] | default: '#' }}" class="cp-footer__link">{{ block.settings[label_key] | escape }}</a>
+              {%- endif -%}
+            {%- endfor -%}
           </div>
         {%- elsif block.type == 'info_column' -%}
           <div class="cp-footer__col" {{ block.shopify_attributes }}>
@@ -280,14 +282,24 @@
         {
           "type": "text",
           "id": "title",
-          "label": "Column title",
-          "default": "About"
+          "label": "Column title"
         },
-        {
-          "type": "link_list",
-          "id": "menu",
-          "label": "Menu"
-        }
+        {"type":"text","id":"link_1_label","label":"Link 1 label"},
+        {"type":"url","id":"link_1_url","label":"Link 1 URL"},
+        {"type":"text","id":"link_2_label","label":"Link 2 label"},
+        {"type":"url","id":"link_2_url","label":"Link 2 URL"},
+        {"type":"text","id":"link_3_label","label":"Link 3 label"},
+        {"type":"url","id":"link_3_url","label":"Link 3 URL"},
+        {"type":"text","id":"link_4_label","label":"Link 4 label"},
+        {"type":"url","id":"link_4_url","label":"Link 4 URL"},
+        {"type":"text","id":"link_5_label","label":"Link 5 label"},
+        {"type":"url","id":"link_5_url","label":"Link 5 URL"},
+        {"type":"text","id":"link_6_label","label":"Link 6 label"},
+        {"type":"url","id":"link_6_url","label":"Link 6 URL"},
+        {"type":"text","id":"link_7_label","label":"Link 7 label"},
+        {"type":"url","id":"link_7_url","label":"Link 7 URL"},
+        {"type":"text","id":"link_8_label","label":"Link 8 label"},
+        {"type":"url","id":"link_8_url","label":"Link 8 URL"}
       ]
     },
     {
