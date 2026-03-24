@@ -15,7 +15,7 @@
         "image_desktop": "shopify://shop_images/Hero_Image_1_c215dac7-2485-446f-9a60-d1b548dc09ce.jpg",
         "image_mobile": "shopify://shop_images/Hero_Image_1_c215dac7-2485-446f-9a60-d1b548dc09ce.jpg",
         "badge_text": "Over 130,220+ Humidifiers Sold",
-        "heading": "The ultimate upgrade for your home",
+        "heading": "The ultimate upgrade for your home.",
         "button_label": "Shop Carepod",
         "button_link": "/collections/all"
       }
@@ -281,7 +281,7 @@
       ],
       "settings": {
         "heading": "A Carepod for every room",
-        "subheading": "The Carepod humidifier is versatile and user-friendly, making it ideal for any lifestyle, health need, or living space",
+        "subheading": "The Carepod humidifier is versatile and user-friendly, making it ideal for any lifestyle, health need, or living space.",
         "button_bg": "#0249e3",
         "button_bg_hover": "#00329d",
         "button_text": "#ffffff"
@@ -349,7 +349,7 @@
       ],
       "settings": {
         "heading": "What sets Carepod apart?",
-        "subtext": "Loved by doctors, made for families. Carepod blends premium grade clean with sleek design, perfect for healthy breathing every day",
+        "subtext": "Loved by doctors, made for families. Carepod blends premium grade clean with sleek design, perfect for healthy breathing every day.",
         "other_label": "Other Humidifiers",
         "footnote": "*Available for select models only",
         "button_label": "Choose Your Carepod Bundle",
@@ -363,7 +363,7 @@
       "settings": {
         "image_desktop": "shopify://shop_images/New.svg_fill_d33dd0c9-bdc8-4885-bfe7-6693e3e65506.jpg",
         "image_mobile": "shopify://shop_images/New.svg_fill_d33dd0c9-bdc8-4885-bfe7-6693e3e65506.jpg",
-        "eyebrow": "",
+        "eyebrow": "New",
         "heading": "Cube Plus",
         "subheading": "The world's cleanest cool-and-warm-mist humidifier, with our patented air hydration technology.",
         "button_label": "Shop Cube Plus",
@@ -376,6 +376,7 @@
         "step_1": {
           "type": "step",
           "settings": {
+            "image": "",
             "image_url": "https://hellocarepod.com/cdn/shop/files/Rectangle_1136.svg?v=1694804652",
             "title": "Disassemble",
             "text": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean."
@@ -384,6 +385,7 @@
         "step_2": {
           "type": "step",
           "settings": {
+            "image": "",
             "image_url": "https://hellocarepod.com/cdn/shop/files/Rectangle_1136_1.svg?v=1694805742",
             "title": "Scrub or boil to sterilize.",
             "text": "Wash the oscillator with soap and water. Fill the water tank with water & place the stainless steel lid cover inside. Boil 1-2 mins for 99.9% sterilization."
@@ -392,6 +394,7 @@
         "step_3": {
           "type": "step",
           "settings": {
+            "image": "",
             "image_url": "https://hellocarepod.com/cdn/shop/files/Rectangle_1136_2.svg?v=1694805809",
             "title": "Refill & enjoy.",
             "text": "Snap the pieces back in place, fill with water, and you're ready to breathe fresh, clean air in your home once again."
@@ -404,7 +407,7 @@
         "step_3"
       ],
       "settings": {
-        "heading": "See how Carepod makes cleaning easy",
+        "heading": "See how Carepod makes cleaning easy.",
         "heading_mobile": "",
         "button_label": "Choose Your Carepod",
         "button_link": "/collections/all"
@@ -485,7 +488,7 @@
       "type": "cp-founder-story",
       "settings": {
         "image_url": "https://hellocarepod.com/cdn/shop/files/CPEdit2.png",
-        "heading": "Engineered by a doctor with the heart of a father",
+        "heading": "Engineered by a doctor with the heart of a father.",
         "body": "Dr. Hyung Joo Kim created the Carepod to help his own family combat dry air. Now, his goal is to ensure that everyone can enjoy the safety and comfort of fresh, clean air.",
         "button_label": "Shop Bestsellers",
         "button_link": "/collections/all"
