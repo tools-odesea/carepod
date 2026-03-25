@@ -17,14 +17,14 @@
         "announcement_1": {
           "type": "announcement",
           "settings": {
-            "text": "Meet the world's cleanest humidifier | <a href='/collections/all'>Shop Now</a>",
+            "text": "Meet the world's cleanest humidifier",
             "link": ""
           }
         },
         "announcement_2": {
           "type": "announcement",
           "settings": {
-            "text": "Free Shipping on All Orders | <a href='/collections/all'>Shop Now</a>",
+            "text": "Free Shipping on All Orders",
             "link": ""
           }
         }
