@@ -1,28 +1,29 @@
 /* Vertical thumbnail gallery — thumbnails on left, main image on right */
 @media screen and (min-width: 990px) {
+  /* Make media-gallery a horizontal flex container */
   .product--thumbnail_slider media-gallery {
     display: flex;
     flex-direction: row;
     gap: 1rem;
   }
 
-  /* Main image viewer — takes remaining space */
-  .product--thumbnail_slider media-gallery > slider-component.slider-mobile-gutter:first-of-type {
+  /* Main image viewer — takes remaining space, positioned on the right */
+  .product--thumbnail_slider media-gallery > slider-component:first-of-type {
     flex: 1;
     min-width: 0;
     order: 2;
   }
 
-  /* Thumbnail slider — vertical column on the left */
-  .product--thumbnail_slider media-gallery > .thumbnail-slider {
+  /* Thumbnail slider — narrow column on the left */
+  .product--thumbnail_slider media-gallery > slider-component.thumbnail-slider {
     order: 1;
     width: 85px;
     flex-shrink: 0;
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+  /* Thumbnail list — vertical scroll */
   .product--thumbnail_slider .thumbnail-list.slider--tablet-up {
     flex-direction: column;
     overflow-y: auto;
@@ -38,6 +39,7 @@
     display: none;
   }
 
+  /* Each thumbnail takes full width of the column */
   .product--thumbnail_slider .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
     width: 100% !important;
     scroll-snap-align: start;
@@ -48,12 +50,8 @@
     border-radius: 6px;
   }
 
-  /* Arrow buttons — blue circle with blue chevron, matching original store */
+  /* Style the nav buttons — blue circle to match original store */
   .product--thumbnail_slider .thumbnail-slider .slider-button {
-    position: relative;
-    justify-content: center;
-    margin: 0;
-    flex-shrink: 0;
     width: 44px;
     height: 44px;
     min-height: 44px;
@@ -62,9 +60,9 @@
     background: #ffffff;
     color: #5b9bd5;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: background 0.2s, border-color 0.2s;
     align-self: center;
-    cursor: pointer;
+    flex-shrink: 0;
+    justify-content: center;
   }
 
   .product--thumbnail_slider .thumbnail-slider .slider-button:hover {
@@ -76,29 +74,40 @@
     color: #5b9bd5;
   }
 
-  /* Prev button = up arrow. Dawn's base rotates --prev icon 90deg (points up).
-     We need it pointing up, so keep the default 90deg = up. */
+  /* Prev = up arrow, placed before thumbnails */
   .product--thumbnail_slider .thumbnail-slider .slider-button--prev {
     order: -1;
     margin-bottom: 0.5rem;
   }
 
-  .product--thumbnail_slider .thumbnail-slider .slider-button--prev .icon {
-    transform: rotate(90deg);
-  }
-
-  /* Next button = down arrow. Dawn's base rotates --next icon -90deg (points down).
-     We need it pointing down, so keep the default -90deg = down. */
+  /* Next = down arrow, placed after thumbnails */
   .product--thumbnail_slider .thumbnail-slider .slider-button--next {
     margin-top: 0.5rem;
   }
 
-  .product--thumbnail_slider .thumbnail-slider .slider-button--next .icon {
-    transform: rotate(-90deg);
+  /* The caret icon is a downward chevron by default.
+     Dawn rotates --prev 90deg (= points left) and --next -90deg (= points right).
+     For vertical layout we need: prev = up, next = down.
+     Up = 180deg, Down = 0deg (default orientation). */
+  .product--thumbnail_slider .thumbnail-slider .slider-button--prev .icon {
+    transform: rotate(180deg);
   }
 
-  /* Hide disabled buttons entirely (not just grayed out) */
+  .product--thumbnail_slider .thumbnail-slider .slider-button--next .icon {
+    transform: rotate(0deg);
+  }
+
+  /* Hide disabled buttons completely */
   .product--thumbnail_slider .thumbnail-slider .slider-button[disabled] {
-    display: none !important;
+    display: none;
+  }
+
+  /* Override hover transforms from Dawn base CSS */
+  .product--thumbnail_slider .thumbnail-slider .slider-button--prev:not([disabled]):hover .icon {
+    transform: rotate(180deg) scale(1.1);
+  }
+
+  .product--thumbnail_slider .thumbnail-slider .slider-button--next:not([disabled]):hover .icon {
+    transform: rotate(0deg) scale(1.1);
   }
 }
