@@ -7,11 +7,6 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-/*
- * ------------------------------------------------------------
- * Product template: Carepod Mini
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -24,7 +19,10 @@
             "custom_liquid": "<div class=\"cp-star-rating\"><div class=\"cp-star-rating__stars\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#1f07f2\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#1f07f2\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#1f07f2\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#1f07f2\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/></svg><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"half-star\"><stop offset=\"50%\" stop-color=\"#1f07f2\"/><stop offset=\"50%\" stop-color=\"#d0d0d0\"/></linearGradient></defs><path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\" fill=\"url(#half-star)\"/></svg></div><span class=\"cp-star-rating__score\">4.3</span><span class=\"cp-star-rating__divider\">|</span><span class=\"cp-star-rating__count\">(627)</span><span class=\"cp-star-rating__badge\">Verified Reviews</span></div>"
           }
         },
-        "title": { "type": "title", "settings": {} },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
         "tagline": {
           "type": "text",
           "settings": {
@@ -36,68 +34,199 @@
           "type": "icon-with-text",
           "settings": {
             "layout": "horizontal",
-            "icon_1": "heart", "heading_1": "Better breathing",
-            "icon_2": "leaf", "heading_2": "Clearer skin",
-            "icon_3": "check_mark", "heading_3": "Improved sleep"
+            "icon_1": "heart",
+            "heading_1": "Better breathing",
+            "icon_2": "leaf",
+            "heading_2": "Clearer skin",
+            "icon_3": "check_mark",
+            "heading_3": "Improved sleep"
           }
         },
         "benefits_strip_2": {
           "type": "icon-with-text",
           "settings": {
             "layout": "horizontal",
-            "icon_1": "recycle", "heading_1": "No filter required",
-            "icon_2": "star", "heading_2": "Compact & portable",
-            "icon_3": "none", "heading_3": ""
+            "icon_1": "recycle",
+            "heading_1": "No filter required",
+            "icon_2": "star",
+            "heading_2": "Compact & portable",
+            "icon_3": "none",
+            "heading_3": ""
           }
         },
-        "price": { "type": "price", "settings": {} },
+        "pumper_bundles_app_block_bundle_69Q6HV": {
+          "type": "shopify://apps/pumper-bundles/blocks/app-block-bundle/0856870d-2aca-4b1e-a662-cf1797f61270",
+          "settings": {
+            "selected_product": "{{product}}",
+            "using_page_builder": false
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
-          "settings": { "show_dynamic_checkout": false, "show_gift_card_recipient": false }
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
         },
         "description": {
           "type": "collapsible_tab",
-          "settings": { "heading": "Description", "icon": "clipboard", "content": "", "page": "" }
+          "settings": {
+            "heading": "Description",
+            "icon": "clipboard",
+            "content": "",
+            "page": ""
+          }
         },
         "shipping_tab": {
           "type": "collapsible_tab",
-          "settings": { "heading": "Shipping & Returns", "icon": "truck", "content": "<p>Free shipping on all orders. 30-day free returns.</p>", "page": "" }
+          "settings": {
+            "heading": "Shipping & Returns",
+            "icon": "truck",
+            "content": "<p>Free shipping on all orders. 30-day free returns.</p>",
+            "page": ""
+          }
         }
       },
-      "block_order": ["star_rating", "title", "tagline", "benefits_strip", "benefits_strip_2", "price", "buy_buttons", "description", "shipping_tab"],
+      "block_order": [
+        "star_rating",
+        "title",
+        "tagline",
+        "benefits_strip",
+        "benefits_strip_2",
+        "pumper_bundles_app_block_bundle_69Q6HV",
+        "price",
+        "buy_buttons",
+        "description",
+        "shipping_tab"
+      ],
       "settings": {
-        "enable_sticky_info": true, "color_scheme": "scheme-1", "media_size": "medium",
-        "constrain_to_viewport": true, "media_fit": "contain", "gallery_layout": "thumbnail_slider",
-        "mobile_thumbnails": "show", "media_position": "left", "image_zoom": "lightbox",
-        "hide_variants": true, "enable_video_looping": false, "padding_top": 20, "padding_bottom": 12
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 20,
+        "padding_bottom": 12
       }
     },
     "product_benefits": {
       "type": "cp-product-benefits",
       "blocks": {
-        "benefit_doctor": { "type": "benefit", "settings": { "icon": "doctor", "title": "Doctor Designed", "description": "Compact, sleek, award-winning. With just three parts to clean." } },
-        "benefit_sterilize": { "type": "benefit", "settings": { "icon": "sterilize", "title": "99.9% Sterilizable", "description": "Easy to boil to eliminate mold + bacteria." } },
-        "benefit_steel": { "type": "benefit", "settings": { "icon": "steel", "title": "Stainless Steel", "description": "Dishwasher-safe water tank with a top-fill design." } },
-        "benefit_germ": { "type": "benefit", "settings": { "icon": "germ-free", "title": "Safe and Germ-Free", "description": "No hidden nooks or crannies that breed bacteria." } },
-        "benefit_subscription": { "type": "benefit", "settings": { "icon": "no-subscription", "title": "No Monthly Subscriptions", "description": "Skip the hassle of filter replacements. Perfect for long-term cost savings." } }
+        "benefit_doctor": {
+          "type": "benefit",
+          "settings": {
+            "icon": "doctor",
+            "title": "Doctor Designed",
+            "description": "Compact, sleek, award-winning. With just three parts to clean."
+          }
+        },
+        "benefit_sterilize": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sterilize",
+            "title": "99.9% Sterilizable",
+            "description": "Easy to boil to eliminate mold + bacteria."
+          }
+        },
+        "benefit_steel": {
+          "type": "benefit",
+          "settings": {
+            "icon": "steel",
+            "title": "Stainless Steel",
+            "description": "Dishwasher-safe water tank with a top-fill design."
+          }
+        },
+        "benefit_germ": {
+          "type": "benefit",
+          "settings": {
+            "icon": "germ-free",
+            "title": "Safe and Germ-Free",
+            "description": "No hidden nooks or crannies that breed bacteria."
+          }
+        },
+        "benefit_subscription": {
+          "type": "benefit",
+          "settings": {
+            "icon": "no-subscription",
+            "title": "No Monthly Subscriptions",
+            "description": "Skip the hassle of filter replacements. Perfect for long-term cost savings."
+          }
+        }
       },
-      "block_order": ["benefit_doctor", "benefit_sterilize", "benefit_steel", "benefit_germ", "benefit_subscription"],
-      "settings": { "heading": "Big Impact. Small Size.", "bg_color": "#2b2b2b", "text_color": "#ffffff" }
+      "block_order": [
+        "benefit_doctor",
+        "benefit_sterilize",
+        "benefit_steel",
+        "benefit_germ",
+        "benefit_subscription"
+      ],
+      "settings": {
+        "heading": "Big Impact. Small Size.",
+        "bg_color": "#2b2b2b",
+        "text_color": "#ffffff"
+      }
     },
     "press_quotes": {
       "type": "cp-press-quotes",
       "blocks": {
-        "quote_forbes": { "type": "quote", "settings": { "quote": "A safe choice for homes with kids and pets. Oh, and it's invented by a doctor", "publication": "Forbes", "logo": "shopify://shop_images/Frame_25.png" } },
-        "quote_wellgood": { "type": "quote", "settings": { "quote": "Your face and lungs will thank you.", "publication": "Well + Good" } },
-        "quote_bhg": { "type": "quote", "settings": { "quote": "It has a very simple, intuitive design that puts it above other humidifiers we tested.", "publication": "Better Homes and Gardens" } },
-        "quote_bazaar": { "type": "quote", "settings": { "quote": "Carepod's award-earning humidifier is a winning self-care gift.", "publication": "Bazaar" } }
+        "quote_forbes": {
+          "type": "quote",
+          "settings": {
+            "quote": "A safe choice for homes with kids and pets. Oh, and it's invented by a doctor",
+            "publication": "Forbes",
+            "logo": "shopify://shop_images/Frame_25.png"
+          }
+        },
+        "quote_wellgood": {
+          "type": "quote",
+          "settings": {
+            "quote": "Your face and lungs will thank you.",
+            "publication": "Well + Good"
+          }
+        },
+        "quote_bhg": {
+          "type": "quote",
+          "settings": {
+            "quote": "It has a very simple, intuitive design that puts it above other humidifiers we tested.",
+            "publication": "Better Homes and Gardens"
+          }
+        },
+        "quote_bazaar": {
+          "type": "quote",
+          "settings": {
+            "quote": "Carepod's award-earning humidifier is a winning self-care gift.",
+            "publication": "Bazaar"
+          }
+        }
       },
-      "block_order": ["quote_forbes", "quote_wellgood", "quote_bhg", "quote_bazaar"],
-      "settings": { "display_mode": "banner", "heading": "The Humidifier. Reinvented.", "bg_color": "#1a1a1a", "card_bg": "#f5f5f5", "text_color": "#ffffff" }
+      "block_order": [
+        "quote_forbes",
+        "quote_wellgood",
+        "quote_bhg",
+        "quote_bazaar"
+      ],
+      "settings": {
+        "display_mode": "banner",
+        "heading": "The Humidifier. Reinvented.",
+        "bg_color": "#1a1a1a",
+        "card_bg": "#f5f5f5",
+        "text_color": "#ffffff"
+      }
     },
     "video_text": {
       "type": "cp-video-text",
       "settings": {
+        "video_url": "",
         "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-02-Key-Features.webp?v=1754424663",
         "heading": "Say Hello To Carepod Mini.",
         "subtitle": "All the Carepod magic. In a smaller package.",
@@ -115,7 +244,8 @@
         "card_compact": {
           "type": "feature",
           "settings": {
-            "icon": "night", "label": "Compact Design",
+            "icon": "night",
+            "label": "Compact Design",
             "title": "Fits anywhere.",
             "description": "The Mini's small footprint means it goes wherever you need it — bedroom, nursery, office, or travel. Clean air, anywhere.",
             "footnote": ""
@@ -124,7 +254,8 @@
         "card_clean": {
           "type": "feature",
           "settings": {
-            "icon": "sanitize", "label": "3-Part Clean",
+            "icon": "sanitize",
+            "label": "3-Part Clean",
             "title": "Cleaning in seconds.",
             "description": "Three stainless steel parts. That's all. Wash them, boil them, or throw them in the dishwasher. Done.",
             "footnote": ""
@@ -133,14 +264,19 @@
         "card_filter": {
           "type": "feature",
           "settings": {
-            "icon": "humidity", "label": "Filter-Free",
+            "icon": "humidity",
+            "label": "Filter-Free",
             "title": "Zero hidden costs.",
             "description": "No filters to buy, no subscriptions to maintain. The Carepod Mini works perfectly without any ongoing expenses.",
             "footnote": ""
           }
         }
       },
-      "block_order": ["card_compact", "card_clean", "card_filter"],
+      "block_order": [
+        "card_compact",
+        "card_clean",
+        "card_filter"
+      ],
       "settings": {
         "heading": "Everything You Need. Nothing You Don't.",
         "button_label": "Shop Carepod Mini",
@@ -152,54 +288,208 @@
     "testimonials": {
       "type": "cp-testimonials",
       "blocks": {
-        "testimonial_1": { "type": "testimonial", "settings": { "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. As a bonus, I love its modern chic design that blends well into any environment.", "name": "Dr. Jiyeh Joo", "title": "Family Physician" } },
-        "testimonial_2": { "type": "testimonial", "settings": { "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod.", "name": "Dr. Tim Tiutan", "title": "Internal Medicine" } },
-        "testimonial_3": { "type": "testimonial", "settings": { "quote": "I recently discovered Carepod and absolutely love it. The stainless steel water tank is so easy to clean. And the best part? It won't grow mold.", "name": "Dr. Elana Roumell", "title": "Pediatric Naturopathic" } }
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "avatar_url": "",
+            "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. As a bonus, I love its modern chic design that blends well into any environment.",
+            "name": "Dr. Jiyeh Joo",
+            "title": "Family Physician"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "avatar_url": "",
+            "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod.",
+            "name": "Dr. Tim Tiutan",
+            "title": "Internal Medicine"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "avatar_url": "",
+            "quote": "I recently discovered Carepod and absolutely love it. The stainless steel water tank is so easy to clean. And the best part? It won't grow mold.",
+            "name": "Dr. Elana Roumell",
+            "title": "Pediatric Naturopathic"
+          }
+        }
       },
-      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
-      "settings": { "heading": "Loved by Families. Approved by Doctors.", "bg_color": "#ffffff" }
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "settings": {
+        "heading": "Loved by Families. Approved by Doctors.",
+        "bg_color": "#ffffff"
+      }
     },
     "feature_slider": {
       "type": "cp-feature-slider",
       "blocks": {
-        "slide_1": { "type": "slide", "settings": { "title": "Compact, Powerful Humidification.", "description": "Don't let the size fool you. The Carepod Mini delivers the same clean, healthy mist as our full-sized models — in a fraction of the space.", "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-01-Secondary-Image.webp?v=1754424663" } },
-        "slide_2": { "type": "slide", "settings": { "title": "Key Features at a Glance.", "description": "Stainless steel interior, top-fill design, ultra-quiet operation, and an award-winning exterior that looks great anywhere.", "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-02-Key-Features.webp?v=1754424663" } },
-        "slide_3": { "type": "slide", "settings": { "title": "Easy 3-Piece Cleaning.", "description": "Just three parts. Wash, boil, or dishwasher. No hidden crevices, no mold buildup, no hassle.", "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-03-3-parts-to-clean.webp?v=1754424663" } },
-        "slide_4": { "type": "slide", "settings": { "title": "Designed by a Doctor.", "description": "Created by a physician who wanted a humidifier that was as safe as it was beautiful. Every detail is intentional.", "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-04-Designed-by-a-Doctor.webp?v=1754424663" } },
-        "slide_5": { "type": "slide", "settings": { "title": "Flexible Settings.", "description": "Choose from multiple mist output levels to find the perfect setting for any room size or personal preference.", "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-06-Humidifier-in-Different-Settings.webp?v=1754424663" } }
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "title": "Compact, Powerful Humidification.",
+            "description": "Don't let the size fool you. The Carepod Mini delivers the same clean, healthy mist as our full-sized models — in a fraction of the space.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-01-Secondary-Image.webp?v=1754424663"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "title": "Key Features at a Glance.",
+            "description": "Stainless steel interior, top-fill design, ultra-quiet operation, and an award-winning exterior that looks great anywhere.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-02-Key-Features.webp?v=1754424663"
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "title": "Easy 3-Piece Cleaning.",
+            "description": "Just three parts. Wash, boil, or dishwasher. No hidden crevices, no mold buildup, no hassle.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-03-3-parts-to-clean.webp?v=1754424663"
+          }
+        },
+        "slide_4": {
+          "type": "slide",
+          "settings": {
+            "title": "Designed by a Doctor.",
+            "description": "Created by a physician who wanted a humidifier that was as safe as it was beautiful. Every detail is intentional.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-04-Designed-by-a-Doctor.webp?v=1754424663"
+          }
+        },
+        "slide_5": {
+          "type": "slide",
+          "settings": {
+            "title": "Flexible Settings.",
+            "description": "Choose from multiple mist output levels to find the perfect setting for any room size or personal preference.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0562/9906/1421/files/CP-Mini-06-Humidifier-in-Different-Settings.webp?v=1754424663"
+          }
+        }
       },
-      "block_order": ["slide_1", "slide_2", "slide_3", "slide_4", "slide_5"],
-      "settings": { "heading": "Small but Mighty.", "bg_color": "#ffffff" }
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "slide_3",
+        "slide_4",
+        "slide_5"
+      ],
+      "settings": {
+        "heading": "Small but Mighty.",
+        "bg_color": "#ffffff"
+      }
     },
     "comparative": {
       "type": "cp-comparative",
       "blocks": {
-        "feat_doctor": { "type": "feature_row", "settings": { "feature": "Doctor Designed", "carepod_has": true, "other_has": false } },
-        "feat_clean": { "type": "feature_row", "settings": { "feature": "Easy To Clean", "carepod_has": true, "other_has": false } },
-        "feat_steel": { "type": "feature_row", "settings": { "feature": "Stainless Steel Interior", "carepod_has": true, "other_has": false } },
-        "feat_returns": { "type": "feature_row", "settings": { "feature": "30-Day Free Returns", "carepod_has": true, "other_has": true } }
+        "feat_doctor": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Doctor Designed",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_clean": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Easy To Clean",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_steel": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "Stainless Steel Interior",
+            "carepod_has": true,
+            "other_has": false
+          }
+        },
+        "feat_returns": {
+          "type": "feature_row",
+          "settings": {
+            "feature": "30-Day Free Returns",
+            "carepod_has": true,
+            "other_has": true
+          }
+        }
       },
-      "block_order": ["feat_doctor", "feat_clean", "feat_steel", "feat_returns"],
+      "block_order": [
+        "feat_doctor",
+        "feat_clean",
+        "feat_steel",
+        "feat_returns"
+      ],
       "settings": {
         "heading": "What sets Carepod Mini apart?",
         "subtext": "Most compact humidifiers cut corners on cleanliness. Not the Mini. It keeps every Carepod standard — just in a smaller size.",
         "other_label": "Other Compact Humidifiers",
-        "footnote": "", "button_label": "Shop Carepod Mini",
-        "button_link": "/products/carepod-mini", "guarantee_text": "Try it 100% risk free",
+        "footnote": "",
+        "button_label": "Shop Carepod Mini",
+        "button_link": "/products/carepod-mini",
+        "guarantee_text": "Try it 100% risk free",
         "bg_color": "#ffffff"
       }
     },
     "product_faq": {
       "type": "cp-product-faq",
       "blocks": {
-        "faq_1": { "type": "faq_item", "settings": { "question": "How Big Is The Carepod Mini?", "answer": "<p>The Carepod Mini is our most compact humidifier, designed for smaller spaces like bedrooms, nurseries, and offices. It delivers effective humidification without taking up much counter space.</p>", "open_default": true } },
-        "faq_2": { "type": "faq_item", "settings": { "question": "What Room Size Does The Carepod Mini Cover?", "answer": "<p>The Carepod Mini is ideal for rooms up to approximately 250 sq ft. For larger spaces, we recommend the Carepod One or Carepod One Plus.</p>", "open_default": false } },
-        "faq_3": { "type": "faq_item", "settings": { "question": "How Do I Clean My Carepod Mini?", "answer": "<p>Simply disassemble the three stainless steel components, wash with soap and water or place in the dishwasher. For a deeper clean, boil the components for 1-2 minutes. Reassemble and you're done!</p>", "open_default": false } },
-        "faq_4": { "type": "faq_item", "settings": { "question": "Does The Carepod Mini Need a Filter?", "answer": "<p>No. The Carepod Mini is completely filter-free. No replacement filters, no ongoing costs — ever.</p>", "open_default": false } },
-        "faq_5": { "type": "faq_item", "settings": { "question": "What Is Your Warranty?", "answer": "<p>Every Carepod comes with a 1-year manufacturer's warranty covering defects in materials and workmanship under normal use.</p>", "open_default": false } }
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How Big Is The Carepod Mini?",
+            "answer": "<p>The Carepod Mini is our most compact humidifier, designed for smaller spaces like bedrooms, nurseries, and offices. It delivers effective humidification without taking up much counter space.</p>",
+            "open_default": true
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What Room Size Does The Carepod Mini Cover?",
+            "answer": "<p>The Carepod Mini is ideal for rooms up to approximately 250 sq ft. For larger spaces, we recommend the Carepod One or Carepod One Plus.</p>",
+            "open_default": false
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How Do I Clean My Carepod Mini?",
+            "answer": "<p>Simply disassemble the three stainless steel components, wash with soap and water or place in the dishwasher. For a deeper clean, boil the components for 1-2 minutes. Reassemble and you're done!</p>",
+            "open_default": false
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does The Carepod Mini Need a Filter?",
+            "answer": "<p>No. The Carepod Mini is completely filter-free. No replacement filters, no ongoing costs — ever.</p>",
+            "open_default": false
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What Is Your Warranty?",
+            "answer": "<p>Every Carepod comes with a 1-year manufacturer's warranty covering defects in materials and workmanship under normal use.</p>",
+            "open_default": false
+          }
+        }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5"],
-      "settings": { "heading": "You May Be Wondering...", "bg_color": "#ffffff" }
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "heading": "You May Be Wondering...",
+        "bg_color": "#ffffff"
+      }
     },
     "risk_free": {
       "type": "cp-risk-free-banner",
@@ -209,9 +499,21 @@
         "button_label": "Shop Carepod Mini",
         "button_link": "/products/carepod-mini",
         "guarantee_text": "Try it 100% risk free",
-        "button_bg": "#f0b43e", "button_text": "#000000"
+        "button_bg": "#f0b43e",
+        "button_text": "#000000"
       }
     }
   },
-  "order": ["main", "product_benefits", "press_quotes", "video_text", "feature_cards", "testimonials", "feature_slider", "comparative", "product_faq", "risk_free"]
+  "order": [
+    "main",
+    "product_benefits",
+    "press_quotes",
+    "video_text",
+    "feature_cards",
+    "testimonials",
+    "feature_slider",
+    "comparative",
+    "product_faq",
+    "risk_free"
+  ]
 }
