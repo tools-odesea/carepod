@@ -18,6 +18,10 @@
     z-index: 0;
   }
 
+  video.cp-hero__bg {
+    object-fit: cover;
+  }
+
   /* Gradient overlay for text legibility */
   .cp-hero::after {
     content: '';
@@ -143,9 +147,22 @@
 
 <div class="cp-hero">
 
-  {%- comment -%} Background image — desktop {%- endcomment -%}
   {%- assign hero_alt = section.settings.heading | strip_html | escape -%}
-  {%- if section.settings.image_desktop != blank -%}
+
+  {%- comment -%} Background video (desktop only) — falls back to image {%- endcomment -%}
+  {%- if section.settings.video_url != blank -%}
+    <video
+      class="cp-hero__bg cp-hero__bg--desktop"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    >
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+    </video>
+  {%- elsif section.settings.image_desktop != blank -%}
     {{
       section.settings.image_desktop
       | image_url: width: 3840
@@ -159,7 +176,7 @@
     }}
   {%- endif -%}
 
-  {%- comment -%} Background image — mobile (falls back to desktop) {%- endcomment -%}
+  {%- comment -%} Background image — mobile (falls back to desktop image) {%- endcomment -%}
   {%- assign mobile_img = section.settings.image_mobile | default: section.settings.image_desktop -%}
   {%- if mobile_img != blank -%}
     {{
@@ -211,18 +228,25 @@
   "settings": [
     {
       "type": "header",
-      "content": "Images"
+      "content": "Background"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL (MP4)",
+      "info": "Optional. Enter a direct MP4 URL for a looping background video on desktop. Overrides the desktop image when set."
     },
     {
       "type": "image_picker",
       "id": "image_desktop",
-      "label": "Desktop image"
+      "label": "Desktop image",
+      "info": "Used as background when no video is set. Also serves as fallback poster."
     },
     {
       "type": "image_picker",
       "id": "image_mobile",
       "label": "Mobile image",
-      "info": "Optional. Falls back to desktop image if blank."
+      "info": "Optional. Falls back to desktop image if blank. Mobile always shows image, not video."
     },
     {
       "type": "header",
