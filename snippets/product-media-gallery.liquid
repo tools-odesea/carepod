@@ -330,3 +330,156 @@
     </slider-component>
   {%- endif -%}
 </media-gallery>
+
+{%- comment -%}Custom vertical thumbnail strip for desktop{%- endcomment -%}
+{%- if section.settings.gallery_layout == 'thumbnail_slider' and media_count > 1 -%}
+  <style>
+    .cp-vthumbs { display: none; }
+    @media screen and (min-width: 990px) {
+      .cp-vthumbs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 85px;
+        flex-shrink: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+      }
+      .product__media-wrapper { position: relative; padding-left: 95px; }
+      .cp-vthumbs__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        max-height: 560px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: none;
+      }
+      .cp-vthumbs__list::-webkit-scrollbar { display: none; }
+      .cp-vthumbs__item {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid transparent;
+        flex-shrink: 0;
+        background: #f5f5f5;
+      }
+      .cp-vthumbs__item.is-active { border-color: #1c1d1d; }
+      .cp-vthumbs__item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .cp-vthumbs__btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #5b9bd5;
+        background: #fff;
+        color: #5b9bd5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      .cp-vthumbs__btn:hover { background: #f0f6ff; }
+      .cp-vthumbs__btn[hidden] { display: none; }
+      .cp-vthumbs__btn--prev { margin-bottom: 6px; }
+      .cp-vthumbs__btn--next { margin-top: 6px; }
+      .cp-vthumbs__btn svg { width: 14px; height: 14px; }
+      /* Hide Dawn's horizontal thumbnails on desktop */
+      .product--thumbnail_slider .thumbnail-slider { display: none !important; }
+    }
+  </style>
+  <div class="cp-vthumbs" id="cp-vthumbs-{{ section.id }}">
+    <button class="cp-vthumbs__btn cp-vthumbs__btn--prev" hidden aria-label="Previous">
+      <svg viewBox="0 0 14 14" fill="none"><path d="M7 2L2 7L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 2L12 7L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(90 7 7)"/></svg>
+    </button>
+    <ul class="cp-vthumbs__list">
+      {%- assign thumb_index = 0 -%}
+      {%- if featured_media != null -%}
+        <li class="cp-vthumbs__item is-active" data-media-id="{{ section.id }}-{{ featured_media.id }}">
+          <img src="{{ featured_media.preview_image | image_url: width: 200 }}" alt="{{ featured_media.alt | escape }}" loading="lazy" width="80" height="80">
+        </li>
+        {%- assign thumb_index = 1 -%}
+      {%- endif -%}
+      {%- for media in product.media -%}
+        {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+          <li class="cp-vthumbs__item" data-media-id="{{ section.id }}-{{ media.id }}">
+            <img src="{{ media.preview_image | image_url: width: 200 }}" alt="{{ media.alt | escape }}" loading="lazy" width="80" height="80">
+          </li>
+        {%- endunless -%}
+      {%- endfor -%}
+    </ul>
+    <button class="cp-vthumbs__btn cp-vthumbs__btn--next" aria-label="Next">
+      <svg viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <script>
+    (function(){
+      var wrap = document.getElementById('cp-vthumbs-{{ section.id }}');
+      if (!wrap || window.innerWidth < 990) return;
+      var list = wrap.querySelector('.cp-vthumbs__list');
+      var items = wrap.querySelectorAll('.cp-vthumbs__item');
+      var prevBtn = wrap.querySelector('.cp-vthumbs__btn--prev');
+      var nextBtn = wrap.querySelector('.cp-vthumbs__btn--next');
+      var gallery = document.getElementById('MediaGallery-{{ section.id }}');
+
+      function updateBtns() {
+        if (prevBtn) prevBtn.hidden = list.scrollTop <= 2;
+        if (nextBtn) nextBtn.hidden = list.scrollTop >= list.scrollHeight - list.clientHeight - 2;
+      }
+
+      items.forEach(function(item) {
+        item.addEventListener('click', function() {
+          var mediaId = item.getAttribute('data-media-id');
+          items.forEach(function(i) { i.classList.remove('is-active'); });
+          item.classList.add('is-active');
+          if (gallery) {
+            var target = gallery.querySelector('[data-media-id="' + mediaId + '"]');
+            if (target) {
+              gallery.setActiveMedia(mediaId, false);
+            }
+          }
+        });
+      });
+
+      if (prevBtn) prevBtn.addEventListener('click', function() {
+        list.scrollBy({ top: -260, behavior: 'smooth' });
+        setTimeout(updateBtns, 400);
+      });
+      if (nextBtn) nextBtn.addEventListener('click', function() {
+        list.scrollBy({ top: 260, behavior: 'smooth' });
+        setTimeout(updateBtns, 400);
+      });
+
+      list.addEventListener('scroll', updateBtns, { passive: true });
+
+      // Listen for main gallery changes to sync active state
+      if (gallery) {
+        var observer = new MutationObserver(function() {
+          var active = gallery.querySelector('.product__media-item.is-active');
+          if (active) {
+            var activeId = active.getAttribute('data-media-id');
+            items.forEach(function(i) {
+              i.classList.toggle('is-active', i.getAttribute('data-media-id') === activeId);
+            });
+          }
+        });
+        observer.observe(gallery, { subtree: true, attributes: true, attributeFilter: ['class'] });
+      }
+
+      updateBtns();
+    })();
+  </script>
+{%- endif -%}
