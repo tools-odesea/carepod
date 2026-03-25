@@ -12,8 +12,8 @@
     "why_hero": {
       "type": "cp-hero-banner",
       "settings": {
-        "heading": "Hello, fresh air. Goodbye, mold.",
         "badge_text": "Why Carepod",
+        "heading": "Hello, fresh air. Goodbye, mold.",
         "button_label": "Shop Now",
         "button_link": "/collections/all"
       }
@@ -123,7 +123,12 @@
           }
         }
       },
-      "block_order": ["banner_1", "banner_2", "banner_3", "banner_4"],
+      "block_order": [
+        "banner_1",
+        "banner_2",
+        "banner_3",
+        "banner_4"
+      ],
       "settings": {
         "heading": ""
       }
@@ -153,7 +158,11 @@
           }
         }
       },
-      "block_order": ["step_1", "step_2", "step_3"],
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
       "settings": {
         "heading": "Cleaning. 3 simple steps.",
         "button_label": "Shop Now",
@@ -188,7 +197,11 @@
           }
         }
       },
-      "block_order": ["t1", "t2", "t3"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
       "settings": {
         "heading": "Trusted by Doctors.",
         "bg_color": "#f9f9f9"
@@ -231,18 +244,44 @@
         },
         "row_coverage": {
           "type": "spec_row",
-          "settings": { "label": "Coverage", "val_0": "700 ft²", "val_1": "500 ft²", "val_2": "500 ft²", "val_3": "350 ft²" }
+          "settings": {
+            "label": "Coverage",
+            "val_0": "700 ft²",
+            "val_1": "500 ft²",
+            "val_2": "500 ft²",
+            "val_3": "350 ft²"
+          }
         },
         "row_mist_type": {
           "type": "spec_row",
-          "settings": { "label": "Mist type", "val_0": "Cool + Warm", "val_1": "Cool mist", "val_2": "Cool mist", "val_3": "Cool mist" }
+          "settings": {
+            "label": "Mist type",
+            "val_0": "Cool + Warm",
+            "val_1": "Cool mist",
+            "val_2": "Cool mist",
+            "val_3": "Cool mist"
+          }
         },
         "row_capacity": {
           "type": "spec_row",
-          "settings": { "label": "Tank capacity", "val_0": "4.2 L", "val_1": "4.0 L", "val_2": "4.0 L", "val_3": "2.8 L" }
+          "settings": {
+            "label": "Tank capacity",
+            "val_0": "4.2 L",
+            "val_1": "4.0 L",
+            "val_2": "4.0 L",
+            "val_3": "2.8 L"
+          }
         }
       },
-      "block_order": ["prod_cube_plus", "prod_one_plus", "prod_one", "prod_mini", "row_coverage", "row_mist_type", "row_capacity"],
+      "block_order": [
+        "prod_cube_plus",
+        "prod_one_plus",
+        "prod_one",
+        "prod_mini",
+        "row_coverage",
+        "row_mist_type",
+        "row_capacity"
+      ],
       "settings": {
         "heading": "A Carepod for every room",
         "subheading": "Choose the right Carepod for your space.",

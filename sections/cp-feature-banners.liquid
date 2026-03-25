@@ -177,6 +177,8 @@
                   widths: '400, 600, 800',
                   sizes: '(max-width: 749px) 100vw, 50vw'
               }}
+            {%- elsif block.settings.image_url != blank -%}
+              <img src="{{ block.settings.image_url }}" class="cp-featurebanners__image" alt="{{ block.settings.heading | escape }}" loading="lazy">
             {%- else -%}
               {{ 'lifestyle-1' | placeholder_svg_tag: 'cp-featurebanners__image' }}
             {%- endif -%}
@@ -273,6 +275,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Image URL (fallback)"
         }
       ]
     }
