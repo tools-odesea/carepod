@@ -125,7 +125,7 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
-    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
+    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}{% if section.settings.gallery_layout == 'thumbnail_slider' %} cp-hide-desktop{% endif %}">
       <button
         type="button"
         class="slider-button slider-button--prev"
@@ -399,8 +399,8 @@
       .cp-vthumbs__btn svg { width: 14px; height: 14px; }
       /* Hide Dawn's horizontal thumbnails on desktop */
       .product--thumbnail_slider .thumbnail-slider { display: none !important; }
-      /* Hide Dawn's main image left/right slider arrows on desktop */
-      .product--thumbnail_slider media-gallery > slider-component > .slider-button { display: none !important; }
+      /* Hide Dawn's main image slider buttons + counter on desktop */
+      .cp-hide-desktop { display: none !important; }
     }
   </style>
   <div class="cp-vthumbs" id="cp-vthumbs-{{ section.id }}">
