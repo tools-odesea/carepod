@@ -150,7 +150,7 @@
   {%- assign hero_alt = section.settings.heading | strip_html | escape -%}
 
   {%- comment -%} Background video (desktop only) — falls back to image {%- endcomment -%}
-  {%- if section.settings.video_url != blank -%}
+  {%- if section.settings.video != blank -%}
     <video
       class="cp-hero__bg cp-hero__bg--desktop"
       autoplay
@@ -159,8 +159,13 @@
       playsinline
       preload="auto"
       aria-hidden="true"
+      {%- if section.settings.image_desktop != blank %}
+        poster="{{ section.settings.image_desktop | image_url: width: 1920 }}"
+      {%- endif %}
     >
-      <source src="{{ section.settings.video_url }}" type="video/mp4">
+      {%- for source in section.settings.video.sources -%}
+        <source src="{{ source.url }}" type="{{ source.mime_type }}">
+      {%- endfor -%}
     </video>
   {%- elsif section.settings.image_desktop != blank -%}
     {{
@@ -231,10 +236,10 @@
       "content": "Background"
     },
     {
-      "type": "text",
-      "id": "video_url",
-      "label": "Video URL (MP4)",
-      "info": "Optional. Enter a direct MP4 URL for a looping background video on desktop. Overrides the desktop image when set."
+      "type": "video",
+      "id": "video",
+      "label": "Background video",
+      "info": "Optional. Upload or select an MP4 video for a looping background on desktop. Overrides the desktop image when set."
     },
     {
       "type": "image_picker",
