@@ -20,7 +20,7 @@
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
 
   .product--thumbnail_slider .thumbnail-list.slider--tablet-up {
@@ -48,36 +48,57 @@
     border-radius: 6px;
   }
 
-  /* Rotate prev/next arrows for vertical scrolling */
+  /* Arrow buttons — blue circle with blue chevron, matching original store */
   .product--thumbnail_slider .thumbnail-slider .slider-button {
     position: relative;
-    width: 100%;
-    height: 28px;
-    min-height: 28px;
     justify-content: center;
     margin: 0;
     flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
     border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    min-height: 36px;
+    border: 2px solid #5b9bd5;
+    background: #ffffff;
+    color: #5b9bd5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s, border-color 0.2s;
     align-self: center;
+    cursor: pointer;
   }
 
+  .product--thumbnail_slider .thumbnail-slider .slider-button:hover {
+    background: #f0f6ff;
+    border-color: #4a8cc7;
+  }
+
+  .product--thumbnail_slider .thumbnail-slider .slider-button .icon {
+    color: #5b9bd5;
+  }
+
+  /* Prev button = up arrow. Dawn's base rotates --prev icon 90deg (points up).
+     We need it pointing up, so keep the default 90deg = up. */
   .product--thumbnail_slider .thumbnail-slider .slider-button--prev {
     order: -1;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
-  .product--thumbnail_slider .thumbnail-slider .slider-button--next {
-    margin-top: 0.25rem;
-  }
-
-  .product--thumbnail_slider .thumbnail-slider .slider-button .svg-wrapper {
+  .product--thumbnail_slider .thumbnail-slider .slider-button--prev .icon {
     transform: rotate(90deg);
   }
 
-  .product--thumbnail_slider .thumbnail-slider .slider-button--prev .svg-wrapper {
+  /* Next button = down arrow. Dawn's base rotates --next icon -90deg (points down).
+     We need it pointing down, so keep the default -90deg = down. */
+  .product--thumbnail_slider .thumbnail-slider .slider-button--next {
+    margin-top: 0.5rem;
+  }
+
+  .product--thumbnail_slider .thumbnail-slider .slider-button--next .icon {
     transform: rotate(-90deg);
+  }
+
+  /* Hide disabled buttons entirely (not just grayed out) */
+  .product--thumbnail_slider .thumbnail-slider .slider-button[disabled] {
+    display: none !important;
   }
 }
