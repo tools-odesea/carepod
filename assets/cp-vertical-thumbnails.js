@@ -1,80 +1,94 @@
 /**
  * Vertical thumbnail gallery for product pages.
- * Waits for media-gallery custom element to be ready, then
- * applies inline styles and vertical scroll behavior.
+ * Polls DOM until elements are ready, then applies inline styles
+ * and vertical scroll behavior.
  */
 (function () {
   if (window.innerWidth < 990) return;
 
-  var applied = false;
+  var done = false;
 
-  function init() {
-    if (applied) return;
+  function apply() {
+    if (done) return;
 
-    var mg = document.querySelector('.product--thumbnail_slider media-gallery');
-    if (!mg) return;
+    // Find elements using multiple strategies
+    var productEl = document.querySelector('.product--thumbnail_slider');
+    if (!productEl) return false;
 
-    var ts = mg.querySelector('slider-component.thumbnail-slider');
-    if (!ts) return;
+    var mg = productEl.querySelector('media-gallery') ||
+             productEl.getElementsByTagName('media-gallery')[0];
+    if (!mg) return false;
+
+    var ts = mg.querySelector('.thumbnail-slider');
+    if (!ts) return false;
 
     var list = ts.querySelector('.thumbnail-list');
-    if (!list) return;
+    if (!list) return false;
+
+    var items = list.querySelectorAll('.thumbnail-list__item');
+    if (!items.length) return false;
+
+    // Check items have rendered (have height)
+    if (items[0].offsetHeight < 5) return false;
+
+    done = true;
 
     var prev = ts.querySelector('.slider-button--prev');
     var next = ts.querySelector('.slider-button--next');
-    var items = list.querySelectorAll('.thumbnail-list__item');
-    if (!items.length) return;
 
-    applied = true;
+    // --- Force layout via inline styles ---
+    mg.setAttribute('style', 'display:flex;flex-direction:row;gap:1rem');
 
-    // --- Layout overrides via inline styles ---
-    mg.style.cssText = 'display:flex;flex-direction:row;gap:1rem';
-
-    var mainSlider = mg.querySelector('slider-component:first-of-type');
-    if (mainSlider && mainSlider !== ts) {
-      mainSlider.style.cssText = 'flex:1 1 0%;min-width:0;order:2';
+    // Main image slider = first slider-component child (GalleryViewer)
+    var children = mg.children;
+    for (var i = 0; i < children.length; i++) {
+      if (children[i].tagName && children[i].tagName.toLowerCase() === 'slider-component') {
+        if (!children[i].classList.contains('thumbnail-slider')) {
+          children[i].setAttribute('style', 'flex:1 1 0%;min-width:0;order:2');
+        }
+        break;
+      }
     }
 
-    ts.style.cssText = 'order:1;width:85px;flex-shrink:0;display:flex;flex-direction:column;align-items:center';
+    ts.setAttribute('style', 'order:1;width:85px;flex-shrink:0;display:flex;flex-direction:column;align-items:center');
+    list.setAttribute('style', 'display:flex;flex-direction:column;flex-wrap:nowrap;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;max-height:550px;gap:0.5rem;padding:0.25rem;flex:0 1 auto;scrollbar-width:none');
 
-    list.style.cssText = 'display:flex;flex-direction:column;flex-wrap:nowrap;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;max-height:550px;gap:0.5rem;padding:0.25rem;flex:0 1 auto;scrollbar-width:none';
+    for (var j = 0; j < items.length; j++) {
+      items[j].setAttribute('style', 'width:100%;min-width:100%;flex-shrink:0;scroll-snap-align:start');
+    }
 
-    items.forEach(function (item) {
-      item.style.cssText = 'width:100%;min-width:100%;flex-shrink:0;scroll-snap-align:start';
-    });
-
+    // Style buttons
     function styleBtn(btn) {
       if (!btn) return;
-      btn.style.cssText = 'width:44px;height:44px;min-height:44px;border-radius:50%;border:2px solid #5b9bd5;background:#fff;color:#5b9bd5;box-shadow:0 2px 8px rgba(0,0,0,.1);align-self:center;flex-shrink:0;display:flex;justify-content:center;align-items:center;cursor:pointer;margin:0';
+      btn.setAttribute('style', 'width:44px;height:44px;min-height:44px;border-radius:50%;border:2px solid #5b9bd5;background:#fff;color:#5b9bd5;box-shadow:0 2px 8px rgba(0,0,0,.1);align-self:center;flex-shrink:0;display:flex;justify-content:center;align-items:center;cursor:pointer;margin:0');
       var icon = btn.querySelector('.icon');
-      if (icon) icon.style.color = '#5b9bd5';
+      if (icon) icon.setAttribute('style', 'color:#5b9bd5');
     }
 
     if (prev) {
-      prev.style.order = '-1';
-      prev.style.marginBottom = '0.5rem';
-      var pi = prev.querySelector('.icon');
-      if (pi) pi.style.transform = 'rotate(180deg)';
+      prev.setAttribute('style', 'order:-1;margin-bottom:0.5rem');
       styleBtn(prev);
+      var pi = prev.querySelector('.icon');
+      if (pi) pi.setAttribute('style', 'color:#5b9bd5;transform:rotate(180deg)');
     }
 
     if (next) {
-      next.style.marginTop = '0.5rem';
-      var ni = next.querySelector('.icon');
-      if (ni) ni.style.transform = 'rotate(0deg)';
+      next.setAttribute('style', 'margin-top:0.5rem');
       styleBtn(next);
+      var ni = next.querySelector('.icon');
+      if (ni) ni.setAttribute('style', 'color:#5b9bd5;transform:rotate(0deg)');
     }
 
-    // --- Vertical scroll behavior ---
+    // --- Vertical scroll ---
     function step() {
       return items[0] ? items[0].offsetHeight + 8 : 80;
     }
 
     function updateBtns() {
-      if (prev) prev.style.display = list.scrollTop <= 2 ? 'none' : 'flex';
+      if (prev) prev.setAttribute('style', prev.getAttribute('style').replace(/display:[^;]+;?/, '') + ';display:' + (list.scrollTop <= 2 ? 'none' : 'flex'));
       if (next) {
         var max = list.scrollHeight - list.clientHeight;
-        next.style.display = list.scrollTop >= max - 2 ? 'none' : 'flex';
+        next.setAttribute('style', next.getAttribute('style').replace(/display:[^;]+;?/, '') + ';display:' + (list.scrollTop >= max - 2 ? 'none' : 'flex'));
       }
     }
 
@@ -96,21 +110,18 @@
 
     list.addEventListener('scroll', updateBtns, { passive: true });
     updateBtns();
+
+    return true;
   }
 
-  // Poll until the media-gallery element is ready (max 10 seconds)
-  var attempts = 0;
-  var maxAttempts = 40;
-  var interval = setInterval(function () {
-    attempts++;
-    var mg = document.querySelector('.product--thumbnail_slider media-gallery');
-    var list = mg && mg.querySelector('.thumbnail-list');
-    var hasItems = list && list.querySelector('.thumbnail-list__item');
-    if (hasItems) {
-      clearInterval(interval);
-      init();
-    } else if (attempts >= maxAttempts) {
-      clearInterval(interval);
-    }
+  // Poll every 250ms for up to 15 seconds
+  var t = 0;
+  var iv = setInterval(function () {
+    t += 250;
+    if (apply() || t > 15000) clearInterval(iv);
   }, 250);
+
+  // Also try on various load events
+  document.addEventListener('DOMContentLoaded', function () { setTimeout(apply, 100); });
+  window.addEventListener('load', function () { setTimeout(apply, 300); });
 })();
