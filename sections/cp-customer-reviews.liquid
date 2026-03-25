@@ -1,0 +1,273 @@
+<style>
+  .cp-reviews {
+    padding: 4rem 2rem;
+    background: {{ section.settings.bg_color }};
+  }
+
+  .cp-reviews__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+  }
+
+  .cp-reviews__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .cp-reviews__stat {
+    font-family: var(--font-heading-family);
+    font-size: 56px;
+    font-weight: 700;
+    color: #1c1d1d;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .cp-reviews__subheading {
+    font-family: var(--font-heading-family);
+    font-size: 28px;
+    font-weight: 600;
+    color: #1c1d1d;
+    margin: 0.25rem 0 0.75rem;
+  }
+
+  .cp-reviews__desc {
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .cp-reviews__stars {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 0.75rem;
+  }
+
+  .cp-reviews__star {
+    width: 20px;
+    height: 20px;
+    color: #f0b43e;
+  }
+
+  .cp-reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .cp-reviews__card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.75rem;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cp-reviews__card-stars {
+    display: flex;
+    gap: 3px;
+  }
+
+  .cp-reviews__card-star {
+    width: 16px;
+    height: 16px;
+    color: #f0b43e;
+  }
+
+  .cp-reviews__card-text {
+    font-family: var(--font-body-family);
+    font-size: 15px;
+    line-height: 1.65;
+    color: #333;
+    margin: 0;
+    flex: 1;
+  }
+
+  .cp-reviews__card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto;
+  }
+
+  .cp-reviews__card-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #eee;
+  }
+
+  .cp-reviews__card-author {
+    font-family: var(--font-heading-family);
+    font-size: 14px;
+    font-weight: 600;
+    color: #1c1d1d;
+    margin: 0;
+  }
+
+  .cp-reviews__card-verified {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-reviews {
+      padding: 3rem 1.25rem;
+    }
+
+    .cp-reviews__stat {
+      font-size: 40px;
+    }
+
+    .cp-reviews__subheading {
+      font-size: 22px;
+    }
+
+    .cp-reviews__grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>
+
+<div class="cp-reviews">
+  <div class="cp-reviews__inner">
+    <div class="cp-reviews__header">
+      {%- if section.settings.stat != blank -%}
+        <p class="cp-reviews__stat">{{ section.settings.stat | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="cp-reviews__subheading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="cp-reviews__desc">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+      <div class="cp-reviews__stars">
+        {%- for i in (1..5) -%}
+          <svg class="cp-reviews__star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.51.91-5.33L2.27 6.69l5.34-.78L10 1z"/></svg>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="cp-reviews__grid">
+        {%- for block in section.blocks -%}
+          <div class="cp-reviews__card" {{ block.shopify_attributes }}>
+            <div class="cp-reviews__card-stars">
+              {%- assign stars = block.settings.rating | default: 5 -%}
+              {%- for i in (1..stars) -%}
+                <svg class="cp-reviews__card-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.28l-4.77 2.51.91-5.33L2.27 6.69l5.34-.78L10 1z"/></svg>
+              {%- endfor -%}
+            </div>
+            <p class="cp-reviews__card-text">{{ block.settings.text }}</p>
+            <div class="cp-reviews__card-meta">
+              {%- if block.settings.avatar != blank -%}
+                {{ block.settings.avatar | image_url: width: 80 | image_tag: class: 'cp-reviews__card-avatar', loading: 'lazy', alt: block.settings.name }}
+              {%- elsif block.settings.avatar_url != blank -%}
+                <img src="{{ block.settings.avatar_url }}" class="cp-reviews__card-avatar" alt="{{ block.settings.name | escape }}" loading="lazy">
+              {%- else -%}
+                <div class="cp-reviews__card-avatar" style="background:#ddd;display:flex;align-items:center;justify-content:center;font-weight:700;color:#888;font-size:16px;">{{ block.settings.name | slice: 0 }}</div>
+              {%- endif -%}
+              <div>
+                <p class="cp-reviews__card-author">{{ block.settings.name | escape }}</p>
+                {%- if block.settings.verified -%}
+                  <p class="cp-reviews__card-verified">Verified Buyer</p>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer Reviews",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "stat",
+      "label": "Stat number",
+      "default": "1,000+"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Love notes from customers"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Join our growing community of health-conscious individuals"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f9f9f9"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer name"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Review text"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified buyer",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar photo"
+        },
+        {
+          "type": "text",
+          "id": "avatar_url",
+          "label": "Avatar URL (fallback)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Reviews"
+    }
+  ]
+}
+{% endschema %}

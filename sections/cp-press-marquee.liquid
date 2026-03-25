@@ -1,0 +1,179 @@
+<style>
+  .cp-marquee {
+    padding: 1.5rem 0;
+    background: {{ section.settings.bg_color }};
+    overflow: hidden;
+  }
+
+  .cp-marquee__header {
+    text-align: center;
+    font-family: var(--font-heading-family);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: {{ section.settings.label_color }};
+    margin-bottom: 1rem;
+  }
+
+  .cp-marquee__track-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .cp-marquee__track-wrapper::before,
+  .cp-marquee__track-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .cp-marquee__track-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, {{ section.settings.bg_color }}, transparent);
+  }
+
+  .cp-marquee__track-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, {{ section.settings.bg_color }}, transparent);
+  }
+
+  .cp-marquee__track {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    width: max-content;
+    animation: cp-marquee-scroll {{ section.settings.speed }}s linear infinite;
+  }
+
+  .cp-marquee__track:hover {
+    animation-play-state: paused;
+  }
+
+  .cp-marquee__logo {
+    height: 28px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.6;
+    filter: grayscale(100%);
+    transition: opacity 0.3s, filter 0.3s;
+  }
+
+  .cp-marquee__logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  @keyframes cp-marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-marquee__logo {
+      height: 22px;
+    }
+
+    .cp-marquee__track {
+      gap: 2rem;
+    }
+  }
+</style>
+
+<div class="cp-marquee">
+  {%- if section.settings.label != blank -%}
+    <p class="cp-marquee__header">{{ section.settings.label | escape }}</p>
+  {%- endif -%}
+
+  {%- assign logo_blocks = section.blocks -%}
+  {%- if logo_blocks.size > 0 -%}
+    <div class="cp-marquee__track-wrapper">
+      <div class="cp-marquee__track">
+        {%- comment -%}Duplicate logos 4x for seamless infinite scroll{%- endcomment -%}
+        {%- for i in (1..4) -%}
+          {%- for block in logo_blocks -%}
+            {%- if block.settings.logo != blank -%}
+              {{ block.settings.logo | image_url: height: 56 | image_tag: class: 'cp-marquee__logo', loading: 'lazy', alt: block.settings.name }}
+            {%- elsif block.settings.logo_url != blank -%}
+              <img src="{{ block.settings.logo_url }}" class="cp-marquee__logo" alt="{{ block.settings.name | escape }}" loading="lazy">
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Press Marquee",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Header label",
+      "default": "FEATURED IN:"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll speed (seconds)",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "unit": "s",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#2b2b2b"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Publication logo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Publication name"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image"
+        },
+        {
+          "type": "text",
+          "id": "logo_url",
+          "label": "Logo URL (fallback)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press Marquee"
+    }
+  ]
+}
+{% endschema %}
