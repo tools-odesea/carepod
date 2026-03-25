@@ -4,21 +4,21 @@
    ===================================================== */
 @media screen and (min-width: 990px) {
 
-  /* 1. Make media-gallery a horizontal flex row */
+  /* 1. Media gallery becomes horizontal flex */
   .product--thumbnail_slider media-gallery {
     display: flex !important;
     flex-direction: row !important;
     gap: 1rem;
   }
 
-  /* 2. Main image viewer — right side, fills remaining space */
+  /* 2. Main image — right side */
   .product--thumbnail_slider media-gallery > slider-component:first-of-type {
     flex: 1 1 0%;
     min-width: 0;
     order: 2;
   }
 
-  /* 3. Thumbnail slider — left column, fixed width */
+  /* 3. Thumbnail slider — left column */
   .product--thumbnail_slider media-gallery > slider-component.thumbnail-slider {
     order: 1;
     width: 85px;
@@ -28,37 +28,40 @@
     align-items: center;
   }
 
-  /* 4. Thumbnail list — vertical column of thumbnails */
-  .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list.slider--tablet-up {
+  /* 4. THE KEY FIX: Override Dawn's horizontal scroll to vertical scroll.
+     Dawn sets overflow-x: auto and scroll-snap-type: x mandatory on .slider--tablet-up.
+     We must flip both to vertical for column layout. */
+  .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list.slider.slider--tablet-up {
     display: flex !important;
     flex-direction: column !important;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scroll-snap-type: y mandatory !important;
+    scroll-padding-left: 0 !important;
     max-height: 550px;
     gap: 0.5rem;
-    scroll-snap-type: y mandatory;
     padding: 0.25rem;
-    scrollbar-width: none;
     flex: 0 1 auto;
+    scrollbar-width: none;
   }
 
   .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list.slider--tablet-up::-webkit-scrollbar {
     display: none;
   }
 
-  /* 5. Each thumbnail — full width of the 85px column, square aspect */
+  /* 5. Each thumbnail item — full width, fixed aspect ratio */
   .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list__item.slider__slide {
     width: 100% !important;
     min-width: 100% !important;
-    scroll-snap-align: start;
     flex-shrink: 0;
+    scroll-snap-align: start;
   }
 
   .product--thumbnail_slider .thumbnail-list__item .thumbnail {
     border-radius: 6px;
   }
 
-  /* 6. Arrow buttons — blue outlined circle matching original store */
+  /* 6. Arrow buttons — blue outlined circle */
   .product--thumbnail_slider slider-component.thumbnail-slider .slider-button {
     width: 44px;
     height: 44px;
@@ -83,20 +86,20 @@
     color: #5b9bd5;
   }
 
-  /* Prev = up, goes before thumbnails */
+  /* Prev = up arrow, before thumbnails */
   .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--prev {
     order: -1;
     margin-bottom: 0.5rem;
   }
 
-  /* Next = down, goes after thumbnails */
+  /* Next = down arrow, after thumbnails */
   .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--next {
     margin-top: 0.5rem;
   }
 
-  /* The caret SVG points down by default.
-     Dawn base CSS rotates: --prev 90deg (left), --next -90deg (right).
-     We override for vertical: prev = up (180deg), next = down (0deg). */
+  /* Caret SVG points down by default.
+     Dawn rotates: --prev 90deg (left), --next -90deg (right).
+     Override for vertical: prev = up (180deg), next = down (0deg). */
   .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--prev .icon {
     transform: rotate(180deg) !important;
   }
@@ -113,14 +116,14 @@
     transform: rotate(0deg) scale(1.1) !important;
   }
 
-  /* Hide disabled buttons (e.g. prev hidden at start, next hidden at end) */
+  /* Hide disabled buttons (prev at start, next at end) */
   .product--thumbnail_slider slider-component.thumbnail-slider .slider-button[disabled] {
     display: none !important;
   }
 }
 
 /* =====================================================
-   Lightbox / zoom modal — contain image within viewport
+   Lightbox / zoom modal — contain image in viewport
    ===================================================== */
 .product-media-modal__content .product__media img,
 .product-media-modal__content .media img {
