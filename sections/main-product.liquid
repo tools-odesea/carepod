@@ -80,7 +80,7 @@
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
       {%- if section.settings.gallery_layout == 'thumbnail_slider' -%}
-        <style>
+        {%- style -%}
           @media screen and (min-width: 990px) {
             .product--thumbnail_slider media-gallery {
               display: flex !important;
@@ -188,7 +188,7 @@
             justify-content: center;
             max-height: 100vh;
           }
-        </style>
+        {%- endstyle -%}
       {%- endif -%}
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
