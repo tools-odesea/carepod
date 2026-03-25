@@ -37,69 +37,15 @@
           }
         }
       },
-      "block_order": ["stat_1", "stat_2", "stat_3"],
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3"
+      ],
       "settings": {
         "heading": "Love Notes",
         "bg_color": "#2b2b2b",
         "text_color": "#ffffff"
-      }
-    },
-    "doctor_testimonials": {
-      "type": "cp-testimonials",
-      "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual. Given the health benefits associated with it, I love it so far!",
-            "name": "Dr. Tim Tiutan",
-            "title": "Internal Medicine"
-          }
-        },
-        "t2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I recently discovered Carepod and absolutely love it. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold.",
-            "name": "Dr. Elana Roumell",
-            "title": "Pediatric Naturopathic"
-          }
-        },
-        "t3": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "How often do we talk about sleep when it comes to kids? All the time. When I saw that Carepod only had three pieces that needed cleaning, I immediately knew that this was the one.",
-            "name": "Katie Zelinski",
-            "title": "Pediatric Occupational Therapist"
-          }
-        },
-        "t4": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Carepod is hands down the best humidifier on the market. It's sleek, fun to use, soothing, and holds a good amount of water. I highly recommend it to all my clients for their skin and overall wellness!",
-            "name": "Tess Zolly",
-            "title": "Licensed Esthetician"
-          }
-        },
-        "t5": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Once one of my daughters starts coughing, it keeps on going, so we use humidifiers all the time. I love how easy it is to clean our Carepod, with three easy steps.",
-            "name": "Dr. Jesse L. Berry",
-            "title": "Ophthalmology Surgeon"
-          }
-        },
-        "t6": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. I love its modern chic design that blends well into any environment.",
-            "name": "Dr. Jiyeh Joo",
-            "title": "Family Physician"
-          }
-        }
-      },
-      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
-      "settings": {
-        "heading": "Trusted by Doctors & Professionals",
-        "bg_color": "#ffffff"
       }
     },
     "customer_testimonials": {
@@ -108,6 +54,7 @@
         "c1": {
           "type": "testimonial",
           "settings": {
+            "avatar_url": "",
             "quote": "I've spent over $500 on humidifiers over the years and have never been so satisfied. My son has asthma and this is the only humidifier I trust to keep his air clean and mold-free.",
             "name": "Sarah M.",
             "title": "Verified Buyer — Carepod One Plus"
@@ -116,6 +63,7 @@
         "c2": {
           "type": "testimonial",
           "settings": {
+            "avatar_url": "",
             "quote": "I have three! One for every bedroom. They stay clean and I never have to worry about mold growing inside. Best purchase I've made for our home.",
             "name": "Laura S.",
             "title": "Verified Buyer — Carepod One"
@@ -124,6 +72,7 @@
         "c3": {
           "type": "testimonial",
           "settings": {
+            "avatar_url": "",
             "quote": "Living in Colorado, the dry air is brutal. This is the best and easiest to clean humidifier I've ever owned. No subscription filters is a huge bonus.",
             "name": "Michael R.",
             "title": "Verified Buyer — Carepod Cube Plus"
@@ -132,6 +81,7 @@
         "c4": {
           "type": "testimonial",
           "settings": {
+            "avatar_url": "",
             "quote": "I slept the entire night without coughing for the first time in weeks. The warm mist feature on the Cube Plus is a game changer during winter.",
             "name": "Mary Z.",
             "title": "Verified Buyer — Carepod Cube Plus"
@@ -140,6 +90,7 @@
         "c5": {
           "type": "testimonial",
           "settings": {
+            "avatar_url": "",
             "quote": "No mold after a month of daily use. Still looks brand new inside. I've thrown away so many humidifiers because of mold — this one is different.",
             "name": "Lindsay T.",
             "title": "Verified Buyer — Carepod One"
@@ -148,13 +99,21 @@
         "c6": {
           "type": "testimonial",
           "settings": {
+            "avatar_url": "",
             "quote": "The stainless steel tank is brilliant. I can actually see that it's clean, unlike plastic humidifiers where mold hides in every crevice. Worth every penny.",
             "name": "James K.",
             "title": "Verified Buyer — Carepod Mini"
           }
         }
       },
-      "block_order": ["c1", "c2", "c3", "c4", "c5", "c6"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ],
       "settings": {
         "heading": "What Our Customers Say",
         "bg_color": "#f9f9f9"
@@ -171,7 +130,50 @@
         "button_bg": "#f0b43e",
         "button_text": "#000000"
       }
+    },
+    "177439787012697969": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_reviews_grid_widget_CpTQYF": {
+          "type": "shopify://apps/judge-me-reviews/blocks/reviews_grid_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": true,
+            "review_selection": "all",
+            "products": [],
+            "show_media_only": false,
+            "display_order": "media_first",
+            "columns_desktop": 3,
+            "rows_desktop": 3,
+            "columns_mobile": "2",
+            "rows_mobile": 6,
+            "show_stars": true,
+            "show_reviewer_name": true,
+            "show_review_title_on_hover_desktop": true,
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "card_spacing": "medium",
+            "header_text_color": "#000000",
+            "star_and_reviewer_name_color": "#F9F9F9",
+            "drop_shadow_color": "#000000",
+            "overlay_and_background_color": "#000000",
+            "content_color": "#F9F9F9",
+            "header_text": "From our customers",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_reviews_grid_widget_CpTQYF"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
-  "order": ["reviews_hero", "doctor_testimonials", "customer_testimonials", "risk_free"]
+  "order": [
+    "reviews_hero",
+    "customer_testimonials",
+    "risk_free",
+    "177439787012697969"
+  ]
 }
