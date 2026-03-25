@@ -10,12 +10,12 @@
   {% endif %}
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-  {{ 'cp-product-gallery.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {{ 'cp-product-gallery.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -79,6 +79,117 @@
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
+      {%- if section.settings.gallery_layout == 'thumbnail_slider' -%}
+        <style>
+          @media screen and (min-width: 990px) {
+            .product--thumbnail_slider media-gallery {
+              display: flex !important;
+              flex-direction: row !important;
+              gap: 1rem;
+            }
+            .product--thumbnail_slider media-gallery > slider-component:first-of-type {
+              flex: 1 1 0%;
+              min-width: 0;
+              order: 2;
+            }
+            .product--thumbnail_slider media-gallery > slider-component.thumbnail-slider {
+              order: 1;
+              width: 85px;
+              flex-shrink: 0;
+              display: flex !important;
+              flex-direction: column !important;
+              align-items: center;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list.slider.slider--tablet-up {
+              display: flex !important;
+              flex-direction: column !important;
+              overflow-x: hidden !important;
+              overflow-y: auto !important;
+              scroll-snap-type: y mandatory !important;
+              scroll-padding-left: 0 !important;
+              flex-wrap: nowrap !important;
+              max-height: 550px;
+              gap: 0.5rem;
+              padding: 0.25rem;
+              flex: 0 1 auto;
+              scrollbar-width: none;
+              grid-template-columns: none !important;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list.slider--tablet-up::-webkit-scrollbar {
+              display: none;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list__item.slider__slide {
+              width: 100% !important;
+              min-width: 100% !important;
+              flex-shrink: 0;
+              scroll-snap-align: start;
+            }
+            .product--thumbnail_slider .thumbnail-list__item .thumbnail {
+              border-radius: 6px;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button {
+              width: 44px;
+              height: 44px;
+              min-height: 44px;
+              border-radius: 50%;
+              border: 2px solid #5b9bd5;
+              background: #ffffff;
+              color: #5b9bd5;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+              align-self: center;
+              flex-shrink: 0;
+              justify-content: center;
+              cursor: pointer;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button:hover {
+              background: #f0f6ff;
+              border-color: #4a8cc7;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button .icon {
+              color: #5b9bd5;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--prev {
+              order: -1;
+              margin-bottom: 0.5rem;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--next {
+              margin-top: 0.5rem;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--prev .icon {
+              transform: rotate(180deg) !important;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--next .icon {
+              transform: rotate(0deg) !important;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--prev:not([disabled]):hover .icon {
+              transform: rotate(180deg) scale(1.1) !important;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--next:not([disabled]):hover .icon {
+              transform: rotate(0deg) scale(1.1) !important;
+            }
+            .product--thumbnail_slider slider-component.thumbnail-slider .slider-button[disabled] {
+              display: none !important;
+            }
+          }
+          .product-media-modal__content .product__media img,
+          .product-media-modal__content .media img {
+            max-width: 100vw;
+            max-height: 100vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
+          }
+          .product-media-modal__content .product__media,
+          .product-media-modal__content .media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-height: 100vh;
+          }
+        </style>
+      {%- endif -%}
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
