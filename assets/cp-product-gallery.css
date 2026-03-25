@@ -1,0 +1,83 @@
+/* Vertical thumbnail gallery — thumbnails on left, main image on right */
+@media screen and (min-width: 990px) {
+  .product--thumbnail_slider media-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  /* Main image viewer — takes remaining space */
+  .product--thumbnail_slider media-gallery > slider-component.slider-mobile-gutter:first-of-type {
+    flex: 1;
+    min-width: 0;
+    order: 2;
+  }
+
+  /* Thumbnail slider — vertical column on the left */
+  .product--thumbnail_slider media-gallery > .thumbnail-slider {
+    order: 1;
+    width: 85px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .product--thumbnail_slider .thumbnail-list.slider--tablet-up {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 550px;
+    gap: 0.5rem;
+    scroll-snap-type: y mandatory;
+    padding: 0.25rem;
+    scrollbar-width: none;
+  }
+
+  .product--thumbnail_slider .thumbnail-list.slider--tablet-up::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product--thumbnail_slider .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+    width: 100% !important;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .product--thumbnail_slider .thumbnail-list__item .thumbnail {
+    border-radius: 6px;
+  }
+
+  /* Rotate prev/next arrows for vertical scrolling */
+  .product--thumbnail_slider .thumbnail-slider .slider-button {
+    position: relative;
+    width: 100%;
+    height: 28px;
+    min-height: 28px;
+    justify-content: center;
+    margin: 0;
+    flex-shrink: 0;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    min-height: 36px;
+    align-self: center;
+  }
+
+  .product--thumbnail_slider .thumbnail-slider .slider-button--prev {
+    order: -1;
+    margin-bottom: 0.25rem;
+  }
+
+  .product--thumbnail_slider .thumbnail-slider .slider-button--next {
+    margin-top: 0.25rem;
+  }
+
+  .product--thumbnail_slider .thumbnail-slider .slider-button .svg-wrapper {
+    transform: rotate(90deg);
+  }
+
+  .product--thumbnail_slider .thumbnail-slider .slider-button--prev .svg-wrapper {
+    transform: rotate(-90deg);
+  }
+}
