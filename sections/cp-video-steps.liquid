@@ -1,0 +1,467 @@
+{{ 'cp-video-steps.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign bg = section.settings.bg_color | default: '#ffffff'
+-%}
+
+<section
+  class="cp-vsteps"
+  style="background-color: {{ bg }};"
+  id="cp-vsteps-{{ section.id }}"
+>
+  <div class="cp-vsteps__inner">
+
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="cp-vsteps__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="cp-vsteps__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="cp-vsteps__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="cp-vsteps__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'step' -%}
+          {%- liquid
+            assign step_num = forloop.index
+            assign video_src = ''
+            if block.settings.video != blank
+              assign video_src = block.settings.video.sources[1].url | default: block.settings.video.sources[0].url
+            elsif block.settings.video_url != blank
+              assign video_src = block.settings.video_url
+            endif
+          -%}
+          <div
+            class="cp-vsteps__card"
+            {{ block.shopify_attributes }}
+            data-step="{{ step_num }}"
+          >
+            <div class="cp-vsteps__video-wrap">
+              {%- if video_src != '' -%}
+                <video
+                  class="cp-vsteps__video"
+                  src="{{ video_src }}"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  data-vstep-video
+                ></video>
+              {%- else -%}
+                <div class="cp-vsteps__video-placeholder"></div>
+              {%- endif -%}
+            </div>
+
+            <div class="cp-vsteps__progress" aria-hidden="true">
+              <div class="cp-vsteps__progress-fill" data-vstep-fill></div>
+            </div>
+
+            <div class="cp-vsteps__meta">
+              <span class="cp-vsteps__step-num">Step {{ step_num }}</span>
+              {%- if block.settings.title != blank -%}
+                <h3 class="cp-vsteps__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <p class="cp-vsteps__desc">{{ block.settings.description }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="cp-vsteps__cta">
+        <a
+          href="{{ section.settings.button_link | default: '#' }}"
+          class="cp-vsteps__btn"
+        >
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<style>
+  #cp-vsteps-{{ section.id }} {
+    /* section-scoped overrides if needed */
+  }
+
+  .cp-vsteps {
+    padding: 100px 16px;
+  }
+
+  .cp-vsteps__inner {
+    max-width: 1128px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .cp-vsteps__header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .cp-vsteps__heading {
+    font-family: var(--font-heading-family);
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -1.12px;
+    line-height: 1.05;
+    color: inherit;
+    margin: 0 0 16px;
+  }
+
+  .cp-vsteps__subheading {
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    line-height: 1.6;
+    color: inherit;
+    margin: 0;
+    opacity: 0.75;
+  }
+
+  /* ── Grid ── */
+  .cp-vsteps__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 32px;
+  }
+
+  /* ── Card ── */
+  .cp-vsteps__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* ── Video wrap ── */
+  .cp-vsteps__video-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 404px;
+    background: #e6f2ff;
+    flex-shrink: 0;
+  }
+
+  .cp-vsteps__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .cp-vsteps__video-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #d0e6fc;
+  }
+
+  /* ── Progress bar ── */
+  .cp-vsteps__progress {
+    height: 2px;
+    background: #e6f2ff;
+    margin-top: 12px;
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .cp-vsteps__progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #0249e3;
+    border-radius: 1px;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Meta ── */
+  .cp-vsteps__meta {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .cp-vsteps__step-num {
+    font-family: var(--font-body-family);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0249e3;
+    opacity: 0.85;
+  }
+
+  .cp-vsteps__title {
+    font-family: var(--font-heading-family);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    color: inherit;
+  }
+
+  .cp-vsteps__desc {
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.75;
+    color: inherit;
+  }
+
+  /* ── CTA ── */
+  .cp-vsteps__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 56px;
+  }
+
+  .cp-vsteps__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0249e3;
+    color: #ffffff;
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 100px;
+    padding: 14px 32px;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .cp-vsteps__btn:hover,
+  .cp-vsteps__btn:focus-visible {
+    background: #00329d;
+    outline: none;
+  }
+
+  /* ── Mobile: horizontal scroll ── */
+  @media (max-width: 749px) {
+    .cp-vsteps {
+      padding: 64px 0;
+    }
+
+    .cp-vsteps__inner {
+      max-width: 100%;
+    }
+
+    .cp-vsteps__header {
+      padding: 0 16px;
+      margin-bottom: 36px;
+    }
+
+    .cp-vsteps__heading {
+      font-size: 36px;
+      letter-spacing: -0.72px;
+    }
+
+    .cp-vsteps__grid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      column-gap: 0;
+      gap: 16px;
+      padding: 0 16px;
+      /* hide scrollbar visually */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .cp-vsteps__grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cp-vsteps__card {
+      flex: 0 0 79vw;
+      scroll-snap-align: start;
+    }
+
+    .cp-vsteps__video-wrap {
+      height: 320px;
+    }
+
+    .cp-vsteps__cta {
+      margin-top: 40px;
+      padding: 0 16px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const section = document.getElementById('cp-vsteps-{{ section.id }}');
+    if (!section) return;
+
+    const cards = section.querySelectorAll('.cp-vsteps__card');
+
+    cards.forEach(function (card) {
+      const video = card.querySelector('[data-vstep-video]');
+      const fill  = card.querySelector('[data-vstep-fill]');
+
+      if (!video) return;
+
+      // ── Progress bar sync ──────────────────────────────────────────────
+      video.addEventListener('timeupdate', function () {
+        if (!video.duration) return;
+        const pct = (video.currentTime / video.duration) * 100;
+        fill.style.width = pct + '%';
+      });
+
+      // Reset fill when video loops
+      video.addEventListener('ended', function () {
+        fill.style.width = '0%';
+      });
+
+      // Also handle the looped restart (fires before ended in some browsers)
+      video.addEventListener('seeking', function () {
+        if (video.currentTime < 0.5 && video.loop) {
+          fill.style.width = '0%';
+        }
+      });
+    });
+
+    // ── IntersectionObserver: autoplay when visible ────────────────────
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            const video = entry.target.querySelector('[data-vstep-video]');
+            if (!video) return;
+
+            if (entry.isIntersecting) {
+              video.play().catch(function () {
+                // autoplay blocked — silently ignore
+              });
+            } else {
+              video.pause();
+            }
+          });
+        },
+        {
+          threshold: 0.35,
+        }
+      );
+
+      cards.forEach(function (card) {
+        observer.observe(card);
+      });
+    } else {
+      // Fallback: attempt autoplay immediately
+      cards.forEach(function (card) {
+        const video = card.querySelector('[data-vstep-video]');
+        if (video) {
+          video.play().catch(function () {});
+        }
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Video Steps",
+  "tag": "section",
+  "class": "cp-vsteps-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Cleaning = 3 simple steps"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Quick, easy, and thorough — done in minutes."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Choose your Carepod"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step title",
+          "default": "Fill"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Add water to the tank."
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video (file picker)"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video URL (fallback)",
+          "info": "Used if no file is selected above. Paste a direct .mp4 URL."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Steps",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Fill",
+            "description": "Add clean water to the tank — it takes just seconds."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Clean",
+            "description": "Drop in a Carepod cleaning pod and press start."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Done",
+            "description": "Your humidifier is clean and ready to run again."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

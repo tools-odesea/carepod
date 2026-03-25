@@ -13,602 +13,177 @@
       "type": "cp-hero-banner",
       "settings": {
         "video": "shopify://files/videos/d38a664add32466c9ab20aa7ca4117ed.HD-1080p-4.8Mbps-37283265.mp4",
-        "badge_text": "Why Carepod",
-        "heading": "Hello, fresh air. Goodbye, mold.",
-        "button_label": "Shop Now",
+        "badge_text": "Trusted by 1k+ customers",
+        "heading": "The world's cleanest humidifier",
+        "subheading": "Invented by a doctor. Engineered in Korea. For clean, fresh air every day.",
+        "button_style": "blue",
+        "button_label": "Explore Carepod",
         "button_link": "/collections/all"
       }
     },
     "press_marquee": {
       "type": "cp-press-marquee",
       "blocks": {
-        "logo_fbs": {
-          "type": "logo",
-          "settings": {
-            "name": "Forbes",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/FBS.png?v=1733348159&width=252"
-          }
-        },
-        "logo_en": {
-          "type": "logo",
-          "settings": {
-            "name": "Entrepreneur",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/EN.png?v=1733348158&width=253"
-          }
-        },
-        "logo_he": {
-          "type": "logo",
-          "settings": {
-            "name": "Health",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/HE.png?v=1733348159&width=252"
-          }
-        },
-        "logo_cn": {
-          "type": "logo",
-          "settings": {
-            "name": "CNN",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/CN.png?v=1733348159&width=252"
-          }
-        },
-        "logo_bh": {
-          "type": "logo",
-          "settings": {
-            "name": "Better Homes & Gardens",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/BH.png?v=1733348159&width=253"
-          }
-        },
-        "logo_cb": {
-          "type": "logo",
-          "settings": {
-            "name": "CBS",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/CB.png?v=1733348159&width=252"
-          }
-        },
-        "logo_bz": {
-          "type": "logo",
-          "settings": {
-            "name": "Bazaar",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/BZ.png?v=1733348159&width=252"
-          }
-        },
-        "logo_ls": {
-          "type": "logo",
-          "settings": {
-            "name": "Real Simple",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/LS.png?v=1733348164&width=252"
-          }
-        },
-        "logo_wc": {
-          "type": "logo",
-          "settings": {
-            "name": "Wirecutter",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/WC.png?v=1733348163&width=252"
-          }
-        },
-        "logo_st": {
-          "type": "logo",
-          "settings": {
-            "name": "Strategist",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/ST.png?v=1733348164&width=252"
-          }
-        },
-        "logo_pp": {
-          "type": "logo",
-          "settings": {
-            "name": "People",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/PP.png?v=1733348164&width=252"
-          }
-        },
-        "logo_rs": {
-          "type": "logo",
-          "settings": {
-            "name": "Rolling Stone",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/RS.png?v=1733348164&width=253"
-          }
-        },
-        "logo_vw": {
-          "type": "logo",
-          "settings": {
-            "name": "Vogue",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/VW.png?v=1733348164&width=252"
-          }
-        },
-        "logo_wg": {
-          "type": "logo",
-          "settings": {
-            "name": "Well + Good",
-            "logo_url": "https://hellocarepod.com/cdn/shop/files/WG.png?v=1733348164&width=253"
-          }
-        }
+        "logo_fbs": { "type": "logo", "settings": { "name": "Forbes", "logo_url": "https://hellocarepod.com/cdn/shop/files/FBS.png?v=1733348159&width=252" } },
+        "logo_en": { "type": "logo", "settings": { "name": "Entrepreneur", "logo_url": "https://hellocarepod.com/cdn/shop/files/EN.png?v=1733348158&width=253" } },
+        "logo_he": { "type": "logo", "settings": { "name": "Health", "logo_url": "https://hellocarepod.com/cdn/shop/files/HE.png?v=1733348159&width=252" } },
+        "logo_cn": { "type": "logo", "settings": { "name": "CNN", "logo_url": "https://hellocarepod.com/cdn/shop/files/CN.png?v=1733348159&width=252" } },
+        "logo_bh": { "type": "logo", "settings": { "name": "Better Homes & Gardens", "logo_url": "https://hellocarepod.com/cdn/shop/files/BH.png?v=1733348159&width=253" } },
+        "logo_cb": { "type": "logo", "settings": { "name": "CBS", "logo_url": "https://hellocarepod.com/cdn/shop/files/CB.png?v=1733348159&width=252" } },
+        "logo_bz": { "type": "logo", "settings": { "name": "Bazaar", "logo_url": "https://hellocarepod.com/cdn/shop/files/BZ.png?v=1733348159&width=252" } },
+        "logo_ls": { "type": "logo", "settings": { "name": "Real Simple", "logo_url": "https://hellocarepod.com/cdn/shop/files/LS.png?v=1733348164&width=252" } },
+        "logo_wc": { "type": "logo", "settings": { "name": "Wirecutter", "logo_url": "https://hellocarepod.com/cdn/shop/files/WC.png?v=1733348163&width=252" } },
+        "logo_st": { "type": "logo", "settings": { "name": "Strategist", "logo_url": "https://hellocarepod.com/cdn/shop/files/ST.png?v=1733348164&width=252" } },
+        "logo_pp": { "type": "logo", "settings": { "name": "People", "logo_url": "https://hellocarepod.com/cdn/shop/files/PP.png?v=1733348164&width=252" } },
+        "logo_rs": { "type": "logo", "settings": { "name": "Rolling Stone", "logo_url": "https://hellocarepod.com/cdn/shop/files/RS.png?v=1733348164&width=253" } },
+        "logo_vw": { "type": "logo", "settings": { "name": "Vogue", "logo_url": "https://hellocarepod.com/cdn/shop/files/VW.png?v=1733348164&width=252" } },
+        "logo_wg": { "type": "logo", "settings": { "name": "Well + Good", "logo_url": "https://hellocarepod.com/cdn/shop/files/WG.png?v=1733348164&width=253" } }
       },
-      "block_order": [
-        "logo_fbs",
-        "logo_en",
-        "logo_he",
-        "logo_cn",
-        "logo_bh",
-        "logo_cb",
-        "logo_bz",
-        "logo_ls",
-        "logo_wc",
-        "logo_st",
-        "logo_pp",
-        "logo_rs",
-        "logo_vw",
-        "logo_wg"
-      ],
+      "block_order": ["logo_fbs", "logo_en", "logo_he", "logo_cn", "logo_bh", "logo_cb", "logo_bz", "logo_ls", "logo_wc", "logo_st", "logo_pp", "logo_rs", "logo_vw", "logo_wg"],
+      "settings": { "label": "FEATURED IN:", "speed": 80, "bg_color": "#ffffff", "label_color": "#2b2b2b" }
+    },
+    "features_grid": {
+      "type": "cp-features-grid",
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "title": "Invented by a Doctor", "description": "The first humidifier designed to be truly hygienic, for better, safer air.", "icon_url": "https://hellocarepod.com/cdn/shop/files/1_9119540d-353e-46ae-a63f-e88433362118.png?v=1733438084&width=96" } },
+        "f2": { "type": "feature", "settings": { "title": "99.9% Sterilizable", "description": "Pop into the dishwasher or boil stainless steel parts for 99.9% sterilization.", "icon_url": "https://hellocarepod.com/cdn/shop/files/2_a5c35815-9d25-4e1d-96a1-197849130876.png?v=1733438084&width=96" } },
+        "f3": { "type": "feature", "settings": { "title": "Easy to Clean", "description": "Made with only three parts, and a top-fill water tank. No hidden nooks for dangerous mold.", "icon_url": "https://hellocarepod.com/cdn/shop/files/3_d647c350-8d32-4d3d-b504-3250d0af7a24.png?v=1733438084&width=96" } },
+        "f4": { "type": "feature", "settings": { "title": "Patented Technology", "description": "Ultrasonic oscillator wand technology, invented to gently hydrate rooms.", "icon_url": "https://hellocarepod.com/cdn/shop/files/4_54001b30-7679-4e15-9f75-409bcce63f1d.png?v=1733438084&width=96" } },
+        "f5": { "type": "feature", "settings": { "title": "No Monthly Subscriptions", "description": "Skip the hassle of filter replacements. Perfect for long-term cost savings.", "icon_url": "https://hellocarepod.com/cdn/shop/files/5_c073b5fa-84c9-4324-a8b3-0e9857177014.png?v=1733438084&width=96" } },
+        "f6": { "type": "feature", "settings": { "title": "Filter-Free", "description": "Ditch dangerous breeding grounds for mold, germs and bacteria.", "icon_url": "https://hellocarepod.com/cdn/shop/files/6_885a025e-417c-45f5-9096-3a2ccd91d6c7.png?v=1733438084&width=96" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6"],
       "settings": {
-        "label": "FEATURED IN:",
-        "speed": 80,
-        "bg_color": "#ffffff",
-        "label_color": "#2b2b2b"
+        "heading": "Hello, fresh air. Goodbye, mold.",
+        "subheading": "With its award-winning, doctor-invented design, Carepod makes clean, fresh air easy.",
+        "image_url": "https://hellocarepod.com/cdn/shop/files/Carepod_f3f93359-7530-4ede-ab15-b93bfa1cb27e.png?v=1758741573&width=2000",
+        "bg_color": "#ffffff"
       }
     },
-    "product_benefits": {
-      "type": "cp-product-benefits",
+    "parallax_banners": {
+      "type": "cp-parallax-banners",
       "blocks": {
-        "benefit_doctor": {
-          "type": "benefit",
-          "settings": {
-            "icon": "doctor",
-            "title": "Doctor Designed",
-            "description": "Simple, sleek, award-winning. With just three parts to clean."
-          }
-        },
-        "benefit_sterilize": {
-          "type": "benefit",
-          "settings": {
-            "icon": "sterilize",
-            "title": "99.9% Sterilizable",
-            "description": "Easy to boil to eliminate mold + bacteria."
-          }
-        },
-        "benefit_steel": {
-          "type": "benefit",
-          "settings": {
-            "icon": "steel",
-            "title": "Stainless Steel",
-            "description": "Dishwasher-safe water tank with a top-fill design."
-          }
-        },
-        "benefit_germ": {
-          "type": "benefit",
-          "settings": {
-            "icon": "germ-free",
-            "title": "Safe and Germ-Free",
-            "description": "No hidden nooks or crannies that breed bacteria."
-          }
-        },
-        "benefit_subscription": {
-          "type": "benefit",
-          "settings": {
-            "icon": "no-subscription",
-            "title": "No Monthly Subscriptions",
-            "description": "Skip the hassle of filter replacements."
-          }
-        }
-      },
-      "block_order": [
-        "benefit_doctor",
-        "benefit_sterilize",
-        "benefit_steel",
-        "benefit_germ",
-        "benefit_subscription"
-      ],
-      "settings": {
-        "heading": "No Filters. No Fuss.",
-        "bg_color": "#2b2b2b",
-        "text_color": "#ffffff"
-      }
-    },
-    "feature_banners": {
-      "type": "cp-feature-banners",
-      "blocks": {
-        "banner_1": {
-          "type": "banner",
+        "panel_1": {
+          "type": "panel",
           "settings": {
             "number": "01",
-            "heading": "Doctor-Invented for Families + Kids",
-            "description": "Carepod humidifier efficiently infuses indoor air with clean moisture.",
-            "bullet_1": "Easy to use for the whole family",
-            "bullet_2": "Soothes dry skin, eyes, and throat",
-            "bullet_3": "Safe, hygienic design for babies and pets",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/AdobeStock_459627131.png?v=1730210930&width=1200"
+            "heading": "Doctor-invented for families + kids",
+            "description": "The Carepod humidifier efficiently infuses indoor air with clean moisture, for everyday health and comfort.",
+            "bullet_1": "Easy to use for busy parents",
+            "bullet_2": "Soothe dry skin, eyes and throat",
+            "bullet_3": "Safe, hygienic design",
+            "image_desktop_url": "https://hellocarepod.com/cdn/shop/files/AdobeStock_459627131.png?v=1730210930&width=2800",
+            "image_mobile_url": "https://hellocarepod.com/cdn/shop/files/AdobeStock_459627131_ed61a381-e904-41a2-9c58-2d1cb6c05ff8.png?v=1730211289&width=1400",
+            "text_color": "dark"
           }
         },
-        "banner_2": {
-          "type": "banner",
+        "panel_2": {
+          "type": "panel",
           "settings": {
             "number": "02",
-            "heading": "99.9% Sterilizable & Mold-Resistant",
-            "description": "The first stainless steel, sterilizable humidifier for truly fresh, clean air.",
-            "bullet_1": "Award-winning filter-free design",
-            "bullet_2": "Safe for babies and pets",
-            "bullet_3": "Reduces the spread of airborne germs",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/AdobeStock_459627131_1.png?v=1730211290&width=1200"
+            "heading": "99.9% sterilizable. Mold-resistant.",
+            "description": "The Carepod humidifier is the first stainless steel, sterilizable humidifier for truly fresh, clean air.",
+            "bullet_1": "Award-winning, filter-free design",
+            "bullet_2": "Safe for babies, pets and families",
+            "bullet_3": "Reduce the spread of germs",
+            "image_desktop_url": "https://hellocarepod.com/cdn/shop/files/image_b3bf1ed2-45f9-4eb4-8732-87a388feaf90.png?v=1730210933&width=2800",
+            "image_mobile_url": "https://hellocarepod.com/cdn/shop/files/AdobeStock_459627131_1.png?v=1730211290&width=1400",
+            "text_color": "light"
           }
         },
-        "banner_3": {
-          "type": "banner",
+        "panel_3": {
+          "type": "panel",
           "settings": {
             "number": "03",
-            "heading": "Easy to Clean & Dishwasher-Safe",
-            "description": "Sleek, minimalist, three-piece design, with a simple water tank.",
+            "heading": "Easy to clean. Dishwasher-safe.",
+            "description": "The Carepod humidifier features a sleek, minimalist, three-piece design, with a simple water tank.",
             "bullet_1": "Only 3 pieces to clean",
-            "bullet_2": "Dishwasher-safe stainless steel",
-            "bullet_3": "No hidden spaces where mold can grow",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/AdobeStock_459627131_2.png?v=1730211289&width=1200"
+            "bullet_2": "Dishwasher-safe stainless steel parts",
+            "bullet_3": "No hidden nooks for mold to grow",
+            "image_desktop_url": "https://hellocarepod.com/cdn/shop/files/image_1_287ecfab-fc2d-4355-81df-5661f201a821.png?v=1730210930&width=2800",
+            "image_mobile_url": "https://hellocarepod.com/cdn/shop/files/AdobeStock_459627131_2.png?v=1730211289&width=1400",
+            "text_color": "dark"
           }
         },
-        "banner_4": {
-          "type": "banner",
+        "panel_4": {
+          "type": "panel",
           "settings": {
             "number": "04",
-            "heading": "Unique Hydration Technology",
-            "description": "Transforms indoor spaces by keeping air moist, helping faster sleep onset.",
-            "bullet_1": "Easier breathing for the whole family",
-            "bullet_2": "Eases respiratory discomfort",
-            "bullet_3": "Improves sleep quality naturally",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/AdobeStock_459627131_ed61a381-e904-41a2-9c58-2d1cb6c05ff8.png?v=1730211289&width=1200"
+            "heading": "Unique hydration technology. Designed in Korea.",
+            "description": "The Carepod humidifier transforms indoor spaces by keeping the air moist, helping you fall asleep faster and breathe easier.",
+            "bullet_1": "Breathe easier through the night",
+            "bullet_2": "Ease respiratory discomfort",
+            "bullet_3": "Improve sleep quality for the whole family",
+            "image_desktop_url": "https://hellocarepod.com/cdn/shop/files/image_2_aab069b9-5ae9-4f1e-a334-23f353e791f1.png?v=1730210930&width=2800",
+            "image_mobile_url": "https://hellocarepod.com/cdn/shop/files/AdobeStock_459627131_3.png?v=1730211290&width=1400",
+            "text_color": "light"
           }
         }
       },
-      "block_order": [
-        "banner_1",
-        "banner_2",
-        "banner_3",
-        "banner_4"
-      ],
-      "settings": {
-        "heading": ""
-      }
+      "block_order": ["panel_1", "panel_2", "panel_3", "panel_4"],
+      "settings": {}
     },
-    "how_to_clean": {
-      "type": "cp-how-to-clean",
+    "video_steps": {
+      "type": "cp-video-steps",
       "blocks": {
-        "step_1": {
-          "type": "step",
-          "settings": {
-            "image_url": "",
-            "title": "Disassemble",
-            "text": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean."
-          }
-        },
-        "step_2": {
-          "type": "step",
-          "settings": {
-            "image_url": "",
-            "title": "Scrub or boil to sterilize.",
-            "text": "Wash the oscillator with soap and water. Fill the water tank with water & place the stainless steel lid cover inside. Boil 1-2 mins for 99.9% sterilization."
-          }
-        },
-        "step_3": {
-          "type": "step",
-          "settings": {
-            "image_url": "",
-            "title": "Refill & enjoy.",
-            "text": "Snap the pieces back in place, fill with water, and you're ready to breathe fresh, clean air in your home once again."
-          }
-        }
+        "step_1": { "type": "step", "settings": { "title": "1. Disassemble", "description": "The oscillator, water tank, and lid cover pop out of the main body with ease. You are now ready to clean." } },
+        "step_2": { "type": "step", "settings": { "title": "2. Scrub or boil to sterilize.", "description": "Wash the bottom part of the oscillator with soap and water. Fill the water tank with water. Boil 1-2 mins for 99.9% sterilization." } },
+        "step_3": { "type": "step", "settings": { "title": "3. Refill & enjoy.", "description": "Snap the pieces back in place, fill with water, and you're ready to breathe fresh, clean air in your home once again." } }
       },
-      "block_order": [
-        "step_1",
-        "step_2",
-        "step_3"
-      ],
+      "block_order": ["step_1", "step_2", "step_3"],
       "settings": {
-        "heading": "Cleaning. 3 simple steps.",
-        "heading_mobile": "",
-        "button_label": "Shop Now",
-        "button_link": "/collections/all"
+        "heading": "Cleaning = 3 simple steps",
+        "subheading": "With its three-part minimalist design, our Carepod humidifier is easy to clean.",
+        "button_label": "Choose your Carepod",
+        "button_link": "/collections/all",
+        "bg_color": "#ffffff"
       }
     },
     "testimonials": {
       "type": "cp-testimonials",
       "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "avatar_url": "https://hellocarepod.com/cdn/shop/files/Testimonials_Tim-Tiutan.jpg?v=1733175846&width=240",
-            "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod. Given the health benefits associated with it, I love it so far!",
-            "name": "Dr. Tim Tiutan",
-            "title": "Internal Medicine"
-          }
-        },
-        "t2": {
-          "type": "testimonial",
-          "settings": {
-            "avatar_url": "https://hellocarepod.com/cdn/shop/files/Avatar-2.png?v=1730539333&width=240",
-            "quote": "I recently discovered Carepod and absolutely love it. As a pediatric naturopathic doctor, the cold and dry climate we're in makes it a valuable addition. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold.",
-            "name": "Dr. Elana Roumell",
-            "title": "Pediatric Naturopathic"
-          }
-        },
-        "t3": {
-          "type": "testimonial",
-          "settings": {
-            "avatar_url": "https://hellocarepod.com/cdn/shop/files/Kate_Zelinski.jpg?v=1733190648&width=240",
-            "quote": "How often do we talk about sleep when it comes to kids? All the time. They need good sleep to function. Our old humidifier was hard to clean and always got moldy. When I saw that Carepod only had three pieces that needed cleaning (and was easy!), I immediately knew that this was the one.",
-            "name": "Katie Zelinski",
-            "title": "Pediatric Occupational Therapist"
-          }
-        },
-        "t4": {
-          "type": "testimonial",
-          "settings": {
-            "avatar_url": "https://hellocarepod.com/cdn/shop/files/Tess_Zolly_caabb8ce-b958-4917-8ab1-af212ef7aa05.jpg?v=1733190726&width=240",
-            "quote": "Carepod is hands down the best humidifier on the market. It's sleek, fun to use, soothing, and holds a good amount of water so you can benefit from it day or night. I highly recommend it to all my clients for their skin, and overall wellness!",
-            "name": "Tess Zolly",
-            "title": "Licensed Esthetician"
-          }
-        },
-        "t5": {
-          "type": "testimonial",
-          "settings": {
-            "avatar_url": "https://hellocarepod.com/cdn/shop/files/Dr._Jesse_Berry.jpg?v=1733190801&width=240",
-            "quote": "Once one of my daughters starts coughing, it keeps on going, so we use humidifiers all the time. I love how easy it is to clean our Carepod, with three easy steps. It feels good knowing I'm giving my child the most hydrating air only!",
-            "name": "Dr. Jesse L. Berry",
-            "title": "Ophthalmology Surgeon"
-          }
-        },
-        "t6": {
-          "type": "testimonial",
-          "settings": {
-            "avatar_url": "https://hellocarepod.com/cdn/shop/files/Dr._Jiyeh_Yoo.jpg?v=1733190844&width=240",
-            "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. As a bonus, I love its modern chic design that blends well into any environment.",
-            "name": "Dr. Jiyeh Joo",
-            "title": "Family Physician"
-          }
-        }
+        "t1": { "type": "testimonial", "settings": { "avatar_url": "https://hellocarepod.com/cdn/shop/files/Testimonials_Tim-Tiutan.jpg?v=1733175846&width=240", "quote": "I finally found a humidifier that is effective yet mold-resistant and easy to clean. It has easily become a part of my nightly ritual to refill my Carepod. Given the health benefits associated with it, I love it so far!", "name": "Dr. Tim Tiutan", "title": "Internal Medicine" } },
+        "t2": { "type": "testimonial", "settings": { "avatar_url": "https://hellocarepod.com/cdn/shop/files/Avatar-2.png?v=1730539333&width=240", "quote": "I recently discovered Carepod and absolutely love it. As a pediatric naturopathic doctor, the cold and dry climate we're in makes it a valuable addition. I'm obsessed with everything about it, especially the stainless steel water tank, which is so easy to clean. And the best part? It won't grow mold.", "name": "Dr. Elana Roumell", "title": "Pediatric Naturopathic" } },
+        "t3": { "type": "testimonial", "settings": { "avatar_url": "https://hellocarepod.com/cdn/shop/files/Kate_Zelinski.jpg?v=1733190648&width=240", "quote": "How often do we talk about sleep when it comes to kids? All the time. They need good sleep to function. Our old humidifier was hard to clean and always got moldy. When I saw that Carepod only had three pieces that needed cleaning (and was easy!), I immediately knew that this was the one.", "name": "Katie Zelinski", "title": "Pediatric Occupational Therapist" } },
+        "t4": { "type": "testimonial", "settings": { "avatar_url": "https://hellocarepod.com/cdn/shop/files/Tess_Zolly_caabb8ce-b958-4917-8ab1-af212ef7aa05.jpg?v=1733190726&width=240", "quote": "Carepod is hands down the best humidifier on the market. It's sleek, fun to use, soothing, and holds a good amount of water so you can benefit from it day or night. I highly recommend it to all my clients for their skin, and overall wellness!", "name": "Tess Zolly", "title": "Licensed Esthetician" } },
+        "t5": { "type": "testimonial", "settings": { "avatar_url": "https://hellocarepod.com/cdn/shop/files/Dr._Jesse_Berry.jpg?v=1733190801&width=240", "quote": "Once one of my daughters starts coughing, it keeps on going, so we use humidifiers all the time. I love how easy it is to clean our Carepod, with three easy steps. It feels good knowing I'm giving my child the most hydrating air only!", "name": "Dr. Jesse L. Berry", "title": "Ophthalmology Surgeon" } },
+        "t6": { "type": "testimonial", "settings": { "avatar_url": "https://hellocarepod.com/cdn/shop/files/Dr._Jiyeh_Yoo.jpg?v=1733190844&width=240", "quote": "I recommend Carepod for anyone thanks to its health benefits, and especially because it's so convenient and easy to clean. As a bonus, I love its modern chic design that blends well into any environment.", "name": "Dr. Jiyeh Joo", "title": "Family Physician" } }
       },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4",
-        "t5",
-        "t6"
-      ],
-      "settings": {
-        "heading": "Trusted by Doctors.",
-        "bg_color": "#f9f9f9"
-      }
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
+      "settings": { "heading": "Trusted by doctors", "bg_color": "#ffffff" }
     },
     "customer_reviews": {
       "type": "cp-customer-reviews",
       "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "name": "Dawn M.",
-            "text": "This humidifier is absolutely amazing. I have tried so many humidifiers over the years and they all get moldy so quickly. The stainless steel tank is genius — I can actually see that it's clean!",
-            "rating": 5,
-            "verified": true,
-            "avatar_url": ""
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "name": "Laura S.",
-            "text": "Best purchase I've made for my family's health. My kids sleep so much better with the Carepod running. The fact that I can boil the parts for sterilization gives me real peace of mind.",
-            "rating": 5,
-            "verified": true,
-            "avatar_url": ""
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "name": "Alizabeth C.",
-            "text": "I was skeptical about spending more on a humidifier, but the Carepod is worth every penny. No more scrubbing hidden crevices. Three parts, easy clean, done. My sinuses have never been happier.",
-            "rating": 5,
-            "verified": true,
-            "avatar_url": ""
-          }
-        },
-        "r4": {
-          "type": "review",
-          "settings": {
-            "name": "Mary Z.",
-            "text": "We have the Cube Plus in our bedroom and the Mini in the nursery. Both are whisper-quiet and the warm mist on the Cube Plus is wonderful during winter. Highly recommend!",
-            "rating": 5,
-            "verified": true,
-            "avatar_url": ""
-          }
-        },
-        "r5": {
-          "type": "review",
-          "settings": {
-            "name": "Diana K.",
-            "text": "Finally a humidifier that doesn't make me worry about what my family is breathing. The stainless steel design is beautiful and functional. Cleaning takes less than a minute!",
-            "rating": 5,
-            "verified": true,
-            "avatar_url": ""
-          }
-        },
-        "r6": {
-          "type": "review",
-          "settings": {
-            "name": "Lindsay T.",
-            "text": "Bought this after my allergist recommended a humidifier that was truly easy to clean. The Carepod exceeded all expectations. It's sleek, quiet, and I can actually sterilize it properly.",
-            "rating": 5,
-            "verified": true,
-            "avatar_url": ""
-          }
-        }
+        "r1": { "type": "review", "settings": { "name": "Dawn M.", "text": "This humidifier is absolutely amazing. I have tried so many humidifiers over the years and they all get moldy so quickly. The stainless steel tank is genius — I can actually see that it's clean!", "rating": 5, "verified": true } },
+        "r2": { "type": "review", "settings": { "name": "Laura S.", "text": "Best purchase I've made for my family's health. My kids sleep so much better with the Carepod running. The fact that I can boil the parts for sterilization gives me real peace of mind.", "rating": 5, "verified": true } },
+        "r3": { "type": "review", "settings": { "name": "Alizabeth C.", "text": "I was skeptical about spending more on a humidifier, but the Carepod is worth every penny. No more scrubbing hidden crevices. Three parts, easy clean, done. My sinuses have never been happier.", "rating": 5, "verified": true } },
+        "r4": { "type": "review", "settings": { "name": "Mary Z.", "text": "We have the Cube Plus in our bedroom and the Mini in the nursery. Both are whisper-quiet and the warm mist on the Cube Plus is wonderful during winter. Highly recommend!", "rating": 5, "verified": true } },
+        "r5": { "type": "review", "settings": { "name": "Diana K.", "text": "Finally a humidifier that doesn't make me worry about what my family is breathing. The stainless steel design is beautiful and functional. Cleaning takes less than a minute!", "rating": 5, "verified": true } },
+        "r6": { "type": "review", "settings": { "name": "Lindsay T.", "text": "Bought this after my allergist recommended a humidifier that was truly easy to clean. The Carepod exceeded all expectations. It's sleek, quiet, and I can actually sterilize it properly.", "rating": 5, "verified": true } }
       },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5",
-        "r6"
-      ],
-      "settings": {
-        "stat": "1,000+",
-        "heading": "Love notes from customers",
-        "description": "Join our growing community of health-conscious individuals",
-        "bg_color": "#ffffff"
-      }
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
+      "settings": { "stat": "1,000+", "heading": "Love notes from customers", "description": "Join our growing community of health-conscious individuals", "bg_color": "#fafafa" }
     },
     "product_compare": {
       "type": "cp-product-compare",
       "blocks": {
-        "prod_cube_plus": {
-          "type": "product",
-          "settings": {
-            "name": "Carepod Cube Plus",
-            "description": "Ultimate coverage and upgraded features for pure, fresh air.",
-            "url": "/products/carepod-cube-plus",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/02Image.png"
-          }
-        },
-        "prod_one_plus": {
-          "type": "product",
-          "settings": {
-            "name": "Carepod One Plus",
-            "description": "Ideal for living spaces, bedrooms, or studio apartments.",
-            "url": "/products/carepod-one-plus",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/Image_with_tag_4.png"
-          }
-        },
-        "prod_one": {
-          "type": "product",
-          "settings": {
-            "name": "Carepod One",
-            "description": "Ideal for the bedroom, home office, or studio apartment.",
-            "url": "/products/carepod-one",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/carepod-one_b35eafe6-d021-4405-90d1-fc0b3620e991.png"
-          }
-        },
-        "prod_mini": {
-          "type": "product",
-          "settings": {
-            "name": "Carepod Mini",
-            "description": "Perfect for nurseries and smaller spaces. A favorite for parents.",
-            "url": "/products/carepod-mini",
-            "image_url": "https://hellocarepod.com/cdn/shop/files/3_57ce011d-23b6-44a3-96c0-23c385e0a603.jpg"
-          }
-        },
-        "row_coverage": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Coverage",
-            "val_0": "700 ft²",
-            "val_1": "500 ft²",
-            "val_2": "500 ft²",
-            "val_3": "350 ft²"
-          }
-        },
-        "row_runtime_low": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Running time (Low)",
-            "val_0": "32 hrs",
-            "val_1": "30 hrs",
-            "val_2": "30 hrs",
-            "val_3": "20 hrs"
-          }
-        },
-        "row_runtime_high": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Running time (High)",
-            "val_0": "12 hrs",
-            "val_1": "10 hrs",
-            "val_2": "10 hrs",
-            "val_3": "10 hrs"
-          }
-        },
-        "row_mist_output": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Mist output",
-            "val_0": "Cool 350cc + Warm 440cc/hr",
-            "val_1": "330cc/hr",
-            "val_2": "330cc/hr",
-            "val_3": "250cc/hr"
-          }
-        },
-        "row_mist_type": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Mist type",
-            "val_0": "Cool + Warm mist",
-            "val_1": "Cool mist",
-            "val_2": "Cool mist",
-            "val_3": "Cool mist"
-          }
-        },
-        "row_capacity": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Tank capacity",
-            "val_0": "4.2 L",
-            "val_1": "4.0 L",
-            "val_2": "4.0 L",
-            "val_3": "2.8 L"
-          }
-        },
-        "row_dimensions": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Dimensions (in)",
-            "val_0": "9.9 × 9.8 × 11.8",
-            "val_1": "10.8 × 10.2 × 9.3",
-            "val_2": "10.8 × 10.2 × 9.3",
-            "val_3": "4.5 × 11.4 × 9.3"
-          }
-        },
-        "row_night_mode": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Night mode",
-            "val_0": "yes",
-            "val_1": "yes",
-            "val_2": "no",
-            "val_3": "no"
-          }
-        },
-        "row_mood_light": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Mood light",
-            "val_0": "yes",
-            "val_1": "yes",
-            "val_2": "no",
-            "val_3": "no"
-          }
-        },
-        "row_warm_mist": {
-          "type": "spec_row",
-          "settings": {
-            "label": "Warm mist sanitization",
-            "val_0": "yes",
-            "val_1": "no",
-            "val_2": "no",
-            "val_3": "no"
-          }
-        }
+        "prod_cube_plus": { "type": "product", "settings": { "name": "Carepod Cube Plus", "description": "Ultimate coverage and advanced features for larger spaces.", "url": "/products/carepod-cube-plus", "image_url": "https://hellocarepod.com/cdn/shop/files/02Image.png" } },
+        "prod_one_plus": { "type": "product", "settings": { "name": "Carepod One Plus", "description": "Ideal for living spaces, bedrooms, or studio apartments.", "url": "/products/carepod-one-plus", "image_url": "https://hellocarepod.com/cdn/shop/files/Image_with_tag_4.png" } },
+        "prod_one": { "type": "product", "settings": { "name": "Carepod One", "description": "Ideal for the bedroom, home office, or studio apartment.", "url": "/products/carepod-one", "image_url": "https://hellocarepod.com/cdn/shop/files/carepod-one_b35eafe6-d021-4405-90d1-fc0b3620e991.png" } },
+        "prod_mini": { "type": "product", "settings": { "name": "Carepod Mini", "description": "Ideal for smaller rooms, offices, and personal spaces.", "url": "/products/carepod-mini", "image_url": "https://hellocarepod.com/cdn/shop/files/3_57ce011d-23b6-44a3-96c0-23c385e0a603.jpg" } },
+        "row_coverage": { "type": "spec_row", "settings": { "label": "Coverage", "val_0": "700 ft²", "val_1": "500 ft²", "val_2": "500 ft²", "val_3": "350 ft²" } },
+        "row_runtime_low": { "type": "spec_row", "settings": { "label": "Running time (Low)", "val_0": "32 hrs", "val_1": "30 hrs", "val_2": "30 hrs", "val_3": "20 hrs" } },
+        "row_runtime_high": { "type": "spec_row", "settings": { "label": "Running time (High)", "val_0": "12 hrs", "val_1": "10 hrs", "val_2": "10 hrs", "val_3": "10 hrs" } },
+        "row_mist_output": { "type": "spec_row", "settings": { "label": "Mist output", "val_0": "Cool 350cc + Warm 440cc/hr", "val_1": "330cc/hr", "val_2": "330cc/hr", "val_3": "250cc/hr" } },
+        "row_mist_type": { "type": "spec_row", "settings": { "label": "Mist type", "val_0": "Cool + Warm mist", "val_1": "Cool mist", "val_2": "Cool mist", "val_3": "Cool mist" } },
+        "row_capacity": { "type": "spec_row", "settings": { "label": "Tank capacity", "val_0": "4.2 L", "val_1": "4.0 L", "val_2": "4.0 L", "val_3": "2.8 L" } },
+        "row_dimensions": { "type": "spec_row", "settings": { "label": "Dimensions (in)", "val_0": "9.9 × 9.8 × 11.8", "val_1": "10.8 × 10.2 × 9.3", "val_2": "10.8 × 10.2 × 9.3", "val_3": "4.5 × 11.4 × 9.3" } },
+        "row_night_mode": { "type": "spec_row", "settings": { "label": "Night mode", "val_0": "yes", "val_1": "yes", "val_2": "no", "val_3": "no" } },
+        "row_mood_light": { "type": "spec_row", "settings": { "label": "Mood light", "val_0": "yes", "val_1": "yes", "val_2": "no", "val_3": "no" } },
+        "row_warm_mist": { "type": "spec_row", "settings": { "label": "Warm mist sanitization", "val_0": "yes", "val_1": "no", "val_2": "no", "val_3": "no" } }
       },
-      "block_order": [
-        "prod_cube_plus",
-        "prod_one_plus",
-        "prod_one",
-        "prod_mini",
-        "row_coverage",
-        "row_runtime_low",
-        "row_runtime_high",
-        "row_mist_output",
-        "row_mist_type",
-        "row_capacity",
-        "row_dimensions",
-        "row_night_mode",
-        "row_mood_light",
-        "row_warm_mist"
-      ],
+      "block_order": ["prod_cube_plus", "prod_one_plus", "prod_one", "prod_mini", "row_coverage", "row_runtime_low", "row_runtime_high", "row_mist_output", "row_mist_type", "row_capacity", "row_dimensions", "row_night_mode", "row_mood_light", "row_warm_mist"],
       "settings": {
         "heading": "A Carepod for every room",
         "subheading": "The Carepod humidifier is versatile and user-friendly, making it ideal for any lifestyle, health need, or living space.",
@@ -620,22 +195,22 @@
     "risk_free": {
       "type": "cp-risk-free-banner",
       "settings": {
-        "heading": "Try It Now, 100% Risk Free",
-        "body": "Your Carepod is backed by our satisfaction guarantee — 30 days to try it out for yourself.",
-        "button_label": "Shop Carepod",
+        "heading": "Try it now, 100% risk free",
+        "body": "Your Carepod is backed by our satisfaction guarantee, meaning you'll have 30 days to try it out for yourself to see why over 130,220+ homes love theirs.",
+        "button_label": "Choose your Carepod Bundle",
         "button_link": "/collections/all",
         "guarantee_text": "Try it 100% risk free",
-        "button_bg": "#f0b43e",
-        "button_text": "#000000"
+        "button_bg": "#0249e3",
+        "button_text": "#ffffff"
       }
     }
   },
   "order": [
     "why_hero",
     "press_marquee",
-    "product_benefits",
-    "feature_banners",
-    "how_to_clean",
+    "features_grid",
+    "parallax_banners",
+    "video_steps",
     "testimonials",
     "customer_reviews",
     "product_compare",

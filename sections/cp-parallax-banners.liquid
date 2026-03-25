@@ -1,0 +1,480 @@
+{% comment %}
+  cp-parallax-banners.liquid
+  Parallax stacking panels — pure CSS sticky scroll effect.
+  Each panel is position:sticky; top:0; height:100vh and stacks over the previous one as the user scrolls.
+{% endcomment %}
+
+<style>
+  .cp-parallax {
+    position: relative;
+  }
+
+  /* ── Panel ── */
+  .cp-parallax__panel {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Background images */
+  .cp-parallax__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cp-parallax__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .cp-parallax__bg--mobile {
+    display: none;
+  }
+
+  /* Content overlay */
+  .cp-parallax__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 156px;
+    max-width: 680px;
+  }
+
+  /* Faded number */
+  .cp-parallax__number {
+    font-family: var(--font-heading-family, sans-serif);
+    font-size: 120px;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.12;
+    margin: 0 0 -32px;
+    letter-spacing: -4px;
+    user-select: none;
+  }
+
+  /* Heading */
+  .cp-parallax__heading {
+    font-family: var(--font-heading-family, sans-serif);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    letter-spacing: -1px;
+  }
+
+  /* Description */
+  .cp-parallax__desc {
+    font-family: var(--font-body-family, sans-serif);
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0 0 28px;
+    max-width: 480px;
+    opacity: 0.9;
+  }
+
+  /* Bullets */
+  .cp-parallax__bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cp-parallax__bullet {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body-family, sans-serif);
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .cp-parallax__bullet-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Text colour variants */
+  .cp-parallax__panel--dark .cp-parallax__number,
+  .cp-parallax__panel--dark .cp-parallax__heading,
+  .cp-parallax__panel--dark .cp-parallax__desc,
+  .cp-parallax__panel--dark .cp-parallax__bullet {
+    color: #2f2f2f;
+  }
+
+  .cp-parallax__panel--dark .cp-parallax__bullet-icon svg path,
+  .cp-parallax__panel--dark .cp-parallax__bullet-icon svg circle {
+    stroke: #2f2f2f;
+  }
+
+  .cp-parallax__panel--light .cp-parallax__number,
+  .cp-parallax__panel--light .cp-parallax__heading,
+  .cp-parallax__panel--light .cp-parallax__desc,
+  .cp-parallax__panel--light .cp-parallax__bullet {
+    color: #ffffff;
+  }
+
+  .cp-parallax__panel--light .cp-parallax__bullet-icon svg path,
+  .cp-parallax__panel--light .cp-parallax__bullet-icon svg circle {
+    stroke: #ffffff;
+  }
+
+  /* ── Sticky stacking (desktop only) ── */
+  @media screen and (min-width: 750px) {
+    .cp-parallax__panel {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+  /* ── Mobile ── */
+  @media screen and (max-width: 749px) {
+    .cp-parallax__panel {
+      position: relative;
+      height: 100svh;
+    }
+
+    .cp-parallax__bg--desktop {
+      display: none;
+    }
+
+    .cp-parallax__bg--mobile {
+      display: block;
+    }
+
+    .cp-parallax__content {
+      padding: 68px 16px;
+      max-width: 100%;
+    }
+
+    .cp-parallax__number {
+      font-size: 80px;
+      margin-bottom: -20px;
+    }
+
+    .cp-parallax__heading {
+      font-size: 30px;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .cp-parallax__desc {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .cp-parallax__bullet {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<section class="cp-parallax">
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'panel' -%}
+      {%- assign color_class = 'cp-parallax__panel--dark' -%}
+      {%- if block.settings.text_color == 'light' -%}
+        {%- assign color_class = 'cp-parallax__panel--light' -%}
+      {%- endif -%}
+
+      <div class="cp-parallax__panel {{ color_class }}" {{ block.shopify_attributes }}>
+
+        {%- comment %} Desktop background {%- endcomment %}
+        <div class="cp-parallax__bg cp-parallax__bg--desktop">
+          {%- if block.settings.image_desktop != blank -%}
+            {{
+              block.settings.image_desktop
+              | image_url: width: 2400
+              | image_tag:
+                loading: 'lazy',
+                widths: '800,1200,1600,2000,2400',
+                sizes: '100vw',
+                alt: block.settings.heading
+            }}
+          {%- elsif block.settings.image_desktop_url != blank -%}
+            <img
+              src="{{ block.settings.image_desktop_url }}"
+              alt="{{ block.settings.heading | escape }}"
+              loading="lazy"
+            >
+          {%- else -%}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+
+        {%- comment %} Mobile background {%- endcomment %}
+        <div class="cp-parallax__bg cp-parallax__bg--mobile">
+          {%- if block.settings.image_mobile != blank -%}
+            {{
+              block.settings.image_mobile
+              | image_url: width: 1200
+              | image_tag:
+                loading: 'lazy',
+                widths: '400,600,800,1000,1200',
+                sizes: '100vw',
+                alt: block.settings.heading
+            }}
+          {%- elsif block.settings.image_mobile_url != blank -%}
+            <img
+              src="{{ block.settings.image_mobile_url }}"
+              alt="{{ block.settings.heading | escape }}"
+              loading="lazy"
+            >
+          {%- elsif block.settings.image_desktop != blank -%}
+            {{
+              block.settings.image_desktop
+              | image_url: width: 1200
+              | image_tag:
+                loading: 'lazy',
+                widths: '400,600,800,1000,1200',
+                sizes: '100vw',
+                alt: block.settings.heading
+            }}
+          {%- elsif block.settings.image_desktop_url != blank -%}
+            <img
+              src="{{ block.settings.image_desktop_url }}"
+              alt="{{ block.settings.heading | escape }}"
+              loading="lazy"
+            >
+          {%- else -%}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+
+        {%- comment %} Text content {%- endcomment %}
+        <div class="cp-parallax__content">
+          {%- if block.settings.number != blank -%}
+            <span class="cp-parallax__number">{{ block.settings.number }}</span>
+          {%- endif -%}
+
+          {%- if block.settings.heading != blank -%}
+            <h2 class="cp-parallax__heading">{{ block.settings.heading }}</h2>
+          {%- endif -%}
+
+          {%- if block.settings.description != blank -%}
+            <p class="cp-parallax__desc">{{ block.settings.description }}</p>
+          {%- endif -%}
+
+          {%- assign has_bullets = false -%}
+          {%- if block.settings.bullet_1 != blank or block.settings.bullet_2 != blank or block.settings.bullet_3 != blank -%}
+            {%- assign has_bullets = true -%}
+          {%- endif -%}
+
+          {%- if has_bullets -%}
+            <ul class="cp-parallax__bullets">
+              {%- if block.settings.bullet_1 != blank -%}
+                <li class="cp-parallax__bullet">
+                  <span class="cp-parallax__bullet-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M6 10.5L8.5 13L14 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>{{ block.settings.bullet_1 }}</span>
+                </li>
+              {%- endif -%}
+
+              {%- if block.settings.bullet_2 != blank -%}
+                <li class="cp-parallax__bullet">
+                  <span class="cp-parallax__bullet-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M6 10.5L8.5 13L14 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>{{ block.settings.bullet_2 }}</span>
+                </li>
+              {%- endif -%}
+
+              {%- if block.settings.bullet_3 != blank -%}
+                <li class="cp-parallax__bullet">
+                  <span class="cp-parallax__bullet-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M6 10.5L8.5 13L14 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>{{ block.settings.bullet_3 }}</span>
+                </li>
+              {%- endif -%}
+            </ul>
+          {%- endif -%}
+        </div>
+
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</section>
+
+{% schema %}
+{
+  "name": "Parallax Banners",
+  "tag": "section",
+  "class": "cp-parallax-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "info": "Optional. Not displayed in the section itself — use for internal reference or accessibility."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "panel",
+      "name": "Panel",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Panel number",
+          "default": "01",
+          "info": "Large faded number shown in the background of the text area (e.g. 01, 02, 03, 04)."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "bullet_1",
+          "label": "Bullet point 1"
+        },
+        {
+          "type": "text",
+          "id": "bullet_2",
+          "label": "Bullet point 2"
+        },
+        {
+          "type": "text",
+          "id": "bullet_3",
+          "label": "Bullet point 3"
+        },
+        {
+          "type": "header",
+          "content": "Background images"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Desktop image",
+          "info": "Landscape format recommended. Minimum 1600px wide."
+        },
+        {
+          "type": "text",
+          "id": "image_desktop_url",
+          "label": "Desktop image URL (fallback)",
+          "info": "Used if no image is selected above."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile image",
+          "info": "Portrait format recommended. Falls back to desktop image if not set."
+        },
+        {
+          "type": "text",
+          "id": "image_mobile_url",
+          "label": "Mobile image URL (fallback)",
+          "info": "Used if no mobile image is selected above."
+        },
+        {
+          "type": "header",
+          "content": "Text style"
+        },
+        {
+          "type": "select",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "dark",
+          "options": [
+            {
+              "value": "dark",
+              "label": "Dark (#2f2f2f) — use on light backgrounds"
+            },
+            {
+              "value": "light",
+              "label": "Light (white) — use on dark backgrounds"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Parallax Banners",
+      "blocks": [
+        {
+          "type": "panel",
+          "settings": {
+            "number": "01",
+            "heading": "Clean air, simply.",
+            "description": "Breathe easier knowing your air is filtered and purified around the clock.",
+            "bullet_1": "HEPA-grade filtration",
+            "bullet_2": "Whisper-quiet operation",
+            "bullet_3": "Auto-adjusts to your environment",
+            "text_color": "dark"
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "number": "02",
+            "heading": "Designed to last.",
+            "description": "Premium materials built for years of reliable, consistent performance.",
+            "bullet_1": "Medical-grade components",
+            "bullet_2": "Easy filter replacement",
+            "bullet_3": "5-year warranty",
+            "text_color": "light"
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "number": "03",
+            "heading": "Fits any space.",
+            "description": "Compact enough for your bedside table, powerful enough for an entire room.",
+            "bullet_1": "Available in 3 sizes",
+            "bullet_2": "Low-profile design",
+            "bullet_3": "Covers up to 500 sq ft",
+            "text_color": "dark"
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "number": "04",
+            "heading": "Smart & effortless.",
+            "description": "Set it once and forget it — Carepod works intelligently in the background.",
+            "bullet_1": "Real-time air quality monitoring",
+            "bullet_2": "Sleep mode for undisturbed nights",
+            "bullet_3": "App-free, always ready",
+            "text_color": "light"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

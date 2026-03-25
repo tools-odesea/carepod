@@ -49,7 +49,7 @@
   .cp-reviews__star {
     width: 20px;
     height: 20px;
-    color: #f0b43e;
+    color: #0249e3;
   }
 
   .cp-reviews__grid {
@@ -76,7 +76,7 @@
   .cp-reviews__card-star {
     width: 16px;
     height: 16px;
-    color: #f0b43e;
+    color: #0249e3;
   }
 
   .cp-reviews__card-text {
@@ -117,6 +117,59 @@
     margin: 0;
   }
 
+  .cp-reviews__grid-wrap {
+    position: relative;
+    overflow: hidden;
+    max-height: 600px;
+  }
+
+  .cp-reviews__grid-wrap.is-expanded {
+    max-height: none;
+  }
+
+  .cp-reviews__fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(180deg, transparent 0%, {{ section.settings.bg_color }} 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .cp-reviews__grid-wrap.is-expanded .cp-reviews__fade {
+    display: none;
+  }
+
+  .cp-reviews__more-wrap {
+    text-align: center;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cp-reviews__more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #2b2b2b;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: var(--font-body-family);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    min-width: 195px;
+    transition: background 0.2s;
+  }
+
+  .cp-reviews__more-btn:hover {
+    background: #000;
+  }
+
   @media screen and (max-width: 749px) {
     .cp-reviews {
       padding: 3rem 1.25rem;
@@ -133,6 +186,14 @@
     .cp-reviews__grid {
       grid-template-columns: 1fr;
       gap: 1rem;
+    }
+
+    .cp-reviews__grid-wrap {
+      max-height: 500px;
+    }
+
+    .cp-reviews__fade {
+      height: 200px;
     }
   }
 </style>
@@ -157,6 +218,7 @@
     </div>
 
     {%- if section.blocks.size > 0 -%}
+      <div class="cp-reviews__grid-wrap" id="cp-reviews-wrap-{{ section.id }}">
       <div class="cp-reviews__grid">
         {%- for block in section.blocks -%}
           <div class="cp-reviews__card" {{ block.shopify_attributes }}>
@@ -184,6 +246,11 @@
             </div>
           </div>
         {%- endfor -%}
+      </div>
+      <div class="cp-reviews__fade"></div>
+      </div>
+      <div class="cp-reviews__more-wrap">
+        <button class="cp-reviews__more-btn" onclick="var w=document.getElementById('cp-reviews-wrap-{{ section.id }}');w.classList.toggle('is-expanded');this.textContent=w.classList.contains('is-expanded')?'Show less':'View more reviews'">View more reviews</button>
       </div>
     {%- endif -%}
   </div>

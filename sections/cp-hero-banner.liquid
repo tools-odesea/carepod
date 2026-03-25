@@ -80,6 +80,15 @@
     max-width: 560px;
   }
 
+  .cp-hero__subheading {
+    font-family: var(--font-body-family);
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    max-width: 480px;
+  }
+
   .cp-hero__button {
     display: inline-flex;
     align-items: center;
@@ -102,6 +111,14 @@
 
   .cp-hero__button:hover {
     background: #333333;
+  }
+
+  .cp-hero__button--blue {
+    background: #0249e3;
+  }
+
+  .cp-hero__button--blue:hover {
+    background: #00329d;
   }
 
   /* Mobile */
@@ -134,6 +151,11 @@
       font-weight: 600;
       line-height: 1.25;
       letter-spacing: -0.9px;
+      text-align: center;
+    }
+
+    .cp-hero__subheading {
+      font-size: 16px;
       text-align: center;
     }
 
@@ -223,10 +245,14 @@
       <h2 class="cp-hero__heading">{{ section.settings.heading }}</h2>
     {%- endif -%}
 
+    {%- if section.settings.subheading != blank -%}
+      <p class="cp-hero__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
     {%- if section.settings.button_label != blank -%}
       <a
         href="{{ section.settings.button_link | default: '#' }}"
-        class="cp-hero__button"
+        class="cp-hero__button{% if section.settings.button_style == 'blue' %} cp-hero__button--blue{% endif %}"
       >
         {{- section.settings.button_label | escape -}}
       </a>
@@ -283,8 +309,24 @@
       "default": "The ultimate upgrade for your home."
     },
     {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "info": "Optional subtitle below the heading."
+    },
+    {
       "type": "header",
       "content": "Button"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "dark", "label": "Dark (black)" },
+        { "value": "blue", "label": "Blue (brand)" }
+      ],
+      "default": "dark"
     },
     {
       "type": "text",
