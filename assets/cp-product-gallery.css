@@ -1,31 +1,37 @@
-/* Vertical thumbnail gallery — thumbnails on left, main image on right */
+/* =====================================================
+   Vertical thumbnail gallery
+   Thumbnails on left, main image on right
+   ===================================================== */
 @media screen and (min-width: 990px) {
-  /* Make media-gallery a horizontal flex container */
+
+  /* 1. Make media-gallery a horizontal flex row */
   .product--thumbnail_slider media-gallery {
-    display: flex;
-    flex-direction: row;
+    display: flex !important;
+    flex-direction: row !important;
     gap: 1rem;
   }
 
-  /* Main image viewer — takes remaining space, positioned on the right */
+  /* 2. Main image viewer — right side, fills remaining space */
   .product--thumbnail_slider media-gallery > slider-component:first-of-type {
-    flex: 1;
+    flex: 1 1 0%;
     min-width: 0;
     order: 2;
   }
 
-  /* Thumbnail slider — narrow column on the left */
+  /* 3. Thumbnail slider — left column, fixed width */
   .product--thumbnail_slider media-gallery > slider-component.thumbnail-slider {
     order: 1;
     width: 85px;
     flex-shrink: 0;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center;
   }
 
-  /* Thumbnail list — vertical scroll */
-  .product--thumbnail_slider .thumbnail-list.slider--tablet-up {
-    flex-direction: column;
+  /* 4. Thumbnail list — vertical column of thumbnails */
+  .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list.slider--tablet-up {
+    display: flex !important;
+    flex-direction: column !important;
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 550px;
@@ -33,15 +39,17 @@
     scroll-snap-type: y mandatory;
     padding: 0.25rem;
     scrollbar-width: none;
+    flex: 0 1 auto;
   }
 
-  .product--thumbnail_slider .thumbnail-list.slider--tablet-up::-webkit-scrollbar {
+  .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list.slider--tablet-up::-webkit-scrollbar {
     display: none;
   }
 
-  /* Each thumbnail takes full width of the column */
-  .product--thumbnail_slider .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+  /* 5. Each thumbnail — full width of the 85px column, square aspect */
+  .product--thumbnail_slider slider-component.thumbnail-slider .thumbnail-list__item.slider__slide {
     width: 100% !important;
+    min-width: 100% !important;
     scroll-snap-align: start;
     flex-shrink: 0;
   }
@@ -50,8 +58,8 @@
     border-radius: 6px;
   }
 
-  /* Style the nav buttons — blue circle to match original store */
-  .product--thumbnail_slider .thumbnail-slider .slider-button {
+  /* 6. Arrow buttons — blue outlined circle matching original store */
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button {
     width: 44px;
     height: 44px;
     min-height: 44px;
@@ -63,51 +71,72 @@
     align-self: center;
     flex-shrink: 0;
     justify-content: center;
+    cursor: pointer;
   }
 
-  .product--thumbnail_slider .thumbnail-slider .slider-button:hover {
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button:hover {
     background: #f0f6ff;
     border-color: #4a8cc7;
   }
 
-  .product--thumbnail_slider .thumbnail-slider .slider-button .icon {
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button .icon {
     color: #5b9bd5;
   }
 
-  /* Prev = up arrow, placed before thumbnails */
-  .product--thumbnail_slider .thumbnail-slider .slider-button--prev {
+  /* Prev = up, goes before thumbnails */
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--prev {
     order: -1;
     margin-bottom: 0.5rem;
   }
 
-  /* Next = down arrow, placed after thumbnails */
-  .product--thumbnail_slider .thumbnail-slider .slider-button--next {
+  /* Next = down, goes after thumbnails */
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--next {
     margin-top: 0.5rem;
   }
 
-  /* The caret icon is a downward chevron by default.
-     Dawn rotates --prev 90deg (= points left) and --next -90deg (= points right).
-     For vertical layout we need: prev = up, next = down.
-     Up = 180deg, Down = 0deg (default orientation). */
-  .product--thumbnail_slider .thumbnail-slider .slider-button--prev .icon {
-    transform: rotate(180deg);
+  /* The caret SVG points down by default.
+     Dawn base CSS rotates: --prev 90deg (left), --next -90deg (right).
+     We override for vertical: prev = up (180deg), next = down (0deg). */
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--prev .icon {
+    transform: rotate(180deg) !important;
   }
 
-  .product--thumbnail_slider .thumbnail-slider .slider-button--next .icon {
-    transform: rotate(0deg);
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--next .icon {
+    transform: rotate(0deg) !important;
   }
 
-  /* Hide disabled buttons completely */
-  .product--thumbnail_slider .thumbnail-slider .slider-button[disabled] {
-    display: none;
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--prev:not([disabled]):hover .icon {
+    transform: rotate(180deg) scale(1.1) !important;
   }
 
-  /* Override hover transforms from Dawn base CSS */
-  .product--thumbnail_slider .thumbnail-slider .slider-button--prev:not([disabled]):hover .icon {
-    transform: rotate(180deg) scale(1.1);
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button--next:not([disabled]):hover .icon {
+    transform: rotate(0deg) scale(1.1) !important;
   }
 
-  .product--thumbnail_slider .thumbnail-slider .slider-button--next:not([disabled]):hover .icon {
-    transform: rotate(0deg) scale(1.1);
+  /* Hide disabled buttons (e.g. prev hidden at start, next hidden at end) */
+  .product--thumbnail_slider slider-component.thumbnail-slider .slider-button[disabled] {
+    display: none !important;
   }
+}
+
+/* =====================================================
+   Lightbox / zoom modal — contain image within viewport
+   ===================================================== */
+.product-media-modal__content .product__media img,
+.product-media-modal__content .media img {
+  max-width: 100vw;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+.product-media-modal__content .product__media,
+.product-media-modal__content .media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
 }
