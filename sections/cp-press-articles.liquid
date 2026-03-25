@@ -91,6 +91,28 @@
     margin: 0;
   }
 
+  .cp-press-card__readmore {
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    font-weight: 600;
+    color: #1c1d1d;
+    text-decoration: underline;
+    margin-top: auto;
+  }
+
+  .cp-press-articles__view-all {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .cp-press-articles__view-all a {
+    font-family: var(--font-body-family);
+    font-size: 15px;
+    font-weight: 600;
+    color: #1c1d1d;
+    text-decoration: underline;
+  }
+
   @media screen and (max-width: 749px) {
     .cp-press-articles {
       padding: 3rem 1.25rem;
@@ -136,11 +158,18 @@
               {%- if block.settings.excerpt != blank -%}
                 <p class="cp-press-card__excerpt">{{ block.settings.excerpt | escape }}</p>
               {%- endif -%}
+              <span class="cp-press-card__readmore">Continue reading</span>
             </div>
           </a>
         {%- endif -%}
       {%- endfor -%}
     </div>
+
+    {%- if section.settings.view_all_label != blank -%}
+      <div class="cp-press-articles__view-all">
+        <a href="{{ section.settings.view_all_url | default: '#' }}">{{ section.settings.view_all_label | escape }}</a>
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -162,6 +191,16 @@
       "id": "bg_color",
       "label": "Background color",
       "default": "#f2f2f2"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all link label"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View all link URL"
     }
   ],
   "blocks": [

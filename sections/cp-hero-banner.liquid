@@ -36,6 +36,30 @@
     );
   }
 
+  /* Centered variant (press pages) — bottom fade gradient, centered text */
+  .cp-hero--centered::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 40%,
+      rgba(0, 0, 0, 0.62) 100%
+    );
+  }
+
+  .cp-hero--centered .cp-hero__content {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .cp-hero--centered .cp-hero__heading {
+    max-width: 700px;
+  }
+
+  .cp-hero--centered .cp-hero__subheading {
+    max-width: 600px;
+  }
+
   .cp-hero__content {
     position: relative;
     z-index: 2;
@@ -167,7 +191,7 @@
   }
 </style>
 
-<div class="cp-hero">
+<div class="cp-hero{% if section.settings.layout == 'centered' %} cp-hero--centered{% endif %}">
 
   {%- assign hero_alt = section.settings.heading | strip_html | escape -%}
 
@@ -236,7 +260,9 @@
 
     {%- if section.settings.badge_text != blank -%}
       <div class="cp-hero__badge">
-        <span class="cp-hero__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        {%- unless section.settings.layout == 'centered' -%}
+          <span class="cp-hero__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        {%- endunless -%}
         <span>{{ section.settings.badge_text | escape }}</span>
       </div>
     {%- endif -%}
@@ -270,6 +296,16 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "left", "label": "Left-aligned (default)" },
+        { "value": "centered", "label": "Centered (press pages)" }
+      ],
+      "default": "left"
+    },
     {
       "type": "header",
       "content": "Background"
