@@ -332,7 +332,7 @@
 </media-gallery>
 
 {%- comment -%}Custom vertical thumbnail strip for desktop{%- endcomment -%}
-{%- if section.settings.gallery_layout == 'thumbnail_slider' and media_count > 1 -%}
+{%- if media_count > 1 -%}
   <style>
     .cp-vthumbs { display: none; }
     @media screen and (min-width: 990px) {
