@@ -399,11 +399,13 @@
       .cp-vthumbs__btn svg { width: 14px; height: 14px; }
       /* Hide Dawn's horizontal thumbnails on desktop */
       .product--thumbnail_slider .thumbnail-slider { display: none !important; }
+      /* Hide Dawn's main image left/right slider arrows on desktop */
+      .product--thumbnail_slider media-gallery > slider-component > .slider-button { display: none !important; }
     }
   </style>
   <div class="cp-vthumbs" id="cp-vthumbs-{{ section.id }}">
     <button class="cp-vthumbs__btn cp-vthumbs__btn--prev" hidden aria-label="Previous">
-      <svg viewBox="0 0 14 14" fill="none"><path d="M7 2L2 7L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 2L12 7L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(90 7 7)"/></svg>
+      <svg viewBox="0 0 14 14" fill="none"><path d="M3 9L7 5L11 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <ul class="cp-vthumbs__list">
       {%- assign thumb_index = 0 -%}

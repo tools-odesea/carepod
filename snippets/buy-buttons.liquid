@@ -82,6 +82,11 @@
               disabled
             {% endif %}
           >
+            {%- if product.selected_or_first_available_variant.available and product.selected_or_first_available_variant != null and quantity_rule_soldout != true -%}
+              <span class="product-form__submit-shield" style="display:inline-flex;margin-right:8px;flex-shrink:0;">
+                {{- 'shield.svg' | inline_asset_content -}}
+              </span>
+            {%- endif -%}
             <span>
               {%- if product.selected_or_first_available_variant == null -%}
                 {{ 'products.product.unavailable' | t }}
