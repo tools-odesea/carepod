@@ -1,0 +1,212 @@
+<style>
+  .cp-press-articles {
+    padding: 4rem 2rem;
+    background: {{ section.settings.bg_color }};
+  }
+
+  .cp-press-articles__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+  }
+
+  .cp-press-articles__heading {
+    font-family: var(--font-heading-family);
+    font-size: 35px;
+    font-weight: 700;
+    color: #1c1d1d;
+    margin: 0 0 2.5rem;
+  }
+
+  .cp-press-articles__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Article card */
+  .cp-press-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .cp-press-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .cp-press-card__image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .cp-press-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .cp-press-card:hover .cp-press-card__image img {
+    transform: scale(1.04);
+  }
+
+  .cp-press-card__body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .cp-press-card__tag {
+    font-family: var(--font-body-family);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #888;
+    margin: 0;
+  }
+
+  .cp-press-card__title {
+    font-family: var(--font-heading-family);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #1c1d1d;
+    margin: 0;
+  }
+
+  .cp-press-card__excerpt {
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-press-articles {
+      padding: 3rem 1.25rem;
+    }
+
+    .cp-press-articles__heading {
+      font-size: 28px;
+    }
+
+    .cp-press-articles__grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .cp-press-card__title {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<div class="cp-press-articles">
+  <div class="cp-press-articles__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cp-press-articles__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="cp-press-articles__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'article' -%}
+          <a class="cp-press-card" href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>
+            <div class="cp-press-card__image">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 33vw, 100vw', widths: '300, 400, 600, 800' }}
+              {%- elsif block.settings.image_url != blank -%}
+                <img src="{{ block.settings.image_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+              {%- endif -%}
+            </div>
+            <div class="cp-press-card__body">
+              {%- if block.settings.tag != blank -%}
+                <p class="cp-press-card__tag">{{ block.settings.tag | escape }}</p>
+              {%- endif -%}
+              <h3 class="cp-press-card__title">{{ block.settings.title | escape }}</h3>
+              {%- if block.settings.excerpt != blank -%}
+                <p class="cp-press-card__excerpt">{{ block.settings.excerpt | escape }}</p>
+              {%- endif -%}
+            </div>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Press Articles",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Press"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f2f2f2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Article title"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag / Category",
+          "default": "News"
+        },
+        {
+          "type": "textarea",
+          "id": "excerpt",
+          "label": "Excerpt"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Article image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Article image URL (fallback)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press Articles"
+    }
+  ]
+}
+{% endschema %}

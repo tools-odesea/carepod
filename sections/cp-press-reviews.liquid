@@ -1,0 +1,325 @@
+<style>
+  .cp-press-reviews {
+    padding: 4rem 2rem;
+    background: {{ section.settings.bg_color }};
+  }
+
+  .cp-press-reviews__inner {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+  }
+
+  .cp-press-reviews__heading {
+    font-family: var(--font-heading-family);
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 3rem;
+    color: #1c1d1d;
+  }
+
+  .cp-press-reviews__carousel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cp-press-reviews__track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .cp-press-reviews__slide {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .cp-press-reviews__image {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+  }
+
+  .cp-press-reviews__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .cp-press-reviews__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cp-press-reviews__quote-icon {
+    width: 48px;
+    height: 48px;
+    color: #c4c4c4;
+  }
+
+  .cp-press-reviews__quote {
+    font-family: var(--font-body-family);
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .cp-press-reviews__pub-logo {
+    max-width: 160px;
+    height: auto;
+    display: block;
+    opacity: 0.7;
+  }
+
+  .cp-press-reviews__pub-name {
+    font-family: var(--font-heading-family);
+    font-size: 16px;
+    font-weight: 700;
+    color: #555;
+    margin: 0;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Navigation */
+  .cp-press-reviews__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .cp-press-reviews__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .cp-press-reviews__btn:hover {
+    background: #f5f5f5;
+    border-color: #999;
+  }
+
+  .cp-press-reviews__btn svg {
+    width: 16px;
+    height: 16px;
+    color: #333;
+  }
+
+  .cp-press-reviews__progress {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cp-press-reviews__counter {
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    color: #666;
+    min-width: 40px;
+    text-align: center;
+  }
+
+  .cp-press-reviews__bar {
+    width: 120px;
+    height: 3px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .cp-press-reviews__bar-fill {
+    height: 100%;
+    background: #1c1d1d;
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-press-reviews {
+      padding: 3rem 1.25rem;
+    }
+
+    .cp-press-reviews__heading {
+      font-size: 28px;
+      margin-bottom: 2rem;
+    }
+
+    .cp-press-reviews__slide {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .cp-press-reviews__quote {
+      font-size: 16px;
+    }
+
+    .cp-press-reviews__bar {
+      width: 80px;
+    }
+  }
+</style>
+
+<div class="cp-press-reviews" id="cp-press-reviews-{{ section.id }}">
+  <div class="cp-press-reviews__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cp-press-reviews__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- assign review_blocks = section.blocks | where: 'type', 'review' -%}
+    {%- if review_blocks.size > 0 -%}
+      <div class="cp-press-reviews__carousel">
+        <div class="cp-press-reviews__track" data-track>
+          {%- for block in review_blocks -%}
+            <div class="cp-press-reviews__slide" {{ block.shopify_attributes }}>
+              <div class="cp-press-reviews__image">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 50vw, 100vw', widths: '400, 600, 800, 1200' }}
+                {%- elsif block.settings.image_url != blank -%}
+                  <img src="{{ block.settings.image_url }}" alt="{{ block.settings.publication | escape }}" loading="lazy">
+                {%- endif -%}
+              </div>
+              <div class="cp-press-reviews__content">
+                <svg class="cp-press-reviews__quote-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.7 56C14.5 56 11.2 54.4 8.8 51.2C6.53 47.87 5.4 43.6 5.4 38.4C5.4 32.67 7 27.4 10.2 22.6C13.53 17.67 18.13 13.87 24 11.2L26.6 15.4C22.87 17.53 19.93 20.13 17.8 23.2C15.8 26.27 14.73 29.47 14.6 32.8C15.93 32.13 17.33 31.8 18.8 31.8C22.13 31.8 24.87 32.87 27 35C29.13 37.13 30.2 39.87 30.2 43.2C30.2 46.67 29.07 49.53 26.8 51.8C24.53 54.07 21.8 55.2 18.6 55.2L18.7 56ZM52.7 56C48.5 56 45.2 54.4 42.8 51.2C40.53 47.87 39.4 43.6 39.4 38.4C39.4 32.67 41 27.4 44.2 22.6C47.53 17.67 52.13 13.87 58 11.2L60.6 15.4C56.87 17.53 53.93 20.13 51.8 23.2C49.8 26.27 48.73 29.47 48.6 32.8C49.93 32.13 51.33 31.8 52.8 31.8C56.13 31.8 58.87 32.87 61 35C63.13 37.13 64.2 39.87 64.2 43.2C64.2 46.67 63.07 49.53 60.8 51.8C58.53 54.07 55.8 55.2 52.6 55.2L52.7 56Z" fill="currentColor"/>
+                </svg>
+                <p class="cp-press-reviews__quote">{{ block.settings.quote }}</p>
+                {%- if block.settings.logo != blank -%}
+                  {{ block.settings.logo | image_url: width: 320 | image_tag: class: 'cp-press-reviews__pub-logo', loading: 'lazy', alt: block.settings.publication }}
+                {%- elsif block.settings.logo_url != blank -%}
+                  <img src="{{ block.settings.logo_url }}" class="cp-press-reviews__pub-logo" alt="{{ block.settings.publication | escape }}" loading="lazy">
+                {%- elsif block.settings.publication != blank -%}
+                  <p class="cp-press-reviews__pub-name">{{ block.settings.publication | escape }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- if review_blocks.size > 1 -%}
+        <div class="cp-press-reviews__nav">
+          <button class="cp-press-reviews__btn" data-prev aria-label="Previous review">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="cp-press-reviews__progress">
+            <span class="cp-press-reviews__counter" data-counter>1 / {{ review_blocks.size }}</span>
+            <div class="cp-press-reviews__bar">
+              <div class="cp-press-reviews__bar-fill" data-fill style="width: {{ 100.0 | divided_by: review_blocks.size }}%"></div>
+            </div>
+          </div>
+          <button class="cp-press-reviews__btn" data-next aria-label="Next review">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    var section = document.getElementById('cp-press-reviews-{{ section.id }}');
+    if (!section) return;
+    var track = section.querySelector('[data-track]');
+    var slides = track ? track.children : [];
+    var total = slides.length;
+    if (total < 2) return;
+    var current = 0;
+    var counter = section.querySelector('[data-counter]');
+    var fill = section.querySelector('[data-fill]');
+    var prev = section.querySelector('[data-prev]');
+    var next = section.querySelector('[data-next]');
+
+    function go(idx) {
+      current = (idx + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      if (counter) counter.textContent = (current + 1) + ' / ' + total;
+      if (fill) fill.style.width = ((current + 1) / total * 100) + '%';
+    }
+
+    if (prev) prev.addEventListener('click', function() { go(current - 1); });
+    if (next) next.addEventListener('click', function() { go(current + 1); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Press Reviews",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Press Reviews"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Press review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Editorial photo"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Editorial photo URL (fallback)"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "publication",
+          "label": "Publication name"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Publication logo"
+        },
+        {
+          "type": "text",
+          "id": "logo_url",
+          "label": "Publication logo URL (fallback)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press Reviews"
+    }
+  ]
+}
+{% endschema %}

@@ -12,9 +12,131 @@
     "hero": {
       "type": "cp-hero-banner",
       "settings": {
-        "heading": "Carepod in the Press",
+        "heading": "Carepod In The Spotlight",
+        "badge_text": "Press",
         "button_label": "",
         "button_link": ""
+      }
+    },
+    "press_reviews": {
+      "type": "cp-press-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "image_url": "https://hellocarepod.com/cdn/shop/files/9.jpg?v=1695398932&width=1200",
+            "quote": "From the sleek stainless steel design to the ultrasonic cool mist settings, Carepod's award-earning humidifier is a winning self-care gift.",
+            "publication": "Harper's Bazaar",
+            "logo_url": "https://hellocarepod.com/cdn/shop/files/CP_BLACK-03.png?v=1739995922&width=400"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "image_url": "https://hellocarepod.com/cdn/shop/files/Frame_48098823.png?v=1739995961&width=1200",
+            "quote": "Its simple and sleek filter-free design means that clean-up would be a breeze — something many humidifier users struggle with.",
+            "publication": "Real Simple",
+            "logo_url": "https://hellocarepod.com/cdn/shop/files/CP_BLACK-09.png?v=1739995931&width=400"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "image_url": "https://hellocarepod.com/cdn/shop/files/10.jpg?v=1695398932&width=1200",
+            "quote": "There was no mistaking how clean it was. The parts fit into an attractive container with a top-fill lid, which makes it easy to fill with water.",
+            "publication": "Better Homes & Gardens",
+            "logo_url": "https://hellocarepod.com/cdn/shop/files/LOGO_GREY-02.png?v=1739995951&width=400"
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3"],
+      "settings": {
+        "heading": "Press Reviews",
+        "bg_color": "#ffffff"
+      }
+    },
+    "press_articles": {
+      "type": "cp-press-articles",
+      "blocks": {
+        "article_1": {
+          "type": "article",
+          "settings": {
+            "title": "Carepod Featured in Vogue as an Editor's Pick",
+            "tag": "News",
+            "excerpt": "Vogue editors highlight Carepod as a must-have for cleaner, healthier air at home.",
+            "url": "/blogs/news",
+            "image_url": "https://hellocarepod.com/cdn/shop/articles/Carepod_Vogue_Feature_900x_a5b18dab-e5b8-4f35-8539-f7f34b1cdb73_600x.png?v=1759254410&width=800"
+          }
+        },
+        "article_2": {
+          "type": "article",
+          "settings": {
+            "title": "Carepod Launches One Plus in USA, Introducing a Premium Humidifier",
+            "tag": "News",
+            "excerpt": "The newest addition to the Carepod family brings modern design with the same stainless steel hygiene.",
+            "url": "/blogs/news",
+            "image_url": "https://hellocarepod.com/cdn/shop/articles/Carepod_One_Plus_US_Launch_900x_192df929-f77b-497b-b316-c393e9996f32_600x.png?v=1759254408&width=800"
+          }
+        },
+        "article_3": {
+          "type": "article",
+          "settings": {
+            "title": "Carepod Featured in Branch Basics",
+            "tag": "News",
+            "excerpt": "Branch Basics recommends Carepod as the cleanest humidifier for health-conscious homes.",
+            "url": "/blogs/news",
+            "image_url": "https://hellocarepod.com/cdn/shop/articles/Screenshot_2024-09-16_at_1.19.19_PM_600x.png?v=1759254401&width=800"
+          }
+        },
+        "article_4": {
+          "type": "article",
+          "settings": {
+            "title": "Carepod Launches Cube Plus in Australia with Award-Winning Design",
+            "tag": "News",
+            "excerpt": "Australian customers can now experience Carepod's flagship cool-and-warm-mist humidifier.",
+            "url": "/blogs/news",
+            "image_url": "https://hellocarepod.com/cdn/shop/articles/Cube_Plus_Australia_PR_Promo_1200x800_1_600x.png?v=1759254406&width=800"
+          }
+        },
+        "article_5": {
+          "type": "article",
+          "settings": {
+            "title": "Carepod Launches Cube Plus in USA, Introducing the Market's First Sterilizable Humidifier",
+            "tag": "Announcement",
+            "excerpt": "The Cube Plus brings warm mist, auto-sanitization, and 700 sq ft coverage to American homes.",
+            "url": "/blogs/news",
+            "image_url": "https://hellocarepod.com/cdn/shop/articles/Cube_Plus_PR_01_600x.png?v=1759254398&width=800"
+          }
+        },
+        "article_6": {
+          "type": "article",
+          "settings": {
+            "title": "Carepod Launches Bestselling Cube and Mini Models in Canada",
+            "tag": "Announcement",
+            "excerpt": "Canadian customers can now shop the full Carepod lineup with duties pre-paid shipping.",
+            "url": "/blogs/news",
+            "image_url": "https://hellocarepod.com/cdn/shop/articles/Untitled_design_12_600x.png?v=1759254393&width=800"
+          }
+        }
+      },
+      "block_order": ["article_1", "article_2", "article_3", "article_4", "article_5", "article_6"],
+      "settings": {
+        "heading": "Press",
+        "bg_color": "#f2f2f2"
+      }
+    },
+    "awards": {
+      "type": "cp-image-text",
+      "settings": {
+        "image_url": "https://hellocarepod.com/cdn/shop/files/image_4.png?v=1739995936&width=1200",
+        "image_position": "right",
+        "image_radius": 20,
+        "eyebrow": "Awards",
+        "heading": "Carepod Wins the 2022 International iF Design Award and Red Dot Design Award",
+        "body": "<p>We are excited to announce that Carepod has been recognized with both the iF Design Award and the Red Dot Design Award — two of the most prestigious international design honors. These awards reflect our commitment to combining beautiful, thoughtful design with genuine functionality and hygiene innovation.</p>",
+        "button_label": "Learn More",
+        "button_link": "/blogs/news",
+        "bg_color": "#ffffff"
       }
     },
     "press_quotes": {
@@ -49,51 +171,60 @@
             "publication": "Bazaar"
           }
         },
-        "quote_real_simple": {
+        "quote_entrepreneur": {
           "type": "quote",
           "settings": {
-            "quote": "The cleanest humidifier we've ever tested. We're obsessed.",
-            "publication": "Real Simple"
-          }
-        },
-        "quote_wirecutter": {
-          "type": "quote",
-          "settings": {
-            "quote": "A humidifier that's actually easy to keep clean — a rarity in this category.",
-            "publication": "Wirecutter"
+            "quote": "Its stainless-steel interior can be 99.9% sterilized with boiling water.",
+            "publication": "Entrepreneur"
           }
         }
       },
-      "block_order": [
-        "quote_forbes",
-        "quote_wellgood",
-        "quote_bhg",
-        "quote_bazaar",
-        "quote_real_simple",
-        "quote_wirecutter"
-      ],
+      "block_order": ["quote_forbes", "quote_wellgood", "quote_bhg", "quote_bazaar", "quote_entrepreneur"],
       "settings": {
-        "bg_color": "#ffffff",
-        "card_bg": "#f5f5f5",
+        "display_mode": "cards",
+        "heading": "",
+        "bg_color": "#f9f9f9",
+        "card_bg": "#ffffff",
         "text_color": "#1a1a1a"
       }
     },
-    "risk_free": {
-      "type": "cp-risk-free-banner",
+    "press_kit": {
+      "type": "cp-press-kit",
+      "blocks": {
+        "logos": {
+          "type": "download",
+          "settings": {
+            "label": "Logos"
+          }
+        },
+        "photos": {
+          "type": "download",
+          "settings": {
+            "label": "Photos"
+          }
+        },
+        "b_roll": {
+          "type": "download",
+          "settings": {
+            "label": "B Roll"
+          }
+        }
+      },
+      "block_order": ["logos", "photos", "b_roll"],
       "settings": {
-        "heading": "Experience The Difference",
-        "body": "Join over 71,000+ homes that have discovered the world's cleanest humidifier. Backed by a 30-day satisfaction guarantee.",
-        "button_label": "Shop Now",
-        "button_link": "/collections/all",
-        "guarantee_text": "Try it 100% risk free",
-        "button_bg": "#f0b43e",
-        "button_text": "#000000"
+        "heading": "Press Kit",
+        "contact_text": "<p>For all media inquiries, contact <a href=\"mailto:press@hellocarepod.com\">press@hellocarepod.com</a></p>",
+        "bg_color": "#2b2b2b",
+        "text_color": "#ffffff"
       }
     }
   },
   "order": [
     "hero",
+    "press_reviews",
+    "press_articles",
+    "awards",
     "press_quotes",
-    "risk_free"
+    "press_kit"
   ]
 }

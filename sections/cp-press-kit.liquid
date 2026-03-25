@@ -1,0 +1,167 @@
+<style>
+  .cp-press-kit {
+    padding: 4rem 2rem;
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  .cp-press-kit__inner {
+    max-width: 845px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cp-press-kit__heading {
+    font-family: var(--font-heading-family);
+    font-size: 35px;
+    font-weight: 700;
+    margin: 0 0 2.5rem;
+  }
+
+  .cp-press-kit__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .cp-press-kit__item {
+    border: 1px solid {{ section.settings.text_color }};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: {{ section.settings.text_color }};
+    border-radius: 6px;
+    transition: background 0.2s ease, opacity 0.2s ease;
+    font-family: var(--font-body-family);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .cp-press-kit__item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0.85;
+  }
+
+  .cp-press-kit__item-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .cp-press-kit__contact {
+    font-family: var(--font-body-family);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  .cp-press-kit__contact a {
+    color: {{ section.settings.text_color }};
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cp-press-kit {
+      padding: 3rem 1.25rem;
+    }
+
+    .cp-press-kit__heading {
+      font-size: 28px;
+    }
+
+    .cp-press-kit__grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+</style>
+
+<div class="cp-press-kit">
+  <div class="cp-press-kit__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cp-press-kit__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- assign kit_blocks = section.blocks | where: 'type', 'download' -%}
+    {%- if kit_blocks.size > 0 -%}
+      <div class="cp-press-kit__grid">
+        {%- for block in kit_blocks -%}
+          <a class="cp-press-kit__item" href="{{ block.settings.url }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>
+            <span>{{ block.settings.label | escape }}</span>
+            <svg class="cp-press-kit__item-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3V16M12 16L7 11M12 16L17 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 20H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.contact_text != blank -%}
+      <p class="cp-press-kit__contact">{{ section.settings.contact_text }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Press Kit",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Press Kit"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_text",
+      "label": "Contact info",
+      "default": "<p>For all media inquiries, contact <a href=\"mailto:press@hellocarepod.com\">press@hellocarepod.com</a></p>"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#2b2b2b"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "download",
+      "name": "Download link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Logos"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Download URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press Kit"
+    }
+  ]
+}
+{% endschema %}
