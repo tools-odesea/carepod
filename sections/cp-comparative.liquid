@@ -83,16 +83,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    min-width: 100px;
+    width: 140px;
+    min-width: 140px;
     flex-shrink: 0;
     padding: 0.5rem;
     box-sizing: border-box;
   }
 
   .cp-comparative__header-spacer {
-    width: 220px;
-    min-width: 220px;
+    width: 260px;
+    min-width: 260px;
     flex-shrink: 0;
     padding: 1.25rem 1rem 1.25rem 0;
     box-sizing: border-box;
@@ -116,8 +116,8 @@
   }
 
   .cp-comparative__brand-img {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
     flex-shrink: 0;
   }
@@ -225,14 +225,14 @@
     }
 
     .cp-comparative__img-cell {
-      width: 70px;
-      min-width: 70px;
+      width: 90px;
+      min-width: 90px;
       padding: 0.25rem;
     }
 
     .cp-comparative__header-spacer {
-      width: 150px;
-      min-width: 150px;
+      width: 170px;
+      min-width: 170px;
     }
 
     .cp-comparative__feature-header {
@@ -240,8 +240,8 @@
     }
 
     .cp-comparative__brand-img {
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
     }
 
     .cp-comparative__brand-name {
@@ -291,14 +291,23 @@
             {%- if section.settings.carepod_image != blank -%}
               {{
                 section.settings.carepod_image
-                | image_url: width: 200
+                | image_url: width: 300
                 | image_tag:
                   class: 'cp-comparative__brand-img',
-                  widths: '80, 160',
-                  sizes: '80px',
+                  widths: '120, 240',
+                  sizes: '120px',
                   loading: 'lazy',
-                  alt: 'Carepod'
+                  alt: 'Carepod humidifier'
               }}
+            {%- else -%}
+              <img
+                src="{{ 'cp-comparative-carepod.png' | asset_url }}"
+                class="cp-comparative__brand-img"
+                width="120"
+                height="120"
+                loading="lazy"
+                alt="Carepod humidifier"
+              >
             {%- endif -%}
           </div>
           <div class="cp-comparative__cells">
@@ -329,14 +338,23 @@
             {%- if section.settings.other_image != blank -%}
               {{
                 section.settings.other_image
-                | image_url: width: 200
+                | image_url: width: 300
                 | image_tag:
                   class: 'cp-comparative__brand-img',
-                  widths: '80, 160',
-                  sizes: '80px',
+                  widths: '120, 240',
+                  sizes: '120px',
                   loading: 'lazy',
                   alt: 'Other humidifiers'
               }}
+            {%- else -%}
+              <img
+                src="{{ 'cp-comparative-other.png' | asset_url }}"
+                class="cp-comparative__brand-img"
+                width="120"
+                height="120"
+                loading="lazy"
+                alt="Other humidifiers"
+              >
             {%- endif -%}
           </div>
           <div class="cp-comparative__cells">
